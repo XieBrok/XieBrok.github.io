@@ -1,172 +1,102 @@
 * {
-    box-sizing: border-box;
-  }
-  body {
-    margin: 0;
-  }
-  #i46v{
-    background-image:url('https://github.com/XieBrok/XieBrok.github.io/blob/main/files/Head.JPG?raw=true');
-    background-repeat:repeat;
-    background-position:left top;
-    background-attachment:scroll;
-    background-size:cover;
-  }
-  #iuh2{
-    border-color:#000000;
-  }
-  #ivhik{
-    height:20px;
-    en:1;
-  }
-  header{
-    background-color:rgb(255, 255, 255);
-  }
-  header .navbar-nav a.nav-link{
-    color:rgb(119, 119, 119);
-  }
-  header .navbar-nav a.nav-link:hover{
-    color:rgb(82, 139, 255);
-  }
-  header .navbar-nav .active a.nav-link{
-    color:rgb(68, 68, 68);
-  }
-  header .navbar-toggler-icon{
-    background-image:url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-  }
-  header.bg-dark .navbar-nav a.nav-link{
-    color:rgb(220, 220, 220);
-  }
-  header.bg-dark .navbar-nav a.nav-link:hover{
-    color:rgb(82, 139, 255);
-  }
-  header.bg-dark .navbar-nav .active a.nav-link{
-    color:rgb(255, 255, 255);
-  }
-  header.bg-dark .navbar-toggler-icon{
-    background-image:url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#fff' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-  }
-  header + header{
-    border-top-width:1px;
-    border-top-style:solid;
-    border-top-color:rgb(238, 238, 238);
-  }
-  .footer-1{
-    margin-top:60px;
-    background-color:rgb(34, 34, 34);
-  }
-  .footer-1 .media-container-row{
-    padding-top:10px;
-    padding-right:0px;
-    padding-bottom:10px;
-    padding-left:0px;
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+#i46v{
+  background-image:url('https://github.com/XieBrok/XieBrok.github.io/blob/main/files/Head.JPG?raw=true');
+  background-repeat:repeat;
+  background-position:left top;
+  background-attachment:scroll;
+  background-size:cover;
+}
+#ihjm{
+  height:250px;
+  en:1;
+}
+#ibnl{
+  width:40%;
+  en:1;
+  height:75px;
+}
+#i4jzl{
+  box-sizing:inherit;
+  margin:0px;
+  color:rgb(55, 125, 255);
+  background:linear-gradient(transparent 82%, rgba(249, 185, 52, 0.3) 0%);
+}
+#iheyn{
+  box-sizing:inherit;
+}
+#iwudo{
+  box-sizing:inherit;
+}
+.htmlpage-row{
+  display:table;
+  padding-top:10px;
+  padding-right:10px;
+  padding-bottom:10px;
+  padding-left:10px;
+  width:100%;
+}
+.htmlpage-cell{
+  width:8%;
+  display:table-cell;
+  height:75px;
+}
+.c77277{
+  width:60%;
+}
+.c77678{
+  color:black;
+  width:98%;
+  height:302.43%;
+  float:left;
+  position:relative;
+}
+.c78189{
+  box-sizing:inherit;
+  margin:0px 0px 0.35em;
+  font-family:Inter, sans-serif;
+  font-size:2.7849rem;
+  line-height:1.167;
+  color:rgb(30, 32, 34);
+}
+.MuiTypography-root.MuiTypography-h3.MuiTypography-gutterBottom.css-14tid4u.c78189{
+  float:left;
+  width:100%;
+  text-align:center;
+}
+.c79692{
+  padding:5px;
+  min-height:50px;
+  min-width:50px;
+  background-color:#05fac9;
+  display:inline-block;
+  width:25%;
+  height:50%;
+  background-image:url('https://github.com/XieBrok/XieBrok.github.io/blob/main/files/b1.png?raw=true');
+  background-repeat:repeat;
+  background-position:left top;
+  background-attachment:scroll;
+  background-size:cover;
+  vertical-align:baseline;
+  position:relative;
+  left:150px;
+  bottom:10px;
+}
+@media (max-width: 768px){
+  .htmlpage-cell{
     width:100%;
-    color:rgb(122, 122, 122);
-  }
-  .footer-1 a{
-    color:rgb(255, 255, 255);
-    text-decoration-line:none;
-    text-decoration-thickness:initial;
-    text-decoration-style:initial;
-    text-decoration-color:initial;
-  }
-  p{
     display:block;
-    margin-block-start:1em;
-    margin-block-end:1em;
-    margin-inline-start:0px;
-    margin-inline-end:0px;
   }
-  .align-center{
-    text-align:center;
+}
+@media (max-width: 480px){
+  .c77678{
+    width:281.594px;
   }
-  .footer-1 .mbr-text{
-    font-size:14px;
-    font-family:-apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Roboto, Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft Yahei", "Microsoft Jhenghei", sans-serif;
+  .MuiTypography-root.MuiTypography-h3.MuiTypography-gutterBottom.css-14tid4u.c78189{
+    background-color:#ffffff;
   }
-  .htmlpage-row{
-    display:table;
-    padding-top:10px;
-    padding-right:10px;
-    padding-bottom:10px;
-    padding-left:10px;
-    width:100%;
-  }
-  .text-center{
-    text-align:center;
-  }
-  .fdb-block .text-h1, .fdb-block h1{
-    font-size:1.75rem;
-    margin-bottom:0.5em;
-    margin-top:0.3em;
-    font-weight:400;
-  }
-  .fdb-block .col-fill-left{
-    width:50%;
-    position:absolute;
-    left:0px;
-    top:0px;
-    bottom:0px;
-    background-size:cover;
-    background-position-x:center;
-    background-position-y:center;
-    z-index:1;
-  }
-  a{
-    color:rgb(0, 123, 255);
-    text-decoration-line:none;
-    text-decoration-thickness:initial;
-    text-decoration-style:initial;
-    text-decoration-color:initial;
-    background-color:transparent;
-  }
-  a:hover{
-    color:rgb(0, 86, 179);
-    text-decoration-line:underline;
-    text-decoration-thickness:initial;
-    text-decoration-style:initial;
-    text-decoration-color:initial;
-  }
-  .c73768{
-    box-sizing:inherit;
-    margin-right:0px;
-    margin-bottom:0.35em;
-    margin-left:0px;
-    font-family:Inter, sans-serif;
-    font-size:2.9991rem;
-    line-height:1.167;
-    color:rgb(30, 32, 34);
-    font-weight:700;
-    letter-spacing:normal;
-    text-align:start;
-  }
-  .c73856{
-    box-sizing:inherit;
-    margin-right:0px;
-    margin-bottom:0px;
-    margin-left:0px;
-    font-family:Inter, sans-serif;
-    font-size:1.25rem;
-    line-height:1.6;
-    color:rgb(103, 119, 136);
-    text-align:start;
-  }
-  .c75473{
-    color:black;
-    height:160.41299389648435px;
-  }
-  .c73807{
-    box-sizing:inherit;
-  }
-  .c73799{
-    box-sizing:inherit;
-  }
-  .c73789{
-    box-sizing:inherit;
-    margin:0px;
-    color:rgb(55, 125, 255);
-    background:linear-gradient(transparent 82%, rgba(249, 185, 52, 0.3) 0%);
-  }
-  .c73837{
-    box-sizing:inherit;
-  }
-  
+}
