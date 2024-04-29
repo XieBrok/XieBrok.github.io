@@ -143,8 +143,8 @@ a:hover{
 }
 .fdb-block.mc{
   background-image:url('https://github.com/XieBrok/XieBrok.github.io/blob/main/files/MC.png?raw=true');
-  background-repeat:repeat;
-  background-position:left top;
+  background-repeat:no-repeat;
+  background-position:center top;
   background-attachment:scroll;
   background-size:auto;
 }
