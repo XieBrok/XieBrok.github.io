@@ -144,13 +144,6 @@ a:hover{
   background-attachment:scroll;
   background-size:auto;
 }
-.fdb-block.mc{
-  background-image:url('https://github.com/XieBrok/XieBrok.github.io/blob/main/files/MC.png?raw=true');
-  background-repeat:no-repeat;
-  background-position:center top;
-  background-attachment:scroll;
-  background-size:cover;
-}
 .text-h3{
   color:#ffffff;
   text-align:center;
