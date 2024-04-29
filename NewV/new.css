@@ -5,9 +5,9 @@ body {
   margin: 0;
 }
 #i46v{
-  background-image:url('https://github.com/XieBrok/XieBrok.github.io/blob/main/files/Head.JPG?raw=true');
-  background-repeat:repeat;
-  background-position:left top;
+  background-image:url('https://raw.githubusercontent.com/XieBrok/XieBrok.github.io/main/files/Background.avif');
+  background-repeat:no-repeat;
+  background-position:center top;
   background-attachment:scroll;
   background-size:cover;
 }
