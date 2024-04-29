@@ -108,3 +108,53 @@ header + header{
 .c143244{
   box-sizing:inherit;
 }
+.fdb-block .col-fill-left{
+  width:50%;
+  position:absolute;
+  left:0px;
+  top:0px;
+  bottom:0px;
+  background-size:cover;
+  background-position-x:center;
+  background-position-y:center;
+  z-index:1;
+}
+a{
+  color:rgb(0, 123, 255);
+  text-decoration-line:none;
+  text-decoration-thickness:initial;
+  text-decoration-style:initial;
+  text-decoration-color:initial;
+  background-color:transparent;
+}
+a:hover{
+  color:rgb(0, 86, 179);
+  text-decoration-line:underline;
+  text-decoration-thickness:initial;
+  text-decoration-style:initial;
+  text-decoration-color:initial;
+}
+.row.justify-content-end{
+  background-image:none;
+  background-repeat:repeat;
+  background-position:left top;
+  background-attachment:scroll;
+  background-size:auto;
+}
+.fdb-block.mc{
+  background-image:url('https://github.com/XieBrok/XieBrok.github.io/blob/main/files/MC.png?raw=true');
+  background-repeat:repeat;
+  background-position:left top;
+  background-attachment:scroll;
+  background-size:auto;
+}
+.text-h3{
+  color:#ffffff;
+  text-align:center;
+  font-family:"Microsoft Yahei", sans-serif;
+  font-size:20px;
+}
+.c2573{
+  color:black;
+  width:418px;
+}
