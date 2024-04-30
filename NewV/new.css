@@ -5,13 +5,20 @@ body {
   margin: 0;
 }
 #i46v{
-  max-width: 100%;
-  height: auto;
-  background-image:url('https://raw.githubusercontent.com/XieBrok/XieBrok.github.io/main/files/Background.avif');
   background-repeat:no-repeat;
   background-position:center top;
   background-attachment:scroll;
   background-size:cover;
+  background-image:url('https://raw.githubusercontent.com/XieBrok/XieBrok.github.io/main/files/Background.avif');
+}
+*{
+  box-sizing:border-box;
+}
+body{
+  margin-top:0px;
+  margin-right:0px;
+  margin-bottom:0px;
+  margin-left:0px;
 }
 #i62vr{
   height:50px;
@@ -49,7 +56,10 @@ header + header{
   border-top-color:rgb(238, 238, 238);
 }
 .c142093{
-  padding:10px;
+  padding-top:10px;
+  padding-right:10px;
+  padding-bottom:10px;
+  padding-left:10px;
   font-weight:500;
   font-family:"PingFang SC", sans-serif;
 }
@@ -65,8 +75,8 @@ header + header{
   padding-left:0px;
   color:rgb(68, 68, 68);
   position:relative;
-  background-position-x:center;
-  background-position-y:center;
+  background-position-x:50%;
+  background-position-y:50%;
 }
 .text-center{
   text-align:center;
@@ -98,17 +108,28 @@ header + header{
   text-align:start;
 }
 .MuiTypography-root.MuiTypography-h3.MuiTypography-gutterBottom.css-14tid4u.c143164{
-  background-color:rgba(0,0,0,0);
-  color:#528bff;
+  background-color:rgba(0, 0, 0, 0);
+  color:rgb(82, 139, 255);
 }
 .c143189{
   box-sizing:inherit;
 }
 .c143181{
   box-sizing:inherit;
-  margin:0px;
+  margin-top:0px;
+  margin-right:0px;
+  margin-bottom:0px;
+  margin-left:0px;
   color:rgb(55, 125, 255);
-  background:linear-gradient(transparent 82%, rgba(249, 185, 52, 0.3) 0%);
+  background-image:linear-gradient(transparent 82%, rgba(249, 185, 52, 0.3) 0%);
+  background-position-x:initial;
+  background-position-y:initial;
+  background-size:initial;
+  background-repeat:initial;
+  background-attachment:initial;
+  background-origin:initial;
+  background-clip:initial;
+  background-color:initial;
 }
 .c143244{
   box-sizing:inherit;
@@ -120,8 +141,8 @@ header + header{
   top:0px;
   bottom:0px;
   background-size:cover;
-  background-position-x:center;
-  background-position-y:center;
+  background-position-x:50%;
+  background-position-y:50%;
   z-index:1;
 }
 a{
@@ -142,20 +163,80 @@ a:hover{
 .row.justify-content-end{
   background-image:none;
   background-repeat:repeat;
-  background-position:left top;
+  background-position-x:left;
+  background-position-y:top;
   background-attachment:scroll;
   background-size:auto;
 }
-#itjbh{
-  color:#ffffff;
+.htmlpage-row{
+  display:table;
+  padding-top:10px;
+  padding-right:10px;
+  padding-bottom:10px;
+  padding-left:10px;
+  width:100%;
 }
-.text-h3{
+.htmlpage-cell{
+  width:8%;
+  display:table-cell;
+  height:75px;
+}
+.c22953{
+  background-color:rgba(0,0,0,0);
+  font-weight:600;
+  padding:10px;
+  margin:10px;
+  display:block;
+  overflow:auto;
+}
+.c23048{
+  margin-block:0px;
+  padding:0px;
+  font-weight:bold;
+  line-height:normal;
+  font-size:2.412rem;
+  font-family:"Sitka Heading", Georgia, Cambria, Calibri;
+  margin-bottom:1.535rem;
+  color:rgb(51, 51, 51);
+  background-color:rgb(252, 252, 252);
+  margin-top:0px !important;
+}
+.__reading__mode__extracted__title.c0011.c23048{
+  background-color:rgba(0,0,0,0);
   color:#ffffff;
-  text-align:center;
+  font-weight:700;
+  line-height:200%;
+}
+.c23375{
+  padding:10px;
+}
+.c23471{
+  color:#ffffff;
   font-family:"Microsoft Yahei", sans-serif;
-  font-size:20px;
+  font-size:30px;
+  display:block;
+  overflow:auto;
 }
-.c2573{
-  color:black;
-  width:418px;
+.c23765{
+  padding:10px;
+}
+@media (max-width: 992px){
+  .c23471{
+    overflow:auto;
+    margin:10px;
+    padding:10px;
+  }
+}
+@media (max-width: 768px){
+  .htmlpage-cell{
+    width:100%;
+    display:block;
+  }
+}
+@media (max-width: 480px){
+  .c23471{
+    display:block;
+    padding:10px;
+    margin:5px;
+  }
 }
