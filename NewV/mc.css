@@ -12,6 +12,8 @@
     background-image:url('https://github.com/XieBrok/XieBrok.github.io/blob/main/files/MC.png?raw=true');
   }
   .fdb-block{
+    max-width: 100%;
+    height: auto;
     font-family:Roboto, sans-serif;
     font-size:16px;
     line-height:1.5;
