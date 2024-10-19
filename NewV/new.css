@@ -7,7 +7,7 @@ body {
 #i46v{
   max-width: 100%;
   height: auto;
-  background-image:url('files\Background.avif');
+  background-image:url('/files/Background.avif');
   background-repeat:no-repeat;
   background-position:center top;
   background-attachment:scroll;
