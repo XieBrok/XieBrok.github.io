@@ -1,0 +1,19 @@
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+     }
+    
+    ul {
+    position: relative;
+    display: flex;
+    }
+
+    ul li {
+    list-style: none;
+    width: 120px;
+    line-height: 40px;
+    text-align: center;
+    }
+    
