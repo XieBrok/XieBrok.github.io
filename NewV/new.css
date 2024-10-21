@@ -17,7 +17,7 @@ body {
   height:50px;
 }
 header{
-  background-color:rgb(255, 255, 255);
+  background-color:rgba(31, 72, 206, 0.603);
 }
 header .navbar-nav a.nav-link{
   color:rgb(119, 119, 119);
