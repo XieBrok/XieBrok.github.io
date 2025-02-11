@@ -87,4 +87,8 @@ a:hover {
   position: relative;
   right: 30%;
   color: red;
+  
+}
+@media screen and (max-width: 720px) {
+
 }
