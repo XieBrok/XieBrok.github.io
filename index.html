@@ -9,6 +9,18 @@
   </style>
   <title>The new</title>
   <link rel="icon" href="/files/icon.svg">
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var userAgent = navigator.userAgent.toLowerCase();
+      if (userAgent.includes("mobile") || userAgent.includes("android") || userAgent.includes("iphone")) {
+        // 如果是移动设备，重定向到移动版网站
+        window.location.href = "/mobile.html";
+      } else {
+        // 如果是桌面设备，继续加载当前网站
+        // 你可以在这里添加其他逻辑
+      }
+    });
+  </script>
 </head>
 <body id="background-container">
   <header data-block-type="headers" data-id="1" class="fp-active">
