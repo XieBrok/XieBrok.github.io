@@ -21,6 +21,31 @@
       }
     });
   </script>
+  <style>
+    /* 响应式设计 */
+    @media (max-width: 768px) {
+      .navbar-nav {
+        flex-direction: column;
+      }
+      .navbar-nav .nav-item {
+        margin-bottom: 10px;
+      }
+      .img-fluid {
+        width: 100%;
+        height: auto;
+      }
+      .text-h3 {
+        font-size: 16px;
+      }
+      .mc-logo {
+        width: 100%;
+        height: auto;
+      }
+      .mc-content {
+        padding: 20px;
+      }
+    }
+  </style>
 </head>
 <body id="background-container">
   <header data-block-type="headers" data-id="1" class="fp-active">
@@ -30,17 +55,22 @@
         <div id="im8xii" class="c142093">
           <b>HHYYYY</b>
         </div>
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a href="index.html" class="nav-link">首页 <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a href="old.html" class="nav-link">旧版</a>
-          </li>
-          <li class="nav-item">
-            <a href="https://github.com/XieBrok" class="nav-link">关于</a>
-          </li>
-        </ul>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a href="index.html" class="nav-link">首页 <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a href="old.html" class="nav-link">旧版</a>
+            </li>
+            <li class="nav-item">
+              <a href="https://github.com/XieBrok" class="nav-link">关于</a>
+            </li>
+          </ul>
+        </div>
       </nav>
     </div>
   </header>
@@ -77,7 +107,7 @@
     <div class="container">
       <div class="row justify-content-end">
         <img src="files/MCL.svg" class="mc-logo"/>
-        <div class="col-12 col-md-5 text-center">
+        <div class="col-12 col-md-5 text-center mc-content">
           <h1 id="mc-title">与我们一起游玩Minecraft?</h1>
           <p class="text-h3">探索自己独一无二的世界，挺过黑夜，并创造您能想象的一切！</p>
           <p class="mt-4">

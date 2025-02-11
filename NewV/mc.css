@@ -1,91 +1,90 @@
 * {
-    box-sizing: border-box;
-  }
-  body {
-    margin: 0;
-  }
-  #i46v{
-    background-repeat:no-repeat;
-    background-position:center top;
-    background-attachment:scroll;
-    background-size:cover;
-    background-image:url('https://github.com/XieBrok/XieBrok.github.io/blob/main/files/MC.png?raw=true');
-  }
-  .fdb-block{
-    max-width: 100%;
-    height: auto;
-    font-family:Roboto, sans-serif;
-    font-size:16px;
-    line-height:1.5;
-    -webkit-font-smoothing:antialiased;
-    text-rendering:optimizelegibility;
-    padding-top:100px;
-    padding-right:0px;
-    padding-bottom:100px;
-    padding-left:0px;
-    color:rgb(68, 68, 68);
-    position:relative;
-    background-size:cover;
-    background-position-x:center;
-    background-position-y:center;
-  }
-  .text-center{
-    text-align:center;
-  }
-  .fdb-block .text-h1, .fdb-block h1{
-    font-size:1.75rem;
-    margin-bottom:0.5em;
-    margin-top:0.3em;
-    font-weight:400;
-  }
-  .pb-5{
-    padding-bottom:3rem !important;
-  }
-  .c4353{
-    color:black;
-    width:686.4000000000001px;
-    height:117px;
-    position:relative;
-  }
-  .c4555{
-    padding:0px;
-    text-align:center;
-    color:#ffffff;
-    font-size:29px;
-    position:relative;
-  }
-  .fdb-block .col-fill-left{
-    width:50%;
-    position:absolute;
-    left:0px;
-    top:0px;
-    bottom:0px;
-    background-size:cover;
-    background-position-x:center;
-    background-position-y:center;
-    z-index:1;
-  }
-  a{
-    color:rgb(0, 123, 255);
-    text-decoration-line:none;
-    text-decoration-thickness:initial;
-    text-decoration-style:initial;
-    text-decoration-color:initial;
-    background-color:transparent;
-  }
-  a:hover{
-    color:rgb(0, 86, 179);
-    text-decoration-line:underline;
-    text-decoration-thickness:initial;
-    text-decoration-style:initial;
-    text-decoration-color:initial;
-  }
-  .row.justify-content-end{
-    color:#ffffff;
-  }
-  .col-12.col-md-5.text-center{
-    position:relative;
-    right:30%;
-    color: red;
-  }
-  
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+#background-container-mc {
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-attachment: scroll;
+  background-size: cover;
+  background-image: url('https://github.com/XieBrok/XieBrok.github.io/blob/main/files/MC.png?raw=true');
+}
+.fdb-block {
+  max-width: 100%;
+  height: auto;
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  padding-top: 100px;
+  padding-right: 0px;
+  padding-bottom: 100px;
+  padding-left: 0px;
+  color: rgb(68, 68, 68);
+  position: relative;
+  background-size: cover;
+  background-position-x: center;
+  background-position-y: center;
+}
+.text-center {
+  text-align: center;
+}
+.fdb-block .text-h1, .fdb-block h1 {
+  font-size: 1.75rem;
+  margin-bottom: 0.5em;
+  margin-top: 0.3em;
+  font-weight: 400;
+}
+.pb-5 {
+  padding-bottom: 3rem !important;
+}
+.mc-logo {
+  color: black;
+  width: 686.4px;
+  height: 117px;
+  position: relative;
+}
+.mc-title {
+  padding: 0px;
+  text-align: center;
+  color: #ffffff;
+  font-size: 29px;
+  position: relative;
+}
+.fdb-block .col-fill-left {
+  width: 50%;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  bottom: 0px;
+  background-size: cover;
+  background-position-x: center;
+  background-position-y: center;
+  z-index: 1;
+}
+a {
+  color: rgb(0, 123, 255);
+  text-decoration-line: none;
+  text-decoration-thickness: initial;
+  text-decoration-style: initial;
+  text-decoration-color: initial;
+  background-color: transparent;
+}
+a:hover {
+  color: rgb(0, 86, 179);
+  text-decoration-line: underline;
+  text-decoration-thickness: initial;
+  text-decoration-style: initial;
+  text-decoration-color: initial;
+}
+.row.justify-content-end {
+  color: #ffffff;
+}
+.mc-content {
+  position: relative;
+  right: 30%;
+  color: red;
+}
