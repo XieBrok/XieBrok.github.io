@@ -43,9 +43,9 @@ body {
 }
 .mc-logo {
   color: black;
-  width: 686.4px;
-  height: 117px;
-  position: relative;
+  width: 400px;
+  margin: 0 auto;
+  display: block;
 }
 .mc-title {
   padding: 0px;
