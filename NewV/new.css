@@ -17,13 +17,13 @@ body {
   height:50px;
 }
 header{
-  background-color:rgba(31, 72, 206, 0.603);
+  background-color:rgba(1, 141, 255, 0.623);
 }
 header .navbar-nav a.nav-link{
   color:rgb(119, 119, 119);
 }
 header .navbar-nav a.nav-link:hover{
-  color:rgb(82, 139, 255);
+  color:rgb(82, 163, 255);
 }
 header .navbar-nav .active a.nav-link{
   color:rgb(68, 68, 68);
@@ -157,7 +157,9 @@ a:hover{
 }
 .c2573{
   color:black;
-  width:418px;
+  width: 400px;
+  margin: 0 auto;
+  display: block;
 }
 .htmlpage-row{
   display:table;
@@ -177,4 +179,8 @@ a:hover{
     width:100%;
     display:block;
   }
+@media screen and (max-width: 720px) {
+
+  }
+  
 }
