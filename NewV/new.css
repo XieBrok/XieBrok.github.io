@@ -14,7 +14,7 @@ body {
   background-size: cover;
 }
 #spacer {
-  height: 50px;
+  height: 10px; /* 调整高度以缩短距离 */
 }
 header {
   background-color: rgba(1, 141, 255, 0.623);
@@ -48,7 +48,7 @@ header + header {
   border-top-style: solid;
   border-top-color: rgb(238, 238, 238);
 }
-.c142093 {
+.HHYYYY {
   padding: 10px;
   font-weight: 500;
   font-family: "PingFang SC", sans-serif;
@@ -85,7 +85,7 @@ header + header {
 .pb-5 {
   padding-bottom: 3rem !important;
 }
-.c143164 {
+.synotitle {
   box-sizing: inherit;
   margin-right: 0px;
   margin-bottom: 0.35em;
@@ -104,13 +104,13 @@ header + header {
 .c143189 {
   box-sizing: inherit;
 }
-.c143181 {
+.synomain {
   box-sizing: inherit;
   margin: 0px;
   color: rgb(55, 125, 255);
   background: linear-gradient(transparent 82%, rgba(249, 185, 52, 0.3) 0%);
 }
-.c143244 {
+.synoend {
   box-sizing: inherit;
 }
 .fdb-block .col-fill-left {
