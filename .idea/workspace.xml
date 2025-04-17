@@ -13,6 +13,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/index.html" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -52,7 +58,7 @@
       <option name="presentableId" value="Default" />
       <updated>1729527802701</updated>
       <workItem from="1729527805628" duration="217000" />
-      <workItem from="1744899755782" duration="306000" />
+      <workItem from="1744899755782" duration="558000" />
     </task>
     <servers />
   </component>
