@@ -1,0 +1,47 @@
+@font-face {
+    font-family: 'JetBrainsMono-MediumItalic'; /* 自定义字体名称 */
+    src: url('/fonts/JetBrainsMono-MediumItalic.woff2') format('woff2'),;/* 字体文件路径 */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'JetBrainsMono-Medium'; /* 自定义字体名称 */
+    src: url('/fonts/JetBrainsMono-Medium.woff2') format('woff2'),;/* 字体文件路径 */
+    font-style: normal;
+}
+
+.tittle {
+    font-size: 2.5rem;
+    font-family: JetBrainsMono-MediumItalic;
+}
+
+.card-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/*光标效果*/
+#typing-title::after {
+    content: '|';
+    display: inline-block;
+    animation: blink 0.7s steps(2, start) infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+p {
+    font-size: medium;
+    font-family:JetBrainsMono-Medium ;
+}
+
+h5,h2,h3,h4 {
+    font-family:JetBrainsMono-MediumItalic ;
+}

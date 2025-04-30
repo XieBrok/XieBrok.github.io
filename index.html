@@ -1,105 +1,182 @@
 <!DOCTYPE html>
-<!--角标-->
-<html>
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-  <style type="text/css">
-    @import url(/NewV/new.css);
-    @import url(/NewV/bootstrap.min.css);
-  </style>
-  <title>The new</title>
-  <link rel="icon" href="/files/icon.svg">
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      var userAgent = navigator.userAgent.toLowerCase();
-      if (userAgent.includes("mobile") || userAgent.includes("android") || userAgent.includes("iphone")) {
-        // 如果是移动设备，重定向到移动版网站
-        window.location.href = "/mobile.html";
-      } else {
-        // 如果是桌面设备，继续加载当前网站
-        // 你可以在这里添加其他逻辑
-      }
-    });
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HHYYYY</title>
+    <!-- Bootstrap CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/index.css"> 
 </head>
-<body id="background-container">
-  <header data-block-type="headers" data-id="1" class="fp-active">
-    <div class="container">
-      <nav class="navbar navbar-expand-md">
-        <a href="https://hhysky.eu.org/" class="navbar-brand"></a>
-        <div id="im8xii" class="HHYYYY">
-          <b>HHYYYY</b>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+        <a class="navbar-brand" href="#">HHYYYY</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active" >
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
         </div>
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a href="index.html" class="nav-link">首页 <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a href="old.html" class="nav-link">旧版</a>
-          </li>
-          <li class="nav-item">
-            <a href="https://github.com/XieBrok" class="nav-link">关于</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-  <!--标题栏-->
-  <section data-block-type="contents" data-id="1" draggable="true" class="fdb-block">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <div class="row justify-content-center pb-5">
-            <div class="col-12 col-lg-8 text-center"></div>
-            <img alt="image" src="files/synology.jpg" class="img-fluid"/>
-            <h1>
-              <h3 id="synology-title" class="MuiTypography-root MuiTypography-h3 MuiTypography-gutterBottom css-14tid4u synotitle">
-                以 
-                <span id="synology-subtitle" class="MuiTypography-root MuiTypography-inherit css-d5po1f synomain">
-                  <span id="synology-link" class="synoend">
-                    <a href="https://hhyyyy.quickconnect.cn" target="_blank">SynologyNAS</a>
-                  </span>
-                </span>
-                <br id="synology-break" class="c143244"/>组织你的文件。
-              </h3>
-            </h1>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!--Cloudrive的部分-->
-  <div class="htmlpage-row" id="spacer">
-    <div class="htmlpage-cell"></div>
-  </div>
-  <!--分割cd和MC两部分-->
-  <section data-block-type="contents" data-id="3" draggable="true" class="fdb-block mc">
-    <div class="container">
-      <div class="row justify-content-end">
-        <img src="files/MCL.svg" class="mc-logo"/>
-        <div class="col-12 col-md-5 text-center">
-          <h1 id="mc-title">与我们一起游玩Minecraft?</h1>
-          <p class="text-h3">探索自己独一无二的世界，挺过黑夜，并创造您能想象的一切！</p>
-          <p class="mt-4">
-            <a href="mc.html">了解更多 &gt;</a>
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!--MC的部分-->
+    </nav>
+
     <div class="container mt-5">
-      <div class="row justify-content-center">
-        <div class="col-12 col-md-8 text-center">
-          <img src="files/Steam.png" alt="嵌入的图片" class="img-fluid rounded">
+        <h1 class="text-center tittle" id="typing-title"></h1>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card card-hover">
+                    <div id="carouselPhotograph" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="/images/photo1.jpg" class="d-block w-100" alt="Photograph 1">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="/images/photo2.jpg" class="d-block w-100" alt="Photograph 2">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="/images/photo3.jpg" class="d-block w-100" alt="Photograph 3">
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselPhotograph" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselPhotograph" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title">PHOTOGRAPH</h4>
+                        <p class="card-text h3">CULTURAL <br> ＆ <br> NATURE.</p>
+                        <a href="https://HHYYYY.quickconnect.to/mo/sharing/UWLX7yDwl" class="btn btn-primary">Go To Synology Photos</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-hover">
+                    <div id="carouselTechnology" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="/images/tech1.JPG" class="d-block w-100" alt="Technology 1">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="/images/tech2.JPG" class="d-block w-100" alt="Technology 2">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="/images/tech3.JPG" class="d-block w-100" alt="Technology 3">
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselTechnology" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselTechnology" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title">TECHNOLOGY</h4>
+                        <p class="card-text">Learing <br> RaspiberryPi 3b+ <br> HomeAssistant <br> Front-end development.</p>
+                        <a href="https://github.com/XieBrok" class="btn btn-primary">Go To My Github</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-hover">
+                    <div id="carouselPhotograph" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="/images/game.png" class="d-block w-100" alt="Photograph 1">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="/images/game1.png" class="d-block w-100" alt="Photograph 2">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="/images/game2.jpg" class="d-block w-100" alt="Photograph 3">
+                            </div> 
+                            <div class="carousel-item">
+                                <img src="/images/game3.png" class="d-block w-100" alt="Photograph 3">
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselPhotograph" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselPhotograph" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title">GAMING</h4>
+                        <p class="card-text">I'm playing <br> Forza Horizon 4 <br> Death Stranding <br> Zenless Zone Zero.</p>
+                        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalGaming">Add Friends</a>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
+        <!-- Modal for Gaming Card -->
+        <div class="modal fade" id="exampleModalGaming" tabindex="-1" role="dialog" aria-labelledby="exampleModalGamingLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalGamingLabel">Add Friends</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                     <h4>Find me on </h4>
+                     <a href="https://steamcommunity.com/id/hichina/" target="_blank">
+                        <img src="/logo/steam.jpg" alt="Steam" class="img-fluid" style="width: 150px; height:auto ;">
+                    </a>
+                    <a href="https://www.xbox.com/play/user/hichina5833" target="_blank">
+                        <img src="/logo/xbox.jpg" alt="Xbox" class="img-fluid" style="width: 50px; height:auto ;">
+                    </a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <!--嵌入的图片部分-->
-    <div align="center">
-      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="400" height="86" src="//music.163.com/outchain/player?type=2&id=2040788728&auto=1&height=66"></iframe>
-    </div>
-    <!--音乐播放器-->
+
+    <footer class="bg-light text-center py-3 mt-5">
+        <p>&copy; 2025 HHYYYY. MIT Licences.</p>
+        <p>fonts by <a href="https://www.jetbrains.com/lp/mono/" target="_blank">JetBrains mono</a></p>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="/js/jquery-3.7.1.min.js"></script>
+    <script src="/js/popper.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const text = "Hi I'm HHYYYY<br>PHOTOGRAPH TECHNOLOGY GAMING."; // 要显示的文字，使用 <br> 换行
+            const typingTitle = document.getElementById("typing-title");
+            let index = 0;
+    
+            function type() {
+                if (index < text.length) {
+                    // 检查是否是换行符
+                    if (text.charAt(index) === '<') {
+                        const brTag = text.substring(index, index + 4); // 获取 <br>
+                        if (brTag === '<br>') {
+                            typingTitle.innerHTML += '<br>';
+                            index += 4; // 跳过 <br> 的长度
+                        }
+                    } else {
+                        typingTitle.innerHTML += text.charAt(index);
+                        index++;
+                    }
+                    setTimeout(type, 150); // 每个字符间隔 150 毫秒
+                }
+            }
+    
+            type();
+        });
+    </script>
 </body>
-</html>
+</html></div></li></ul></div></nav>
