@@ -145,6 +145,7 @@
 
     <footer class="bg-light text-center py-3 mt-5">
         <p>&copy; 2025 HHYYYY. MIT Licences.</p>
+        <p class="h3" id="typing-end"></p>
         <p>fonts by <a href="https://www.jetbrains.com/lp/mono/" target="_blank">JetBrains mono</a></p>
     </footer>
 
@@ -178,5 +179,33 @@
             type();
         });
     </script>
+    <!-- 标题的打字特效-->
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const text = "INFINITY PROGRESS."; // 要显示的文字，使用 <br> 换行
+                const typingTitle = document.getElementById("typing-end");
+                let index = 0;
+        
+                function type() {
+                    if (index < text.length) {
+                        // 检查是否是换行符
+                        if (text.charAt(index) === '<') {
+                            const brTag = text.substring(index, index + 4); // 获取 <br>
+                            if (brTag === '<br>') {
+                                typingTitle.innerHTML += '<br>';
+                                index += 4; // 跳过 <br> 的长度
+                            }
+                        } else {
+                            typingTitle.innerHTML += text.charAt(index);
+                            index++;
+                        }
+                        setTimeout(type, 150); // 每个字符间隔 150 毫秒
+                    }
+                }
+        
+                type();
+            });
+        </script>
+        <!-- 页脚的打字特效 -->
 </body>
 </html></div></li></ul></div></nav>
