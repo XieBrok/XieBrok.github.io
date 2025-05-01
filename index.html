@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="/css/index.css"> 
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+    <div id="particles-js"></div>
+<!--    <nav class="navbar navbar-expand-lg navbar-light bg-light ">
         <a class="navbar-brand" href="#">HHYYYY</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -21,7 +22,7 @@
             </ul>
         </div>
     </nav>
-
+-->
     <div class="container mt-5">
         <h1 class="text-center tittle" id="typing-title"></h1>
         <div class="row">
@@ -143,7 +144,7 @@
         </div>
     </div>
 
-    <footer class="bg-light text-center py-3 mt-5">
+    <footer class=" text-center py-3 mt-5">
         <p>&copy; 2025 HHYYYY. MIT Licences.</p>
         <p class="h3" id="typing-end"></p>
         <p>fonts by <a href="https://www.jetbrains.com/lp/mono/" target="_blank">JetBrains mono</a></p>
@@ -153,6 +154,7 @@
     <script src="/js/jquery-3.7.1.min.js"></script>
     <script src="/js/popper.js"></script>
     <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/particles.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const text = "Hi I'm HHYYYY<br>PHOTOGRAPH TECHNOLOGY GAMING."; // 要显示的文字，使用 <br> 换行
@@ -207,5 +209,77 @@
             });
         </script>
         <!-- 页脚的打字特效 -->
+        <script>
+            particlesJS("particles-js", {
+                "particles": {
+                    "number": {
+                        "value": 100, // 粒子数量
+                        "density": {
+                            "enable": true,
+                            "value_area": 800
+                        }
+                    },
+                    "color": {
+                        "value": "#cccccc" // 粒子颜色（灰色）
+                    },
+                    "shape": {
+                        "type": "circle",
+                        "stroke": {
+                            "width": 0,
+                            "color": "#000000"
+                        }
+                    },
+                    "opacity": {
+                        "value": 0.5,
+                        "random": false
+                    },
+                    "size": {
+                        "value": 3,
+                        "random": true
+                    },
+                    "line_linked": {
+                        "enable": true,
+                        "distance": 150,
+                        "color": "#cccccc",
+                        "opacity": 0.4,
+                        "width": 1
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 2,
+                        "direction": "none",
+                        "random": false,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": false
+                    }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": {
+                            "enable": true,
+                            "mode": "repulse"
+                        },
+                        "onclick": {
+                            "enable": true,
+                            "mode": "push"
+                        },
+                        "resize": true
+                    },
+                    "modes": {
+                        "repulse": {
+                            "distance": 100,
+                            "duration": 0.4
+                        },
+                        "push": {
+                            "particles_nb": 4
+                        }
+                    }
+                },
+                "retina_detect": true
+            });
+        </script>
+        <!-- 这里是 particles.js 的配置 用于初始化粒子效果-->     
 </body>
 </html></div></li></ul></div></nav>
