@@ -66,3 +66,17 @@ footer {
     background-color: transparent;
     color: white;
 }
+
+/* 页脚中的语言切换按钮样式 */
+footer .language-switcher {
+    margin-top: 10px;
+    text-align: center; /* 居中对齐 */
+    display: flex; /* 使用 Flexbox 布局 */
+    justify-content: center; /* 水平居中 */
+    gap: 10px; /* 按钮之间的间距 */
+}
+
+footer .language-switcher button {
+    margin: 0; /* 移除默认外边距 */
+    padding: 5px 10px; /* 调整按钮内边距 */
+}

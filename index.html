@@ -1,10 +1,12 @@
 <!DOCTYPE html>
+<script src="/js/language.js"></script>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HHYYYY</title>
     <!-- Bootstrap CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/js/typing.js"></script>
     <link rel="stylesheet" href="/css/index.css"> 
 </head>
 <body>
@@ -50,9 +52,9 @@
                         </a>
                     </div>
                     <div class="card-body">
-                        <h4 class="card-title">PHOTOGRAPH</h4>
-                        <p class="card-text h3">CULTURAL <br> ＆ <br> NATURE.</p>
-                        <p class="card-text h6">Works With Nikon Z30</p>
+                        <h4 class="card-title" data-lang-key="photograph">PHOTOGRAPH</h4>
+                        <p class="card-text h3" data-lang-key="culturalNature">CULTURAL <br> ＆ <br> NATURE.</p>
+                        <p class="card-text h6" data-lang-key="worksWith">Works With Nikon Z30</p>
                         <a href="https://HHYYYY.quickconnect.to/mo/sharing/UWLX7yDwl" class="btn btn-primary">Go To Synology Photos</a>
                     </div>
                 </div>
@@ -81,9 +83,9 @@
                         </a>
                     </div>
                     <div class="card-body">
-                        <h4 class="card-title">TECHNOLOGY</h4>
-                        <p class="card-text">Learing <br> RaspiberryPi 3b+ <br> HomeAssistant <br> Front-end development.</p>
-                        <a href="https://github.com/XieBrok" class="btn btn-primary">Go To My Github</a>
+                        <h4 class="card-title" data-lang-key="technology">TECHNOLOGY</h4>
+                        <p class="card-text" data-lang-key="learning">Learning <br> RaspiberryPi 3b+ <br> HomeAssistant <br> Front-end development.</p>
+                        <a href="https://github.com/XieBrok" class="btn btn-primary" data-lang-key="goToGithub">Go To My Github</a>
                     </div>
                 </div>
             </div>
@@ -114,9 +116,18 @@
                         </a>
                     </div>
                     <div class="card-body">
-                        <h4 class="card-title">GAMING</h4>
-                        <p class="card-text">I'm playing <br> Forza Horizon 4 <br> Death Stranding <br> Zenless Zone Zero.</p>
+                        <h4 class="card-title" data-lang-key="gaming">GAMING</h4>
+                        <p class="card-text" data-lang-key="playing">I'm playing <br> Forza Horizon 4 <br> Death Stranding <br> Minecraft.</p>
                         <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalGaming">Add Friends</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-hover">
+                    <div class="card-body">
+                        <h4 class="card-title" data-lang-key="tools">Tools</h4>
+                        <p class="card-text h3" data-lang-key="studyWithMiku"><a href="https://study.hhyyyy.cn/">STUDY With MIKU</a></p>
+                        <p class="card-text h6" data-lang-key="forkedFrom"><a href="https://blog.wenqi.icu">Forked From wenqi</a></p>
                     </div>
                 </div>
             </div>
@@ -150,163 +161,18 @@
         <p class="h3" id="typing-end"></p>
         <p class="h3" id="typing-end2"></p>
         <p>fonts by <a href="https://www.jetbrains.com/lp/mono/" target="_blank">JetBrains mono</a></p>
+        <div class="language-switcher text-right ">
+            <button id="switch-to-en" class="btn btn-secondary btn-sm">English</button>
+            <button id="switch-to-zh" class="btn btn-secondary btn-sm">中文</button>
+        </div>
     </footer>
 
-    <!-- Bootstrap JS and dependencies -->
+    <!-- Bootstrap JS and dependencies and background js -->
     <script src="/js/jquery-3.7.1.min.js"></script>
     <script src="/js/popper.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/particles.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const text = "Hi I'm HHYYYY<br>PHOTOGRAPH TECHNOLOGY GAMING."; // 要显示的文字，使用 <br> 换行
-            const typingTitle = document.getElementById("typing-title");
-            let index = 0;
-    
-            function type() {
-                if (index < text.length) {
-                    // 检查是否是换行符
-                    if (text.charAt(index) === '<') {
-                        const brTag = text.substring(index, index + 4); // 获取 <br>
-                        if (brTag === '<br>') {
-                            typingTitle.innerHTML += '<br>';
-                            index += 4; // 跳过 <br> 的长度
-                        }
-                    } else {
-                        typingTitle.innerHTML += text.charAt(index);
-                        index++;
-                    }
-                    setTimeout(type, 150); // 每个字符间隔 150 毫秒
-                }
-            }
-    
-            type();
-        });
-    </script>
-    <!-- 标题的打字特效-->
-        <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                const text = "INFINITY PROGRESS."; // 要显示的文字，使用 <br> 换行
-                const typingTitle = document.getElementById("typing-end");
-                let index = 0;
-        
-                function type() {
-                    if (index < text.length) {
-                        // 检查是否是换行符
-                        if (text.charAt(index) === '<') {
-                            const brTag = text.substring(index, index + 4); // 获取 <br>
-                            if (brTag === '<br>') {
-                                typingTitle.innerHTML += '<br>';
-                                index += 4; // 跳过 <br> 的长度
-                            }
-                        } else {
-                            typingTitle.innerHTML += text.charAt(index);
-                            index++;
-                        }
-                        setTimeout(type, 150); // 每个字符间隔 150 毫秒
-                    }
-                }
-        
-                type();
-            });
-        </script>
-                <script>
-                    document.addEventListener("DOMContentLoaded", function () {
-                        const text = "不要错过重要的事."; // 要显示的文字，使用 <br> 换行
-                        const typingTitle = document.getElementById("typing-end2");
-                        let index = 0;
-                
-                        function type() {
-                            if (index < text.length) {
-                                // 检查是否是换行符
-                                if (text.charAt(index) === '<') {
-                                    const brTag = text.substring(index, index + 4); // 获取 <br>
-                                    if (brTag === '<br>') {
-                                        typingTitle.innerHTML += '<br>';
-                                        index += 4; // 跳过 <br> 的长度
-                                    }
-                                } else {
-                                    typingTitle.innerHTML += text.charAt(index);
-                                    index++;
-                                }
-                                setTimeout(type, 150); // 每个字符间隔 150 毫秒
-                            }
-                        }
-                
-                        type();
-                    });
-                </script>       <!-- 页脚的打字特效 -->
-        <script>
-            particlesJS("particles-js", {
-                "particles": {
-                    "number": {
-                        "value": 100, // 粒子数量
-                        "density": {
-                            "enable": true,
-                            "value_area": 800
-                        }
-                    },
-                    "color": {
-                        "value": "#cccccc" // 粒子颜色（灰色）
-                    },
-                    "shape": {
-                        "type": "circle",
-                        "stroke": {
-                            "width": 0,
-                            "color": "#000000"
-                        }
-                    },
-                    "opacity": {
-                        "value": 0.5,
-                        "random": false
-                    },
-                    "size": {
-                        "value": 3,
-                        "random": true
-                    },
-                    "line_linked": {
-                        "enable": true,
-                        "distance": 150,
-                        "color": "#cccccc",
-                        "opacity": 0.4,
-                        "width": 1
-                    },
-                    "move": {
-                        "enable": true,
-                        "speed": 2,
-                        "direction": "none",
-                        "random": false,
-                        "straight": false,
-                        "out_mode": "out",
-                        "bounce": false
-                    }
-                },
-                "interactivity": {
-                    "detect_on": "canvas",
-                    "events": {
-                        "onhover": {
-                            "enable": true,
-                            "mode": "repulse"
-                        },
-                        "onclick": {
-                            "enable": true,
-                            "mode": "push"
-                        },
-                        "resize": true
-                    },
-                    "modes": {
-                        "repulse": {
-                            "distance": 100,
-                            "duration": 0.4
-                        },
-                        "push": {
-                            "particles_nb": 4
-                        }
-                    }
-                },
-                "retina_detect": true
-            });
-        </script>
-        <!-- 这里是 particles.js 的配置 用于初始化粒子效果-->     
+    <script src="/js/background.js"></script>
+
 </body>
 </html></div></li></ul></div></nav>
