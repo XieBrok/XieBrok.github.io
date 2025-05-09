@@ -39,45 +39,48 @@ const translations = {
     }
 };
 
-
-// Function to switch language
+// 切换语言的函数和动画
 function switchLanguage(lang) {
     console.log(`Switching to language: ${lang}`);
     document.querySelectorAll("[data-lang-key]").forEach((element) => {
         const key = element.getAttribute("data-lang-key");
         console.log(`Updating key: ${key}`);
         if (translations[lang][key]) {
-            if (element.tagName === "A") {
-                // 如果是超链接，只更新文本内容，不覆盖 href
-                element.textContent = translations[lang][key];
-            } else if (element.querySelector("a")) {
-                // 如果元素内部包含超链接，只更新超链接的文本
-                const link = element.querySelector("a");
-                link.textContent = translations[lang][key];
-            } else {
-                // 更新其他元素的内容
-                element.innerHTML = translations[lang][key];
-            }
-            console.log(`Updated ${key} to: ${translations[lang][key]}`);
+            // Add fade-out animation
+            element.classList.add("fade-out");
+            setTimeout(() => {
+                // Update content after fade-out
+                if (element.tagName === "A") {
+                    element.textContent = translations[lang][key];
+                } else if (element.querySelector("a")) {
+                    const link = element.querySelector("a");
+                    link.textContent = translations[lang][key];
+                } else {
+                    element.innerHTML = translations[lang][key];
+                }
+                console.log(`Updated ${key} to: ${translations[lang][key]}`);
+                // Add fade-in animation
+                element.classList.remove("fade-out");
+                element.classList.add("fade-in");
+                setTimeout(() => {
+                    element.classList.remove("fade-in");
+                }, 500); // Remove fade-in class after animation
+            }, 500); // Wait for fade-out animation to complete
         }
     });
 }
 
-
-//获取语言并自动切换与按钮的监听
+// 获取语言并自动切换与按钮的监听
 document.addEventListener("DOMContentLoaded", () => {
-    // 获取浏览器语言
     const browserLanguage = navigator.language || navigator.userLanguage;
     console.log(`Detected browser language: ${browserLanguage}`);
 
-    // 根据浏览器语言设置默认语言
     if (browserLanguage.startsWith("zh")) {
-        switchLanguage("zh"); // 如果是中文，切换到中文
+        switchLanguage("zh");
     } else {
-        switchLanguage("en"); // 默认切换到英文
+        switchLanguage("en");
     }
 
-    // 添加语言切换按钮的事件监听
     document.getElementById("switch-to-en").addEventListener("click", () => switchLanguage("en"));
     document.getElementById("switch-to-zh").addEventListener("click", () => switchLanguage("zh"));
 });
