@@ -13,11 +13,15 @@
 .tittle {
     font-size: 2.5rem;
     font-family: JetBrainsMono-MediumItalic;
-    color: white;
+    color: rgb(255, 255, 255);
 }
 
 .card-hover {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card {
+    margin-bottom: 20px; /* 调整卡片之间的间距 */
 }
 
 .card-hover:hover {
@@ -64,7 +68,7 @@ body {
 
 footer { 
     background-color: transparent;
-    color: white;
+    color: rgb(117, 117, 117);
 }
 
 /* 页脚中的语言切换按钮样式 */
@@ -80,3 +84,44 @@ footer .language-switcher button {
     margin: 0; /* 移除默认外边距 */
     padding: 5px 10px; /* 调整按钮内边距 */
 }
+
+/* 网易云音乐的小窗 从这*/
+
+.music-icon {
+    width: 20px;
+    height: 20px;
+}
+
+
+/* 小窗格样式 */
+#iframe-container {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+    background-color: none;
+    border: none;
+    padding: 5px;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+#iframe-wrapper {
+    display: none; /* 默认隐藏 iframe */
+    margin-top: 5px;
+}
+
+#toggle-iframe {
+    width: 40px;
+    height: 40px;
+    background-color: black;
+    color: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+#toggle-iframe:hover {
+    background-color: #777777;
+}
+/* 到这 iframe 样式 */
