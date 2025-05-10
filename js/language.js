@@ -16,7 +16,8 @@ const translations = {
         studyWithMiku: "STUDY With MIKU",
         forkedFrom: "Forked From wenqi",
         footerText: "INFINITY PROGRESS.",
-        footerText2: "Don't miss important things."
+        footerText2: "Don't miss important things.",
+        thanks: "Thanks to the following outstanding open-source projects "
     },
     zh: {
         title: "你好，我是 HHYYYY<br>摄影 技术 游戏.",
@@ -35,7 +36,8 @@ const translations = {
         studyWithMiku: "STUDY With MIKU",
         forkedFrom: "Forked From wenqi",
         footerText: "无限进步.",
-        footerText2: "不要错过重要的事."
+        footerText2: "不要错过重要的事.",
+        thanks: "感谢以下杰出的开源项目 "
     }
 };
 

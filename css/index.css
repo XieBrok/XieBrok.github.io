@@ -152,3 +152,7 @@ footer .language-switcher button {
         opacity: 1;
     }
 }
+
+.thankslink{
+    font-family: JetBrainsMono-MediumItalic;
+}
