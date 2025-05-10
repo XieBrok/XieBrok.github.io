@@ -41,10 +41,8 @@ const translations = {
 
 // 切换语言的函数和动画
 function switchLanguage(lang) {
-    console.log(`Switching to language: ${lang}`);
     document.querySelectorAll("[data-lang-key]").forEach((element) => {
         const key = element.getAttribute("data-lang-key");
-        console.log(`Updating key: ${key}`);
         if (translations[lang][key]) {
             // Add fade-out animation
             element.classList.add("fade-out");
@@ -58,7 +56,6 @@ function switchLanguage(lang) {
                 } else {
                     element.innerHTML = translations[lang][key];
                 }
-                console.log(`Updated ${key} to: ${translations[lang][key]}`);
                 // Add fade-in animation
                 element.classList.remove("fade-out");
                 element.classList.add("fade-in");
