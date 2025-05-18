@@ -32,7 +32,7 @@ const translations = {
         learning: "正在学习 <br> 树莓派 3b+ <br> HomeAssistant <br> 前端开发.",
         goToGithub: "访问我的 Github",
         gaming: "游戏",
-        playing: "我正在玩 <br> 极限竞速 4 <br> 死亡搁浅 <br> 我的世界.",
+        playing: "我正在玩 <br> 极限竞速：地平线4 <br> 死亡搁浅 <br> 我的世界.",
         addFriends: "添加好友",
         findmeon: "在这里找到我",
         tools: "工具",
