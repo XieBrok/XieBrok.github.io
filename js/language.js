@@ -20,8 +20,9 @@ const translations = {
         forkedFrom: "Forked From wenqi",
         footerText: "INFINITY PROGRESS.",
         footerText2: "Don't miss important things.",
-        thanks: "Thanks to the following outstanding open-source projects "
-    },
+        thanks: "Thanks to the following outstanding open-source projects ",
+        ComputerScienceCommunicationTeam: "Computer Science Communication Team",
+    }, 
     zh: {
         title: "你好，我是 HHYYYY<br>摄影 技术 游戏.",
         photograph: "摄影",
@@ -43,7 +44,8 @@ const translations = {
         forkedFrom: "Forked From wenqi",
         footerText: "无限进步.",
         footerText2: "不要错过重要的事.",
-        thanks: "感谢以下杰出的开源项目 "
+        thanks: "感谢以下杰出的开源项目 ",
+        ComputerScienceCommunicationTeam: "一个计算机科学交流团队",
     }
 };
 
