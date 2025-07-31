@@ -45,7 +45,7 @@ const translations = {
         footerText: "无限进步.",
         footerText2: "不要错过重要的事.",
         thanks: "感谢以下杰出的开源项目 ",
-        ComputerScienceCommunicationTeam: "一个计算机科学交流团队",
+        ComputerScienceCommunicationTeam: "计算机科学交流团队",
     }
 };
 
