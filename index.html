@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<script src="/js/language.js"></script>
 <head>
     <script src="/js/consolelog.js"></script>
+    <script src="/js/language.js"></script>
+    <script src="/js/index.js"></script>
+    <script src="/js/marked.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HHYYYY</title>
@@ -160,7 +162,19 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-4">
+                <div class="card card-hover">
+                    <div class="card-body">
+                        <h4 class="card-title" data-lang-key="friendLinks">Friends' link<br></h4>
+                        <img src="/images/hhhh.jpg" class="hhhh"><br>
+                        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#linking" data-lang-key="button2">Come here to meet more interesting people</a>
+
+                    </div>
+                </div>
+            </div>
         </div>
+
+
         <!-- Modal for Gaming Card -->
         <div class="modal fade" id="exampleModalGaming" tabindex="-1" role="dialog" aria-labelledby="exampleModalGamingLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -186,6 +200,23 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal for Friend Links -->
+<div class="modal fade modal-fade-up" id="linking" tabindex="-1" role="dialog" aria-labelledby="linkingLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="linkingLabel" data-lang-key="friendLinks">Friends' link</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div id="md-content"></div>
+      </div>
+    </div>
+  </div>
+</div>
 
 
     <footer class=" text-center py-3 mt-5">

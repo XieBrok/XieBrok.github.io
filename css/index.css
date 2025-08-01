@@ -156,3 +156,48 @@ footer .language-switcher button {
 .thankslink{
     font-family: JetBrainsMono-MediumItalic;
 }
+
+/* 友链模态框上浮动画 */
+.modal.modal-fade-up .modal-dialog {
+  transform: translateY(100px);
+  transition: transform 0.3s cubic-bezier(.4,0,.2,1);
+}
+.modal.show.modal-fade-up .modal-dialog {
+  transform: translateY(0);
+}
+
+/* 统一md内容宽度，防止图片溢出 */
+.modal-body #md-content {
+  max-width: 100%;
+  word-break: break-word;
+  overflow-x: auto;
+}
+.modal-body #md-content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0.5em auto;
+}
+
+/* 增加友链弹窗卡片整体宽度 */
+#linking .modal-dialog {
+  max-width: 800px;
+  width: 90%;
+}
+
+/* 统一md内容区图片大小 */
+.modal-body #md-content img {
+  max-width: 150px;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0.5em auto;
+  object-fit: contain;
+}
+
+.hhhh{
+  max-width: 200px;
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px; 
+}

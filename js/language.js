@@ -22,7 +22,9 @@ const translations = {
         footerText2: "Don't miss important things.",
         thanks: "Thanks to the following outstanding open-source projects ",
         ComputerScienceCommunicationTeam: "Computer Science Communication Team",
-    }, 
+        friendLinks:"Friends' link",
+        button2:"Come here to meet more interesting people",
+    },
     zh: {
         title: "你好，我是 HHYYYY<br>摄影 技术 游戏.",
         photograph: "摄影",
@@ -46,6 +48,8 @@ const translations = {
         footerText2: "不要错过重要的事.",
         thanks: "感谢以下杰出的开源项目 ",
         ComputerScienceCommunicationTeam: "计算机科学交流团队",
+        friendLinks:"友链",
+        button2:"点击这里遇见更多有意思的人",
     }
 };
 
