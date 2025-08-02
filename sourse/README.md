@@ -6,5 +6,5 @@
 | [**Errorsia**](http://errorsia.com)            | ![Errorsia](https://s1.imagehub.cc/images/2025/07/30/86668972c5b3fb5e440c6e1bba1f69db.png) | N/A                                       |
 | [**HungryHenry**](https://hungryhenry.cn)     | ![HungryHenry](https://s1.imagehub.cc/images/2025/07/31/4b1f583c02e682ac790c6bfa7a52ec0b.jpg) | 不是在写bug，就是在debug🐛     |
 | [**Ruibin_Ningh**](https://www.ruibin-ningh.top/) | ![Ruibin_Ningh](https://s1.imagehub.cc/images/2025/07/31/b2e402249619e45fd0a227d7f5161d5a.jpg) | 不争于表象，只专于底层                     |
-| [**Zyx_2012**](https://blog.zyx-2012.cn)   | ![Zyx_2012](https://blog.zyx-2012.cn/upload/bb5afa63-810b-4610-8c1e-c0e47c534246.png)     | 专注于笔记、分享的博客                   |
+| [**Zyx_2012**](https://blog.zyx-2012.cn)   | ![Zyx_2012](https://s1.imagehub.cc/images/2025/08/02/f4233153acd18054b42e984c0775aace.png)     | 专注于笔记、分享的博客                   |
 | [**GuYang17**](https://guyang17.github.io/) | ![GuYang17](https://avatars.githubusercontent.com/u/196782409?v=4)                    | 编程爱好者 \| Minecraft玩家              |
