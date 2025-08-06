@@ -1,0 +1,48 @@
+#comment {
+    position: absolute;
+    left: 50%;
+    top: 80%;
+    transform: translate(-50%, -25%);
+    width: 80%;
+    z-index: 2;
+    margin: 40px auto;
+    max-width: 80%;      /* 最大宽度限制 */
+    padding: 20px;
+    box-sizing: border-box;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 10px 2px 8px rgba(0, 0, 0, 0.08);
+    /* 不设置高度，内容可自适应增长 */
+}
+
+.background {
+    position: relative;
+    margin: 40px auto;
+    max-width: 80%;
+    padding: 20px;
+    height: 50%;
+    box-sizing: border-box;
+    border-radius: 10px;
+    /* 增强阴影颜色和透明度 */
+    box-shadow: 10px 8px 32px rgba(0, 0, 0, 0.25);
+    background: #fff url("/images/Background.JPG") center/cover no-repeat;
+}
+
+.background h2 {
+    color: #333;
+    text-align: center;
+    padding-top: 40px;
+    font-size: 2em;
+    font-weight: bold;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.background h4 {
+    margin: 20px auto;
+    color: #333;
+    text-align: center;
+    padding-top: 40px;
+    font-size: 20px;
+    font-weight: bold;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
