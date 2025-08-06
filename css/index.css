@@ -95,26 +95,28 @@ footer .language-switcher button {
 
 /* 小窗格样式 */
 #iframe-container {
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    z-index: 1000;
-    background-color: none;
-    border: none;
-    padding: 5px;
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+    position: static !important;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    background: none;
+    box-shadow: none;
+    padding: 0;
 }
 
 #iframe-wrapper {
-    display: none; /* 默认隐藏 iframe */
-    margin-top: 5px;
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    z-index: 1000;
 }
+
 
 #toggle-iframe {
     width: 40px;
     height: 40px;
-    background-color: black;
-    color: none;
+    background-color: rgb(255, 255, 255);
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -124,6 +126,9 @@ footer .language-switcher button {
 #toggle-iframe:hover {
     background-color: #777777;
 }
+
+/* 导航栏网易云按钮右对齐 */
+
 /* 到这 iframe 样式 */
 
 /* 切换语言的动画 */
