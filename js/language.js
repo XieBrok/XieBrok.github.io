@@ -24,6 +24,8 @@ const translations = {
         ComputerScienceCommunicationTeam: "Computer Science Communication Team",
         friendLinks:"Friends' link",
         button2:"Come here to meet more interesting people",
+        Comment:"Comment",
+        来这里留下你想说的话吧:"Feel free to leave what you want to say here!",
     },
     zh: {
         title: "你好，我是 HHYYYY<br>摄影 技术 游戏.",
@@ -50,6 +52,8 @@ const translations = {
         ComputerScienceCommunicationTeam: "计算机科学交流团队",
         friendLinks:"友链",
         button2:"点击这里遇见更多有意思的人",
+        Comment:"留言板",
+        来这里留下你想说的话吧:"来这里留下你想说的话吧",
     }
 };
 

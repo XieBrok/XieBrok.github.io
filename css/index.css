@@ -206,3 +206,9 @@ footer .language-switcher button {
   height: auto;
   margin-bottom: 20px; 
 }
+
+.logo{
+    max-height: 30px;
+    width: auto;
+    margin: 0% 10px;
+}

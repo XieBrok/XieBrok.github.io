@@ -46,3 +46,9 @@
     font-weight: bold;
     text-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
+
+.logo{
+    max-height: 30px;
+    width: auto;
+    margin: 0% 10px;
+}
