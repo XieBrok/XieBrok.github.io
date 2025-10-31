@@ -85,51 +85,6 @@ footer .language-switcher button {
     padding: 5px 10px; /* 调整按钮内边距 */
 }
 
-/* 网易云音乐的小窗 从这*/
-
-.music-icon {
-    width: 20px;
-    height: 20px;
-}
-
-
-/* 小窗格样式 */
-#iframe-container {
-    position: static !important;
-    margin-left: auto;
-    display: flex;
-    align-items: center;
-    background: none;
-    box-shadow: none;
-    padding: 0;
-}
-
-#iframe-wrapper {
-    display: none;
-    position: absolute;
-    top: 50px;
-    right: 0;
-    z-index: 1000;
-}
-
-
-#toggle-iframe {
-    width: 40px;
-    height: 40px;
-    background-color: rgb(255, 255, 255);
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    padding: 5px 10px;
-}
-
-#toggle-iframe:hover {
-    background-color: #777777;
-}
-
-/* 导航栏网易云按钮右对齐 */
-
-/* 到这 iframe 样式 */
 
 /* 切换语言的动画 */
 .fade-out {
