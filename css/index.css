@@ -215,5 +215,13 @@ footer .language-switcher button {
 
 .divvideo video{
     width: 75%;
+    height: auto;
     max-height: 720px;
+    position: sticky;
+    margin-left: 12%;
+     border-radius: 20px;
+}
+
+.row{
+    margin-top: 10px;
 }
