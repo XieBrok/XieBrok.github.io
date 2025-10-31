@@ -212,3 +212,8 @@ footer .language-switcher button {
     width: auto;
     margin: 0% 10px;
 }
+
+.divvideo video{
+    width: 75%;
+    max-height: 720px;
+}
