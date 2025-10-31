@@ -182,6 +182,7 @@ footer .language-switcher button {
   height: auto;
   display: block;
   margin: 0.5em auto;
+ border-radius: 20px;
 }
 
 /* 增加友链弹窗卡片整体宽度 */

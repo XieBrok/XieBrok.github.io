@@ -8,3 +8,4 @@
 | [**Ruibin_Ningh**](https://www.ruibin-ningh.top/) | ![Ruibin_Ningh](https://s1.imagehub.cc/images/2025/07/31/b2e402249619e45fd0a227d7f5161d5a.jpg) | 不争于表象，只专于底层                     |
 | [**Zyx_2012**](https://blog.zyx-2012.cn)   | ![Zyx_2012](https://s1.imagehub.cc/images/2025/08/02/f4233153acd18054b42e984c0775aace.png)     | 专注于笔记、分享的博客                   |
 | [**GuYang17**](https://guyang17.github.io/) | ![GuYang17](https://avatars.githubusercontent.com/u/196782409?v=4)                    | 编程爱好者 \| Minecraft玩家              |
+| [**LIZITC**](https://guyang17.github.io/) | ![LIZITC](https://s1.imagehub.cc/images/2025/10/31/e2f8d07a487754b327226d6b08ce3139.jpg)                    | 高中同学              |
