@@ -54,7 +54,10 @@ h1, h2, h3, h4, h5 {
     font-family: var(--font-mono-italic);
 }
 
-/* ========== 页面加载动画（仅当 JS 可用时启用，html.js） ========== */
+/* ========== 页面加载动画 —— 优先级 LOAD(100)，最高层级、置前 ==========
+ * 由 js/animation-priority.js 门控：本组动画播放期间，低优先级动画（滚动
+ * reveal 等）入队等待，加载完成后才执行；本组内部按导航→标题→页脚依次入场。
+ * 仅当 JS 可用（html.js）时启用。 */
 /* 导航栏：从顶部滑入，easeOut 曲线 */
 .js .navbar {
     animation: navSlideIn var(--dur-slow) var(--ease-out) both;
@@ -85,7 +88,9 @@ h1, h2, h3, h4, h5 {
     to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ========== 滚动进入视口动画（js/reveal.js 配合，html.js 下启用） ========== */
+/* ========== 滚动进入视口动画 —— 优先级 REVEAL(10)，可被抢占 ==========
+ * 由 js/reveal.js 触发，提交 AnimationPriority 排队；加载动画(LOAD)完成前
+ * 处于隐藏态(opacity:0)，加载完成后按非线性曲线入场。 */
 /* 未进入视口前隐藏（transform/opacity，不触发重排） */
 .js .row > [data-reveal] {
     opacity: 0;
