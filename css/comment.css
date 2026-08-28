@@ -1,11 +1,112 @@
+/* ==========================================================================
+ * comment.css — 留言板页面（跟随系统深浅色主题）
+ * ========================================================================== */
+
+/* ---- 主题变量（默认浅色） ---- */
+:root {
+    --bg: #eef0f4;
+    --surface: #ffffff;            /* 评论容器 / 背景卡 */
+    --text: #1c1e21;
+    --text-secondary: #5d6470;
+    --border: rgba(15, 23, 42, 0.08);
+
+    --navbar-bg: #ffffff;
+    --navbar-text: #3a3f47;
+    --navbar-border: rgba(0, 0, 0, 0.12);
+    --accent: #2563eb;
+
+    --footer-text: #6b7280;
+    --footer-link: #2563eb;
+    --footer-link-hover: #1d4ed8;
+
+    --shadow-card: 10px 8px 32px rgba(0, 0, 0, 0.18);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #121212;
+        --surface: #1e1e24;
+        --text: #e8e8ec;
+        --text-secondary: #a0a6b0;
+        --border: rgba(255, 255, 255, 0.09);
+
+        --navbar-bg: #17171c;
+        --navbar-text: #d6d9de;
+        --navbar-border: rgba(255, 255, 255, 0.16);
+        --accent: #6ea8fe;
+
+        --footer-text: #9aa0a8;
+        --footer-link: #8ab4f8;
+        --footer-link-hover: #a8c8fb;
+
+        --shadow-card: 10px 8px 32px rgba(0, 0, 0, 0.45);
+    }
+}
+
+/* 主题切换平滑过渡 */
+body,
+nav,
+.navbar-brand,
+.nav-link,
+.navbar-toggler,
+.background,
+.background h2,
+.background h4,
+#comment,
+footer,
+footer a {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* ---- 基础 ---- */
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'JetBrainsMono-Medium', 'Consolas', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+
+/* ---- 导航栏（与首页一致的主题导航） ---- */
+.site-navbar {
+    background: var(--navbar-bg);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.site-navbar .navbar-brand,
+.site-navbar .nav-link {
+    color: var(--navbar-text);
+}
+
+.site-navbar .nav-link:hover,
+.site-navbar .nav-link:focus-visible,
+.site-navbar .nav-item.active .nav-link {
+    color: var(--accent);
+}
+
+.site-navbar .navbar-toggler {
+    border-color: var(--navbar-border);
+}
+
+.site-navbar .navbar-toggler-icon {
+    background-color: var(--navbar-text);
+    -webkit-mask: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(0,0,0,0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") center / contain no-repeat;
+    mask: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(0,0,0,0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") center / contain no-repeat;
+}
+
+.logo {
+    max-height: 30px;
+    width: auto;
+    margin: 0 10px;
+}
+
+/* ---- 留言板主体 ---- */
 #comment {
-    /* 改为正常文档流：原先的 absolute + top:80% 在内容较多时会错位/溢出 */
     width: 100%;
     max-width: 100%;
     margin: 40px auto 0;
     padding: 20px;
     box-sizing: border-box;
-    background: #fff;
+    background: var(--surface);
+    color: var(--text);
     border-radius: 8px;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
 }
@@ -17,12 +118,12 @@
     padding: 20px;
     box-sizing: border-box;
     border-radius: 10px;
-    box-shadow: 10px 8px 32px rgba(0, 0, 0, 0.25);
-    background: #fff url("/images/Background.JPG") center/cover no-repeat;
+    box-shadow: var(--shadow-card);
+    background: var(--surface) url("/images/Background.JPG") center/cover no-repeat;
 }
 
 .background h2 {
-    color: #333;
+    color: var(--text);
     text-align: center;
     padding-top: 40px;
     font-size: 2em;
@@ -32,7 +133,7 @@
 
 .background h4 {
     margin: 20px auto;
-    color: #333;
+    color: var(--text);
     text-align: center;
     padding-top: 40px;
     font-size: 20px;
@@ -40,14 +141,18 @@
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
-.logo {
-    max-height: 30px;
-    width: auto;
-    margin: 0 10px;
+/* ---- 页脚 ---- */
+footer {
+    color: var(--footer-text);
 }
 
-footer {
-    color: rgb(117, 117, 117);
+footer a {
+    color: var(--footer-link);
+}
+
+footer a:hover,
+footer a:focus {
+    color: var(--footer-link-hover);
 }
 
 footer .language-switcher {
@@ -58,16 +163,15 @@ footer .language-switcher {
     gap: 10px;
 }
 
-/* 小屏适配 */
-@media (max-width: 768px) {
-    .background {
-        max-width: 94%;
-        padding: 12px;
-    }
+footer .language-switcher button {
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* ========== 页面加载动画（非线性缓动） ========== */
-/* 标题：淡入 + 上移 */
+footer .language-switcher button:hover {
+    transform: translateY(-2px);
+}
+
+/* ---- 页面加载动画（非线性缓动） ---- */
 .background h2 {
     animation: riseFadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
@@ -76,7 +180,6 @@ footer .language-switcher {
     animation: riseFadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
 }
 
-/* 评论区：淡入 + 轻微缩放 */
 #comment {
     animation: zoomFadeIn 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s both;
 }
@@ -99,5 +202,13 @@ footer .language-switcher {
         animation: none !important;
         opacity: 1 !important;
         transform: none !important;
+    }
+}
+
+/* ---- 小屏适配 ---- */
+@media (max-width: 768px) {
+    .background {
+        max-width: 94%;
+        padding: 12px;
     }
 }
