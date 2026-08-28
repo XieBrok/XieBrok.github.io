@@ -65,3 +65,39 @@ footer .language-switcher {
         padding: 12px;
     }
 }
+
+/* ========== 页面加载动画（非线性缓动） ========== */
+/* 标题：淡入 + 上移 */
+.background h2 {
+    animation: riseFadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.background h4 {
+    animation: riseFadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
+}
+
+/* 评论区：淡入 + 轻微缩放 */
+#comment {
+    animation: zoomFadeIn 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s both;
+}
+
+@keyframes riseFadeIn {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes zoomFadeIn {
+    from { opacity: 0; transform: scale(0.96); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+/* 尊重"减少动态效果"偏好 */
+@media (prefers-reduced-motion: reduce) {
+    .background h2,
+    .background h4,
+    #comment {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}

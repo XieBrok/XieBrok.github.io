@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<!-- no-js 兜底：JS 可用时 reveal.js 会替换为 js，触发滚动入场动画；无 JS 则元素保持可见 -->
+<html lang="zh-CN" class="no-js">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -62,9 +63,9 @@
 
         <div class="row">
             <!-- 摄影 -->
-            <div class="col-md-4">
+            <div class="col-md-4" data-reveal>
                 <article class="card card-hover">
-                    <div id="carouselPhotograph" class="carousel slide" data-ride="carousel" data-interval="5000">
+                    <div id="carouselPhotograph" class="carousel slide carousel-fade" data-ride="carousel" data-interval="5000">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
                                 <img src="/images/photo1.jpg" class="d-block w-100" alt="摄影作品：街头文化一景" width="720" height="480" fetchpriority="high">
@@ -95,9 +96,9 @@
             </div>
 
             <!-- 技术 -->
-            <div class="col-md-4">
+            <div class="col-md-4" data-reveal>
                 <article class="card card-hover">
-                    <div id="carouselTechnology" class="carousel slide" data-ride="carousel" data-interval="5000">
+                    <div id="carouselTechnology" class="carousel slide carousel-fade" data-ride="carousel" data-interval="5000">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
                                 <img src="/images/tech1.JPG" class="d-block w-100" alt="技术项目：树莓派设备" width="720" height="480" fetchpriority="high">
@@ -127,9 +128,9 @@
             </div>
 
             <!-- 游戏 -->
-            <div class="col-md-4">
+            <div class="col-md-4" data-reveal>
                 <article class="card card-hover">
-                    <div id="carouselGaming" class="carousel slide" data-ride="carousel" data-interval="5000">
+                    <div id="carouselGaming" class="carousel slide carousel-fade" data-ride="carousel" data-interval="5000">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
                                 <img src="/images/game.webp" class="d-block w-100" alt="游戏画面：极限竞速 地平线4" width="480" height="480" fetchpriority="high">
@@ -162,7 +163,7 @@
             </div>
 
             <!-- 高光 -->
-            <div class="col-md-4">
+            <div class="col-md-4" data-reveal>
                 <article class="card card-hover">
                     <div id="carouselhighlights" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
@@ -180,7 +181,7 @@
             </div>
 
             <!-- TATEN -->
-            <div class="col-md-4">
+            <div class="col-md-4" data-reveal>
                 <article class="card card-hover">
                     <div class="card-body">
                         <h2 class="card-title h4" data-lang-key="links">A TATEN member</h2>
@@ -193,7 +194,7 @@
             </div>
 
             <!-- 友链 -->
-            <div class="col-md-4">
+            <div class="col-md-4" data-reveal>
                 <article class="card card-hover">
                     <div class="card-body">
                         <h2 class="card-title h4" data-lang-key="friendLinks">Friends' link</h2>
@@ -204,7 +205,7 @@
             </div>
 
             <!-- 留言 -->
-            <div class="col-md-4">
+            <div class="col-md-4" data-reveal>
                 <article class="card card-hover">
                     <div class="card-body">
                         <h2 class="card-title h4" data-lang-key="Comment">Comment</h2>
@@ -214,7 +215,7 @@
             </div>
 
             <!-- 工具 -->
-            <div class="col-md-4">
+            <div class="col-md-4" data-reveal>
                 <article class="card card-hover">
                     <div class="card-body">
                         <h2 class="card-title h4" data-lang-key="tools">Tools</h2>
@@ -296,5 +297,6 @@
     <script src="/js/index.js"></script>
     <script src="/js/language.js"></script>
     <script src="/js/typing.js"></script>
+    <script src="/js/reveal.js"></script>
 </body>
 </html>
