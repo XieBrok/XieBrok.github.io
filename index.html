@@ -238,7 +238,7 @@
             </div>
         </div>
 
-        <!-- 游戏好友信息弹窗 -->
+        <!-- 游戏好友信息弹窗（添加好友中心：搜索 / 推荐 / 扫码 / 通讯录） -->
         <div class="modal fade" id="exampleModalGaming" tabindex="-1" role="dialog" aria-labelledby="exampleModalGamingLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -248,16 +248,59 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body">
-                        <h3 class="h4" data-lang-key="findmeon">Find me on</h3>
-                        <a href="https://steamcommunity.com/id/hichina/" target="_blank" rel="noopener">
-                            <img src="/logo/steam.jpg" alt="Steam 个人主页" class="img-fluid" width="1050" height="759">
-                        </a>
-                        <a href="https://www.xbox.com/play/user/hichina5833" target="_blank" rel="noopener">
-                            <img src="/logo/xbox.jpg" alt="Xbox 个人主页" class="img-fluid" width="512" height="512">
-                        </a>
-                        <br>
-                        <img src="/images/Minecraft_IDCARD.webp" alt="我的世界 ID 卡" class="img-fluid mc-idcard" width="900" height="300">
+                    <div class="modal-body af-body">
+
+                        <!-- 视图①：主列表（搜索 + 推荐 + 其他方式） -->
+                        <div class="af-view af-view--active" id="af-view-main">
+                            <div class="af-search">
+                                <span class="af-search__icon" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+                                </span>
+                                <input type="search" id="af-search-input" class="af-search__input" placeholder="搜索好友" aria-label="搜索好友" autocomplete="off">
+                            </div>
+
+                            <p class="af-section-title" data-lang-key="afRecommended">推荐添加</p>
+                            <div class="af-grid" id="af-recommend-grid"><!-- 由 add-friend.js 渲染推荐卡 --></div>
+
+                            <p class="af-section-title" data-lang-key="afOtherWays">其他方式</p>
+                            <div class="af-methods">
+                                <button type="button" class="af-method" data-view-target="detail" data-friend="scan">
+                                    <span class="af-method__icon" aria-hidden="true">📷</span>
+                                    <span data-lang-key="afScan">扫码添加</span>
+                                </button>
+                                <button type="button" class="af-method" data-view-target="detail" data-friend="import">
+                                    <span class="af-method__icon" aria-hidden="true">📇</span>
+                                    <span data-lang-key="afImport">通讯录导入</span>
+                                </button>
+                            </div>
+
+                            <p class="af-empty" id="af-empty" hidden data-lang-key="afNotFound">未找到匹配的好友</p>
+                        </div>
+
+                        <!-- 视图②：好友/方式详情 -->
+                        <div class="af-view" id="af-view-detail">
+                            <button type="button" class="af-back" data-view="back">
+                                <span aria-hidden="true">←</span>
+                                <span data-lang-key="afBack">返回</span>
+                            </button>
+                            <div id="af-detail-content"><!-- 由 add-friend.js 填充 --></div>
+                            <div class="af-detail__actions">
+                                <button type="button" class="btn btn-primary af-primary-btn" id="af-primary-btn"></button>
+                            </div>
+                        </div>
+
+                        <!-- 视图③：添加结果 -->
+                        <div class="af-view" id="af-view-result">
+                            <div class="af-result">
+                                <div class="af-result__icon" aria-hidden="true">✓</div>
+                                <p class="af-result__title" data-lang-key="afAdded">添加成功</p>
+                                <p class="af-result__sub" id="af-result-sub"></p>
+                            </div>
+                            <div class="af-detail__actions">
+                                <button type="button" class="btn btn-primary af-done-btn" id="af-done-btn" data-lang-key="afDone">完成</button>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -308,6 +351,7 @@
     <script src="/js/marked.min.js"></script>
     <script src="/js/index.js"></script>
     <script src="/js/language.js"></script>
+    <script src="/js/add-friend.js"></script>
     <script src="/js/typing.js"></script>
     <!-- 动画优先级调度器：页面加载入场动画持最高优先级(LOAD)，其播放期间 reveal 入场排队 -->
     <script src="/js/animation-priority.js"></script>

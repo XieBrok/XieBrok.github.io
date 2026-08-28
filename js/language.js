@@ -27,6 +27,16 @@ const translations = {
         Comment:"Comment",
         来这里留下你想说的话吧:"Feel free to leave what you want to say here!",
         visitSite: "Visit site",
+        /* 添加好友中心 */
+        afSearchPh: "Search friends",
+        afRecommended: "Recommended",
+        afOtherWays: "More ways",
+        afScan: "Scan to add",
+        afImport: "Import contacts",
+        afBack: "Back",
+        afNotFound: "No matching friends",
+        afAdded: "Friend added",
+        afDone: "Done",
     },
     zh: {
         title: "你好，我是 HHYYYY<br>摄影 技术 游戏.",
@@ -56,6 +66,16 @@ const translations = {
         Comment:"留言板",
         来这里留下你想说的话吧:"来这里留下你想说的话吧",
         visitSite: "访问网站",
+        /* 添加好友中心 */
+        afSearchPh: "搜索好友",
+        afRecommended: "推荐添加",
+        afOtherWays: "其他方式",
+        afScan: "扫码添加",
+        afImport: "通讯录导入",
+        afBack: "返回",
+        afNotFound: "未找到匹配的好友",
+        afAdded: "添加成功",
+        afDone: "完成",
     }
 };
 

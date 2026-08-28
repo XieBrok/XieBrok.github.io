@@ -704,6 +704,322 @@ footer .language-switcher {
     text-decoration: none;
 }
 
+/* ========== 添加好友中心（af-body 内视图栈） ========== */
+.af-body {
+    min-height: 260px;
+}
+
+/* 视图容器：仅激活视图显示，切换时非线性滑入 */
+.af-view {
+    display: none;
+}
+
+.af-view--active {
+    display: block;
+    animation: afViewIn 0.35s var(--ease-out) both;
+}
+
+@keyframes afViewIn {
+    from { opacity: 0; transform: translateX(24px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+/* 搜索框 */
+.af-search {
+    position: relative;
+    margin-bottom: 18px;
+}
+
+.af-search__icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-secondary);
+    pointer-events: none;
+}
+
+.af-search__input {
+    width: 100%;
+    padding: 9px 14px 9px 36px;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    color: var(--text);
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    outline: none;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.af-search__input::placeholder {
+    color: var(--text-secondary);
+    opacity: 0.7;
+}
+
+.af-search__input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.22); /* 兼容 fallback */
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 22%, transparent);
+}
+
+/* 区块标题 */
+.af-section-title {
+    margin: 6px 0 10px;
+    font-family: var(--font-mono-italic);
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    color: var(--text-secondary);
+}
+
+/* 推荐网格 */
+.af-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.af-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    cursor: pointer;
+    transition: transform var(--dur-fast) var(--ease-out),
+                box-shadow var(--dur-fast) var(--ease-out),
+                background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.af-card:hover,
+.af-card:focus-visible {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-card);
+    border-color: var(--accent);
+}
+
+.af-card__avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    background: var(--surface);
+}
+
+.af-card__avatar--letter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-mono-italic);
+    font-size: 1.1rem;
+    color: var(--btn-text);
+    background: var(--btn-bg);
+}
+
+.af-card__info {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.af-card__name {
+    font-family: var(--font-mono-italic);
+    font-weight: 600;
+    font-size: 0.88rem;
+    color: var(--text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.af-card__platform {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* 其他方式（扫码 / 通讯录） */
+.af-methods {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.af-method {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 10px;
+    font-family: var(--font-mono);
+    font-size: 0.88rem;
+    color: var(--text);
+    background: var(--surface-2);
+    border: 1px dashed var(--border);
+    border-radius: 14px;
+    cursor: pointer;
+    transition: transform var(--dur-fast) var(--ease-out),
+                border-color var(--dur-fast) ease, color var(--dur-fast) ease;
+}
+
+.af-method:hover,
+.af-method:focus-visible {
+    transform: translateY(-2px);
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.af-method__icon {
+    font-size: 1.15rem;
+}
+
+/* 空态 */
+.af-empty {
+    margin: 24px 0;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+/* 返回按钮 */
+.af-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 14px;
+    padding: 5px 10px;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    background: transparent;
+    border: 0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: color var(--dur-fast) ease, background-color var(--dur-fast) ease;
+}
+
+.af-back:hover,
+.af-back:focus-visible {
+    color: var(--accent);
+    background: var(--surface-2);
+}
+
+/* 详情内容 */
+.af-detail {
+    text-align: center;
+}
+
+.af-detail__avatar {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 6px auto 14px;
+    display: block;
+    background: var(--surface);
+    box-shadow: var(--shadow-card);
+}
+
+.af-detail__banner {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    margin: 6px auto 14px;
+    display: block;
+}
+
+.af-detail__name {
+    margin: 0 0 6px;
+    font-family: var(--font-mono-italic);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text);
+    text-align: center;
+}
+
+.af-detail__desc {
+    margin: 0 0 8px;
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+/* 失败提示（通讯录导入等异常场景） */
+.af-fail {
+    margin: 10px 0 14px;
+    padding: 12px 14px;
+    font-size: 0.85rem;
+    color: #c0392b;
+    background: rgba(192, 57, 43, 0.08); /* 兼容不支持 color-mix 的浏览器 */
+    background: color-mix(in srgb, #c0392b 10%, transparent);
+    border: 1px solid rgba(192, 57, 43, 0.35);
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* 底部操作区（主按钮 / 完成） */
+.af-detail__actions {
+    margin-top: 18px;
+    text-align: center;
+}
+
+.af-primary-btn,
+.af-done-btn {
+    min-width: 160px;
+}
+
+/* 结果视图 */
+.af-result {
+    text-align: center;
+    padding: 18px 0 6px;
+}
+
+.af-result__icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.7rem;
+    color: var(--btn-text);
+    background: var(--btn-bg);
+    border-radius: 50%;
+    box-shadow: var(--shadow-card);
+}
+
+.af-result__title {
+    margin: 0 0 6px;
+    font-family: var(--font-mono-italic);
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.af-result__sub {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+/* 小屏：方式卡单列、推荐卡自适应 */
+@media (max-width: 576px) {
+    .af-methods {
+        grid-template-columns: 1fr;
+    }
+
+    .af-grid {
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    }
+}
+
 /* ========== 通用元素 ========== */
 .hhhh {
     max-width: 200px;
