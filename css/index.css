@@ -207,32 +207,39 @@ h1, h2, h3, h4, h5 {
     letter-spacing: 0.1em;
 }
 
-/* 每日一言跑马灯：双段文本无缝循环滚动，速度适中 */
+/* 每日一言：单句展示，淡出→淡入轮播，长句自动换行 + 字号分级 */
 .loader-quote {
-    width: min(86%, 560px);
-    overflow: hidden;
-    white-space: nowrap;
+    width: min(88%, 560px);
+    text-align: center;
 }
 
-.loader-quote__track {
-    display: inline-block;
-    animation: quoteScroll 18s linear infinite; /* 匀速滚动保证文字可读 */
-    will-change: transform;
-}
-
-.loader-quote__item {
-    display: inline-block;
-    padding-right: 3em; /* 两段之间的间隔 */
+.loader-quote__text {
+    margin: 0;
     font-family: var(--font-mono-italic);
-    font-size: 0.9rem;
+    font-size: 0.95rem;
+    line-height: 1.7;
     color: var(--loader-text);
     opacity: 0.85;
     letter-spacing: 0.04em;
+    white-space: normal;        /* 长句自动换行 */
+    word-break: break-word;
+    cursor: pointer;            /* 可点击切换下一句 */
+    user-select: none;
+    transition: opacity 0.4s var(--ease-in-out); /* 淡入淡出过渡（总时长 ~0.8s） */
 }
 
-@keyframes quoteScroll {
-    from { transform: translateX(0); }
-    to   { transform: translateX(-50%); } /* 平移一半 = 一份文本宽度，无缝循环 */
+/* 淡出态：由 JS 添加，配合 transition 平滑过渡 */
+.loader-quote__text--fading {
+    opacity: 0;
+}
+
+/* 长句字号分级：JS 按字符数应用，保证不溢出、不遮挡 */
+.loader-quote__text--md {
+    font-size: 0.85rem;
+}
+
+.loader-quote__text--sm {
+    font-size: 0.76rem;
 }
 
 @keyframes loaderSpin {
