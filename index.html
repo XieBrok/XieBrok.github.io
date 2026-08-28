@@ -41,6 +41,13 @@
     <div id="page-loader" role="status" aria-live="polite" aria-label="页面加载中，请耐心等候">
         <div class="loader-spinner" aria-hidden="true"></div>
         <p class="loader-text" aria-hidden="true">请耐心等候<br><span>Please wait a moment</span></p>
+        <!-- 每日一言：由 loader.js 按日期注入内容，跑马灯滚动展示 -->
+        <div class="loader-quote" aria-hidden="true">
+            <div class="loader-quote__track" id="quote-track">
+                <span class="loader-quote__item"></span>
+                <span class="loader-quote__item"></span>
+            </div>
+        </div>
     </div>
 
     <div id="particles-js" aria-hidden="true"></div>
@@ -58,9 +65,6 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/comment.html">留言板</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://blog.hhyyyy.cn/" target="_blank" rel="noopener">博客</a>
                 </li>
             </ul>
         </div>

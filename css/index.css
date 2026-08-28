@@ -207,6 +207,34 @@ h1, h2, h3, h4, h5 {
     letter-spacing: 0.1em;
 }
 
+/* 每日一言跑马灯：双段文本无缝循环滚动，速度适中 */
+.loader-quote {
+    width: min(86%, 560px);
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.loader-quote__track {
+    display: inline-block;
+    animation: quoteScroll 18s linear infinite; /* 匀速滚动保证文字可读 */
+    will-change: transform;
+}
+
+.loader-quote__item {
+    display: inline-block;
+    padding-right: 3em; /* 两段之间的间隔 */
+    font-family: var(--font-mono-italic);
+    font-size: 0.9rem;
+    color: var(--loader-text);
+    opacity: 0.85;
+    letter-spacing: 0.04em;
+}
+
+@keyframes quoteScroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); } /* 平移一半 = 一份文本宽度，无缝循环 */
+}
+
 @keyframes loaderSpin {
     from { transform: rotate(0deg); }
     to   { transform: rotate(360deg); }
@@ -338,6 +366,16 @@ body.loading {
 /* 折叠按钮：边框与图标颜色跟随主题（mask 方案让图标可用背景色着色） */
 .site-navbar .navbar-toggler {
     border-color: var(--navbar-border);
+}
+
+/* 导航按钮水平居中：菜单区域占满剩余宽度，内部按钮组居中（桌面端） */
+.site-navbar .navbar-collapse {
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.site-navbar .navbar-nav {
+    align-items: center;
 }
 
 .site-navbar .navbar-toggler-icon {
@@ -773,5 +811,21 @@ button:focus-visible,
 
     .friend-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+/* ========== 折叠断点（<992px，navbar-expand-lg）：移动端/平板菜单项居中 ========== */
+@media (max-width: 991.98px) {
+    .site-navbar .navbar-collapse {
+        justify-content: center;
+    }
+
+    .site-navbar .navbar-nav {
+        align-items: center;
+        text-align: center;
+    }
+
+    .site-navbar .navbar-nav .nav-link {
+        text-align: center;
     }
 }
