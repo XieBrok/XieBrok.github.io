@@ -1,14 +1,14 @@
-/* 友链数据加载与卡片化渲染
+/* 友链数据加载与"角色卡"渲染
  * 1) 读取 /sourse/Links.md（Markdown 表格：名称 | 头像 | 简介）
- * 2) marked 渲染为表格后，转换为统一的卡片网格（.friend-grid）
- *    —— 头像 / 名称 / 简介对齐清晰，可点击整卡跳转，自适应列数
+ * 2) marked 渲染为表格后，转换为大角色卡网格（.friend-grid）
+ *    —— 每个好友一张独立大卡片：大头像 + 名称 + 多行简介 + 网站访问按钮
  * 3) 修复了原实现在 head 中执行导致的 fetch 竞态问题
  */
 (function () {
     'use strict';
 
     /**
-     * 将 marked 渲染出的友链表格转换为卡片网格 DOM。
+     * 将 marked 渲染出的友链表格转换为角色卡网格 DOM。
      * @param {HTMLElement} root md-content 容器
      */
     function buildFriendCards(root) {
@@ -45,25 +45,25 @@
             return;
         }
 
-        // 生成卡片网格（全部使用 createElement + textContent，避免 XSS）
+        // 初始按钮文案跟随当前语言（此后由 language.js 的 data-lang-key 机制接管）
+        var isZh = (navigator.language || navigator.userLanguage || 'en').indexOf('zh') === 0;
+
+        // 生成角色卡网格（全部使用 createElement + textContent，避免 XSS）
         var grid = document.createElement('div');
         grid.className = 'friend-grid';
 
         cards.forEach(function (c) {
-            var card = document.createElement('a');
+            // 卡片主体：不可嵌套链接，展示头像/名称/简介
+            var card = document.createElement('div');
             card.className = 'friend-card';
-            card.href = c.href || '#';
-            card.target = '_blank';
-            card.rel = 'noopener';
 
-            var img = document.createElement('img');
-            img.className = 'friend-card__avatar';
-            img.src = c.src;
-            img.alt = c.name;
-            img.loading = 'lazy';
-
-            var info = document.createElement('span');
-            info.className = 'friend-card__info';
+            var avatar = document.createElement('img');
+            avatar.className = 'friend-card__avatar';
+            avatar.src = c.src;
+            avatar.alt = c.name + (isZh ? ' 的头像' : ' avatar');
+            avatar.loading = 'lazy';
+            avatar.width = 96;
+            avatar.height = 96;
 
             var name = document.createElement('span');
             name.className = 'friend-card__name';
@@ -73,10 +73,19 @@
             desc.className = 'friend-card__desc';
             desc.textContent = c.desc || '—';
 
-            info.appendChild(name);
-            info.appendChild(desc);
-            card.appendChild(img);
-            card.appendChild(info);
+            // 网站访问按钮（独立链接，避免卡片内嵌套 <a>）
+            var link = document.createElement('a');
+            link.className = 'friend-card__link';
+            link.href = c.href || '#';
+            link.target = '_blank';
+            link.rel = 'noopener';
+            link.setAttribute('data-lang-key', 'visitSite');
+            link.textContent = isZh ? '访问网站' : 'Visit site';
+
+            card.appendChild(avatar);
+            card.appendChild(name);
+            card.appendChild(desc);
+            card.appendChild(link);
             grid.appendChild(card);
         });
 

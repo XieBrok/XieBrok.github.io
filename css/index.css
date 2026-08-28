@@ -578,66 +578,92 @@ footer .language-switcher {
     background: var(--surface-2);
 }
 
-/* 友链卡片网格：头像 / 名称 / 简介对齐清晰，自适应列数 */
+/* 友链角色卡网格：每个好友一张大卡片（头像/名称/简介/访问按钮），自适应列数 */
 .friend-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 12px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
 }
 
+/* 大角色卡：纵向布局、信息居中、头像突出 */
 .friend-card {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 12px;
-    padding: 12px 14px;
+    text-align: center;
+    gap: 10px;
+    padding: 24px 16px 20px;
     background: var(--surface-2);
     border: 1px solid var(--border);
-    border-radius: 12px;
-    text-decoration: none;
+    border-radius: 16px;
     transition: transform var(--dur-fast) var(--ease-out),
                 box-shadow var(--dur-fast) var(--ease-out),
                 background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .friend-card:hover,
-.friend-card:focus-visible {
-    transform: translateY(-3px);
+.friend-card:focus-within {
+    transform: translateY(-4px);
     box-shadow: var(--shadow-card);
-    text-decoration: none;
 }
 
+/* 大头像：居中圆形，主题色描边与光晕 */
 .friend-card__avatar {
-    width: 48px;
-    height: 48px;
+    width: 96px;
+    height: 96px;
     border-radius: 50%;
     object-fit: cover;
-    flex-shrink: 0;
     background: var(--surface);
-}
-
-.friend-card__info {
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-    min-width: 0; /* 允许子元素使用省略号 */
+    border: 3px solid var(--surface);
+    box-shadow: 0 0 0 1px var(--border), 0 6px 16px rgba(0, 0, 0, 0.12);
 }
 
 .friend-card__name {
     font-family: var(--font-mono-italic);
     font-weight: 600;
-    font-size: 0.95rem;
+    font-size: 1.05rem;
     color: var(--text);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 .friend-card__desc {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
+    line-height: 1.55;
     color: var(--text-secondary);
-    white-space: nowrap;
+    min-height: 2.6em; /* 统一简介区域高度，最多两行 */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
     overflow: hidden;
-    text-overflow: ellipsis;
+}
+
+/* 网站访问按钮：底部对齐的胶囊按钮 */
+.friend-card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: auto; /* 让按钮在卡片内底部对齐 */
+    padding: 6px 16px;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--btn-text);
+    background: var(--btn-bg);
+    border-radius: 999px;
+    text-decoration: none;
+    transition: transform var(--dur-fast) var(--ease-out),
+                box-shadow var(--dur-fast) var(--ease-out),
+                background-color 0.3s ease;
+}
+
+.friend-card__link::after {
+    content: '↗';
+    font-size: 0.9em;
+}
+
+.friend-card__link:hover,
+.friend-card__link:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.22);
+    text-decoration: none;
 }
 
 /* ========== 通用元素 ========== */

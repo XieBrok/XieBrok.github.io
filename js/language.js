@@ -26,6 +26,7 @@ const translations = {
         button2:"Come here to meet more interesting people",
         Comment:"Comment",
         来这里留下你想说的话吧:"Feel free to leave what you want to say here!",
+        visitSite: "Visit site",
     },
     zh: {
         title: "你好，我是 HHYYYY<br>摄影 技术 游戏.",
@@ -54,6 +55,7 @@ const translations = {
         button2:"点击这里遇见更多有意思的人",
         Comment:"留言板",
         来这里留下你想说的话吧:"来这里留下你想说的话吧",
+        visitSite: "访问网站",
     }
 };
 
