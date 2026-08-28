@@ -1,261 +1,300 @@
 <!DOCTYPE html>
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HHYYYY</title>
-    <link rel="icon" href="/logo/H_.png" type="image/x-icon">
-    <script src="/js/consolelog.js"></script>
-    <script src="/js/language.js"></script>
-    <script src="/js/index.js"></script>
-    <script src="/js/marked.min.js"></script>
+    <title>HHYYYY | 摄影 · 技术 · 游戏</title>
+    <meta name="description" content="HHYYYY 的个人主页 —— 用尼康 Z30 记录文化自然，玩树莓派与 HomeAssistant，也打游戏。欢迎留言、交个朋友。">
+    <meta name="author" content="HHYYYY">
+    <meta name="keywords" content="HHYYYY,摄影,photography,树莓派,Raspberry Pi,HomeAssistant,游戏,Gaming,前端开发">
+    <meta name="theme-color" content="#121212">
+    <link rel="icon" href="/logo/H_.png" type="image/png">
+
+    <!-- Open Graph / Twitter Card（社交分享预览） -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="HHYYYY | 摄影 · 技术 · 游戏">
+    <meta property="og:description" content="HHYYYY 的个人主页 —— 摄影、技术、游戏，欢迎留言交流。">
+    <meta property="og:url" content="https://hhyyyy.cn/">
+    <meta property="og:image" content="/images/photo1.jpg">
+    <meta property="og:locale" content="zh_CN">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="canonical" href="https://hhyyyy.cn/">
     <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <script src="/js/typing.js"></script>
-    <link rel="stylesheet" href="/css/index.css"> 
-    <script src="/js/jquery-3.7.1.min.js"></script>
-    <script src="/js/popper.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/iframe_cloudmusic.js"></script>
+    <link rel="stylesheet" href="/css/index.css">
+    <style>
+        /* 首屏关键样式内联，避免等待外部样式造成白屏（其余样式仍在 index.css） */
+        #particles-js {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1; background-color: #121212;
+        }
+        body { position: relative; z-index: 1; }
+    </style>
 </head>
 
 <body>
-    <div id="particles-js"></div>
-  
-    <nav class="navbar navbar-expand-lg navbar-light bg-light ">
-        <img src="/logo/H_.png" class="logo">
-        <a class="navbar-brand" href="#">HHYYYY</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="skip-link" href="#main-content">跳到主要内容</a>
+    <div id="particles-js" aria-hidden="true"></div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="主导航">
+        <img src="/logo/H_.png" class="logo" alt="HHYYYY 标志" width="128" height="128">
+        <a class="navbar-brand" href="/">HHYYYY</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="展开或收起导航菜单">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item active" >
-                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item active" >
-                    <a class="nav-link" href="/comment.html">Comment <span class="sr-only">(current)</span></a>
-                </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="https://blog.hhyyyy.cn/">Blog <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/" aria-current="page">首页</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/comment.html">留言板</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://blog.hhyyyy.cn/" target="_blank" rel="noopener">博客</a>
                 </li>
             </ul>
         </div>
     </nav>
 
-    <div class="container mt-5">
-        <h1 class="text-center tittle" id="typing-title"></h1>
+    <main id="main-content" class="container mt-4">
+        <h1 class="text-center tittle" id="typing-title">Hi I'm HHYYYY<br>PHOTOGRAPH TECHNOLOGY GAMING.</h1>
+
         <div class="row">
+            <!-- 摄影 -->
             <div class="col-md-4">
-                <div class="card card-hover">
-                    <div id="carouselPhotograph" class="carousel slide" data-ride="carousel">
+                <article class="card card-hover">
+                    <div id="carouselPhotograph" class="carousel slide" data-ride="carousel" data-interval="5000">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="/images/photo1.jpg" class="d-block w-100" alt="Photograph 1">
+                                <img src="/images/photo1.jpg" class="d-block w-100" alt="摄影作品：街头文化一景" width="720" height="480" fetchpriority="high">
                             </div>
                             <div class="carousel-item">
-                                <img src="/images/photo2.jpg" class="d-block w-100" alt="Photograph 2">
+                                <img src="/images/photo2.jpg" class="d-block w-100" alt="摄影作品：自然风光" width="720" height="480" loading="lazy">
                             </div>
                             <div class="carousel-item">
-                                <img src="/images/photo3.jpg" class="d-block w-100" alt="Photograph 3">
+                                <img src="/images/photo3.jpg" class="d-block w-100" alt="摄影作品：人文瞬间" width="720" height="480" loading="lazy">
                             </div>
                         </div>
-                        <a class="carousel-control-prev" href="#carouselPhotograph" role="button" data-slide="prev">
+                        <a class="carousel-control-prev" href="#carouselPhotograph" role="button" data-slide="prev" aria-label="上一张照片">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
+                            <span class="sr-only">上一张</span>
                         </a>
-                        <a class="carousel-control-next" href="#carouselPhotograph" role="button" data-slide="next">
+                        <a class="carousel-control-next" href="#carouselPhotograph" role="button" data-slide="next" aria-label="下一张照片">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
+                            <span class="sr-only">下一张</span>
                         </a>
                     </div>
                     <div class="card-body">
-                        <h4 class="card-title" data-lang-key="photograph">PHOTOGRAPH</h4>
-                        <p class="card-text h3" data-lang-key="culturalNature">CULTURAL <br> ＆ <br> NATURE.</p>
+                        <h2 class="card-title h4" data-lang-key="photograph">PHOTOGRAPH</h2>
+                        <p class="card-text h3" data-lang-key="culturalNature">CULTURAL <br> &amp; <br> NATURE.</p>
                         <p class="card-text h6" data-lang-key="worksWith">Works With Nikon Z30</p>
                         <a href="https://HHYYYY.quickconnect.to/mo/sharing/UWLX7yDwl" class="btn btn-primary" data-lang-key="goToPhotos">Go To Synology Photos</a>
                     </div>
-                </div>
+                </article>
             </div>
+
+            <!-- 技术 -->
             <div class="col-md-4">
-                <div class="card card-hover">
-                    <div id="carouselTechnology" class="carousel slide" data-ride="carousel">
+                <article class="card card-hover">
+                    <div id="carouselTechnology" class="carousel slide" data-ride="carousel" data-interval="5000">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="/images/tech1.JPG" class="d-block w-100" alt="Technology 1">
+                                <img src="/images/tech1.JPG" class="d-block w-100" alt="技术项目：树莓派设备" width="720" height="480" fetchpriority="high">
                             </div>
                             <div class="carousel-item">
-                                <img src="/images/tech2.JPG" class="d-block w-100" alt="Technology 2">
+                                <img src="/images/tech2.JPG" class="d-block w-100" alt="技术项目：HomeAssistant 界面" width="720" height="480" loading="lazy">
                             </div>
                             <div class="carousel-item">
-                                <img src="/images/tech3.JPG" class="d-block w-100" alt="Technology 3">
+                                <img src="/images/tech3.JPG" class="d-block w-100" alt="技术项目：开发环境" width="720" height="480" loading="lazy">
                             </div>
                         </div>
-                        <a class="carousel-control-prev" href="#carouselTechnology" role="button" data-slide="prev">
+                        <a class="carousel-control-prev" href="#carouselTechnology" role="button" data-slide="prev" aria-label="上一张技术图片">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
+                            <span class="sr-only">上一张</span>
                         </a>
-                        <a class="carousel-control-next" href="#carouselTechnology" role="button" data-slide="next">
+                        <a class="carousel-control-next" href="#carouselTechnology" role="button" data-slide="next" aria-label="下一张技术图片">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
+                            <span class="sr-only">下一张</span>
                         </a>
                     </div>
                     <div class="card-body">
-                        <h4 class="card-title" data-lang-key="technology">TECHNOLOGY</h4>
+                        <h2 class="card-title h4" data-lang-key="technology">TECHNOLOGY</h2>
                         <p class="card-text" data-lang-key="learning">Learning <br> RaspiberryPi 3b+ <br> HomeAssistant <br> Front-end development.</p>
                         <a href="https://github.com/XieBrok" class="btn btn-primary" data-lang-key="goToGithub">Go To My Github</a>
                     </div>
-                </div>
+                </article>
             </div>
+
+            <!-- 游戏 -->
             <div class="col-md-4">
-                <div class="card card-hover">
-                    <div id="carouselGaming" class="carousel slide" data-ride="carousel">
+                <article class="card card-hover">
+                    <div id="carouselGaming" class="carousel slide" data-ride="carousel" data-interval="5000">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="/images/game.png" class="d-block w-100" alt="Gaming 1">
+                                <img src="/images/game.webp" class="d-block w-100" alt="游戏画面：极限竞速 地平线4" width="480" height="480" fetchpriority="high">
                             </div>
                             <div class="carousel-item">
-                                <img src="/images/game1.png" class="d-block w-100" alt="Gaming 2">
+                                <img src="/images/game1.webp" class="d-block w-100" alt="游戏画面：死亡搁浅" width="853" height="480" loading="lazy">
                             </div>
                             <div class="carousel-item">
-                                <img src="/images/game2.jpg" class="d-block w-100" alt="Gaming 3">
-                            </div> 
+                                <img src="/images/game2.jpg" class="d-block w-100" alt="游戏画面：我的世界" width="1280" height="720" loading="lazy">
+                            </div>
                             <div class="carousel-item">
-                                <img src="/images/game3.png" class="d-block w-100" alt="Gaming 4">
+                                <img src="/images/game3.webp" class="d-block w-100" alt="游戏画面：其他游戏截图" width="853" height="480" loading="lazy">
                             </div>
                         </div>
-                        <a class="carousel-control-prev" href="#carouselGaming" role="button" data-slide="prev">
+                        <a class="carousel-control-prev" href="#carouselGaming" role="button" data-slide="prev" aria-label="上一张游戏图片">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
+                            <span class="sr-only">上一张</span>
                         </a>
-                        <a class="carousel-control-next" href="#carouselGaming" role="button" data-slide="next">
+                        <a class="carousel-control-next" href="#carouselGaming" role="button" data-slide="next" aria-label="下一张游戏图片">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
+                            <span class="sr-only">下一张</span>
                         </a>
                     </div>
                     <div class="card-body">
-                        <h4 class="card-title" data-lang-key="gaming">GAMING</h4>
+                        <h2 class="card-title h4" data-lang-key="gaming">GAMING</h2>
                         <p class="card-text" data-lang-key="playing">I'm playing <br> Forza Horizon 4 <br> Death Stranding <br> Minecraft.</p>
-                        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalGaming" data-lang-key="addFriends">Add Friends</a>
+                        <a href="#exampleModalGaming" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalGaming" data-lang-key="addFriends">Add Friends</a>
                     </div>
-                </div>
-            </div> <div class="col-md-4">
-                <div class="card card-hover">
+                </article>
+            </div>
+
+            <!-- 高光 -->
+            <div class="col-md-4">
+                <article class="card card-hover">
                     <div id="carouselhighlights" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="/images/highlight.png" class="d-block w-100" alt="highlight">
+                                <img src="/images/highlight.webp" class="d-block w-100" alt="影视飓风活动纪念海报" width="1280" height="611" loading="lazy">
                             </div>
                         </div>
                     </div>
                     <div class="card-body">
-                        <h4 class="card-title" data-lang-key="highlights">HIGHLIGHTS</h4>
+                        <h2 class="card-title h4" data-lang-key="highlights">HIGHLIGHTS</h2>
                         <p class="card-text" data-lang-key="hitext">The activity of MediaStorm<br>"To you, a thousand years from now."</p>
-                        <a href="https://www.bilibili.com/video/BV1Mc411Z7VY/?share_source=copy_web&vd_source=3932d2849625079f0d9fca85660768dd" class="btn btn-primary" data-lang-key="linktobili">Watch the video</a>
+                        <a href="https://www.bilibili.com/video/BV1Mc411Z7VY/?share_source=copy_web&vd_source=3932d2849625079f0d9fca85660768dd" class="btn btn-primary" target="_blank" rel="noopener" data-lang-key="linktobili">Watch the video</a>
                     </div>
-                </div>
+                </article>
             </div>
-             <div class="col-md-4">
-                <div class="card card-hover">
+
+            <!-- TATEN -->
+            <div class="col-md-4">
+                <article class="card card-hover">
                     <div class="card-body">
-                        <h4 class="card-title" data-lang-key="links">A TATEN member<br></h4>
-                        <a href="https://taten.org/" target="_blank">
-                            <img src="/images/TATEN.png" alt="TATEN" class="img-fluid" style="width: 150px; height:auto ;">
+                        <h2 class="card-title h4" data-lang-key="links">A TATEN member</h2>
+                        <a href="https://taten.org/" target="_blank" rel="noopener">
+                            <img src="/images/TATEN.png" alt="TATEN 组织标志" class="img-fluid" width="500" height="500" loading="lazy">
                         </a>
-                        <p class="card-text h4" data-lang-key="ComputerScienceCommunicationTeam"><br>A Computer Science Communication Team</a></p>
-
+                        <p class="card-text h4" data-lang-key="ComputerScienceCommunicationTeam">A Computer Science Communication Team</p>
                     </div>
-                </div>
+                </article>
             </div>
-            <div class="col-md-4">
-                <div class="card card-hover">
-                    <div class="card-body">
-                        <h4 class="card-title" data-lang-key="friendLinks">Friends' link<br></h4>
-                        <img src="/images/hhhh.jpg" class="hhhh"><br>
-                        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#linking" data-lang-key="button2">Come here to meet more interesting people</a>
 
-                    </div>
-                </div>
-            </div>
+            <!-- 友链 -->
             <div class="col-md-4">
-                <div class="card card-hover">
+                <article class="card card-hover">
                     <div class="card-body">
-                        <h4 class="card-title" data-lang-key="Comment">Comment</h4>
+                        <h2 class="card-title h4" data-lang-key="friendLinks">Friends' link</h2>
+                        <img src="/images/hhhh.jpg" class="hhhh" alt="朋友头像" width="270" height="270" loading="lazy">
+                        <a href="#linking" class="btn btn-primary" data-toggle="modal" data-target="#linking" data-lang-key="button2">Come here to meet more interesting people</a>
+                    </div>
+                </article>
+            </div>
+
+            <!-- 留言 -->
+            <div class="col-md-4">
+                <article class="card card-hover">
+                    <div class="card-body">
+                        <h2 class="card-title h4" data-lang-key="Comment">Comment</h2>
                         <p class="card-text h3" data-lang-key="来这里留下你想说的话吧"><a href="/comment.html">Feel free to leave what you want to say here!</a></p>
                     </div>
-                </div>
+                </article>
             </div>
+
+            <!-- 工具 -->
             <div class="col-md-4">
-                <div class="card card-hover">
+                <article class="card card-hover">
                     <div class="card-body">
-                        <h4 class="card-title" data-lang-key="tools">Tools</h4>
-                        <p class="card-text h3" data-lang-key="studyWithMiku"><a href="https://study.hhyyyy.cn/">STUDY With MIKU</a></p>
-                        <p class="card-text h6" data-lang-key="forkedFrom"><a href="https://blog.wenqi.icu">Forked From wenqi</a></p>
+                        <h2 class="card-title h4" data-lang-key="tools">Tools</h2>
+                        <p class="card-text h3" data-lang-key="studyWithMiku"><a href="https://study.hhyyyy.cn/" target="_blank" rel="noopener">STUDY With MIKU</a></p>
+                        <p class="card-text h6" data-lang-key="forkedFrom"><a href="https://blog.wenqi.icu" target="_blank" rel="noopener">Forked From wenqi</a></p>
                     </div>
-                </div>
+                </article>
             </div>
         </div>
 
-
-        <!-- Modal for Gaming Card -->
+        <!-- 游戏好友信息弹窗 -->
         <div class="modal fade" id="exampleModalGaming" tabindex="-1" role="dialog" aria-labelledby="exampleModalGamingLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalGamingLabel" data-lang-key="addFriends">Add Friends</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <h2 class="modal-title h5" id="exampleModalGamingLabel" data-lang-key="addFriends">Add Friends</h2>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="关闭">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                     <h4 data-lang-key="findmeon">Find me on </h4>
-                     <a href="https://steamcommunity.com/id/hichina/" target="_blank">
-                        <img src="/logo/steam.jpg" alt="Steam" class="img-fluid" style="width: 150px; height:auto ;">
-                    </a>
-                    <a href="https://www.xbox.com/play/user/hichina5833" target="_blank">
-                        <img src="/logo/xbox.jpg" alt="Xbox" class="img-fluid" style="width: 50px; height:auto ;">
-                    </a>
-                    <br>
-                    <img src="/images/Minecraft_IDCARD.png" alt="Minecraft ID Card" class="img-fluid" style="width: 450px; height:auto ;">
+                        <h3 class="h4" data-lang-key="findmeon">Find me on</h3>
+                        <a href="https://steamcommunity.com/id/hichina/" target="_blank" rel="noopener">
+                            <img src="/logo/steam.jpg" alt="Steam 个人主页" class="img-fluid" width="1050" height="759">
+                        </a>
+                        <a href="https://www.xbox.com/play/user/hichina5833" target="_blank" rel="noopener">
+                            <img src="/logo/xbox.jpg" alt="Xbox 个人主页" class="img-fluid" width="512" height="512">
+                        </a>
+                        <br>
+                        <img src="/images/Minecraft_IDCARD.webp" alt="我的世界 ID 卡" class="img-fluid mc-idcard" width="900" height="300">
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Modal for Friend Links -->
-   <div class="modal fade modal-fade-up" id="linking" tabindex="-1" role="dialog" aria-labelledby="linkingLabel" aria-hidden="true">
-     <div class="modal-dialog" role="document">
-       <div class="modal-content">
-         <div class="modal-header">
-           <h5 class="modal-title" id="linkingLabel" data-lang-key="friendLinks">Friends' link</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-             <span aria-hidden="true">&times;</span>
-            </button>
+        <!-- 友链弹窗 -->
+        <div class="modal fade modal-fade-up" id="linking" tabindex="-1" role="dialog" aria-labelledby="linkingLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title h5" id="linkingLabel" data-lang-key="friendLinks">Friends' link</h2>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="关闭">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="md-content"></div>
+                    </div>
+                </div>
             </div>
-            <div class="modal-body">
-                <div id="md-content"></div>
-            </div>
-       </div>
-    </div>
-   </div>
+        </div>
+    </main>
 
-
-    <footer class=" text-center py-3 mt-5">
-      <p>&copy; 2025 HHYYYY. MIT License.</p>
-      <p class="h3" id="typing-end"></p>
-      <p class="h4" id="thanks" data-lang-key="thanks">Thanks to the following outstanding open-source projects </p>
-      <p class="h4" id="thankslink"></p><a href="https://github.com/MauritsWilke/mcpfp" id="thankslink">MCPFP   </a><a href="https://github.com/WenqiOfficial/StudyWithMiku">    STUDY With Miku</a></p>
-      <p>fonts by <a href="https://www.jetbrains.com/lp/mono/" target="_blank">JetBrains mono</a></p>
-      <div class="language-switcher text-right ">
-        <button id="switch-to-en" class="btn btn-secondary btn-sm">English</button>
-        <button id="switch-to-zh" class="btn btn-secondary btn-sm">中文</button>
-      </div>
-      <a href="https://icp.gov.moe/?keyword=20258500" target="_blank">萌ICP备20258500号</a>
-    <a href="https://icp.redcha.cn/beian/ICP-2025110221.html" title="茶ICP备2025110221号" target="_blank">茶ICP备2025110221号</a>
+    <footer class="text-center py-3 mt-5">
+        <p>&copy; 2025 HHYYYY. MIT License.</p>
+        <p class="h3" id="typing-end">INFINITY PROGRESS.</p>
+        <p class="h4" data-lang-key="thanks">Thanks to the following outstanding open-source projects</p>
+        <p class="h4" id="thanks-links">
+            <a href="https://github.com/MauritsWilke/mcpfp" target="_blank" rel="noopener">MCPFP</a>
+            <a href="https://github.com/WenqiOfficial/StudyWithMiku" target="_blank" rel="noopener">STUDY With Miku</a>
+        </p>
+        <p>fonts by <a href="https://www.jetbrains.com/lp/mono/" target="_blank" rel="noopener">JetBrains mono</a></p>
+        <div class="language-switcher">
+            <button id="switch-to-en" class="btn btn-secondary btn-sm" type="button">English</button>
+            <button id="switch-to-zh" class="btn btn-secondary btn-sm" type="button">中文</button>
+        </div>
+        <a href="https://icp.gov.moe/?keyword=20258500" target="_blank" rel="noopener">萌ICP备20258500号</a>
+        <a href="https://icp.redcha.cn/beian/ICP-2025110221.html" title="茶ICP备2025110221号" target="_blank" rel="noopener">茶ICP备2025110221号</a>
     </footer>
 
- <script src="/js/particles.js"></script>
- <script src="/js/background.js"></script>
- <!--脚本依赖于 DOM 元素（比如 #particles-js），但这些元素还没被渲染出来，脚本就无法找到对应的 DOM 节点，导致粒子效果无法显示。-->
-
+    <!-- 脚本统一移至 body 末尾，避免阻塞渲染；按依赖顺序加载 -->
+    <script src="/js/jquery-3.7.1.min.js"></script>
+    <script src="/js/popper.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/particles.js"></script>
+    <script src="/js/background.js"></script>
+    <script src="/js/consolelog.js"></script>
+    <script src="/js/marked.min.js"></script>
+    <script src="/js/index.js"></script>
+    <script src="/js/language.js"></script>
+    <script src="/js/typing.js"></script>
 </body>
-</html></div></li></ul></div></nav>
+</html>

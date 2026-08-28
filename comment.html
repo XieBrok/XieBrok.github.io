@@ -1,58 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comments</title>
-    <link rel="icon" href="/logo/H_.png" type="image/x-icon">
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/commentlang.js"></script>
+    <title>留言板 | HHYYYY</title>
+    <meta name="description" content="在 HHYYYY 的个人主页留言板上留下你想说的话吧。">
+    <meta name="author" content="HHYYYY">
+    <link rel="icon" href="/logo/H_.png" type="image/png">
     <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/css/bootstrap.css" rel="stylesheet">
     <link href="/css/comment.css" rel="stylesheet">
+</head>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light ">
-        <img src="/logo/H_.png" class="logo">
-        <a class="navbar-brand" href="#">HHYYYY</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="主导航">
+        <img src="/logo/H_.png" class="logo" alt="HHYYYY 标志" width="128" height="128">
+        <a class="navbar-brand" href="/">HHYYYY</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="展开或收起导航菜单">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item active" >
-                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item active" >
-                    <a class="nav-link" href="/comment.html">Comment <span class="sr-only">(current)</span></a>
+                <li class="nav-item">
+                    <a class="nav-link" href="/">首页</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="https://blog.hhyyyy.cn/">Blog <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/comment.html" aria-current="page">留言板</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://blog.hhyyyy.cn/" target="_blank" rel="noopener">博客</a>
                 </li>
             </ul>
         </div>
     </nav>
-</head>
 
-<body>
-    <div class="background">
+    <main class="background">
         <h2 data-lang-key="Comment">留言板</h2>
         <h4 data-lang-key="来这里留下你想说的话吧">来这里留下你想说的话吧</h4>
         <div id="comment">
-        <div id="tcomment"></div>
-        <script src="/js/twikoo.min.js"></script>
-        <script>
-        twikoo.init({
-          envId: 'https://hhyyyy-twikoo.netlify.app/.netlify/functions/twikoo', // 腾讯云环境填 envId；Vercel 环境填地址（https://xxx.vercel.app）
-          el: '#tcomment', // 容器元素
-          // region: 'ap-guangzhou', // 环境地域，默认为 ap-shanghai，腾讯云环境填 ap-shanghai 或 ap-guangzhou；Vercel 环境不填
-          // path: location.pathname, // 用于区分不同文章的自定义 js 路径，如果您的文章路径不是 location.pathname，需传此参数
-          // lang: 'zh-CN', // 用于手动设定评论区语言，支持的语言列表 https://github.com/twikoojs/twikoo/blob/main/src/client/utils/i18n/index.js
-         });
-         </script>
-        </div>  
-    </div>
-</body>
+            <div id="tcomment"></div>
+        </div>
+    </main>
 
- <footer class=" text-center py-3 mt-5">
-      <p>&copy; 2025 HHYYYY. MIT License.</p>
-      <a href="https://icp.gov.moe/?keyword=20258500" target="_blank">萌ICP备20258500号</a>
-    <a href="https://icp.redcha.cn/beian/ICP-2025110221.html" title="茶ICP备2025110221号" target="_blank">茶ICP备2025110221号</a>
+    <footer class="text-center py-3 mt-5">
+        <p>&copy; 2025 HHYYYY. MIT License.</p>
+        <div class="language-switcher">
+            <button id="switch-to-en" class="btn btn-secondary btn-sm" type="button">English</button>
+            <button id="switch-to-zh" class="btn btn-secondary btn-sm" type="button">中文</button>
+        </div>
+        <a href="https://icp.gov.moe/?keyword=20258500" target="_blank" rel="noopener">萌ICP备20258500号</a>
+        <a href="https://icp.redcha.cn/beian/ICP-2025110221.html" title="茶ICP备2025110221号" target="_blank" rel="noopener">茶ICP备2025110221号</a>
     </footer>
+
+    <!-- 脚本统一移至 body 末尾，避免阻塞渲染 -->
+    <script src="/js/jquery-3.7.1.min.js"></script>
+    <script src="/js/popper.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/commentlang.js"></script>
+    <script src="/js/twikoo.min.js"></script>
+    <script>
+        twikoo.init({
+            envId: 'https://hhyyyy-twikoo.netlify.app/.netlify/functions/twikoo', // 腾讯云环境填 envId；Vercel 环境填地址（https://xxx.vercel.app）
+            el: '#tcomment', // 容器元素
+            // region: 'ap-guangzhou', // 环境地域，默认为 ap-shanghai，腾讯云环境填 ap-shanghai 或 ap-guangzhou；Vercel 环境不填
+            // path: location.pathname, // 用于区分不同文章的自定义 js 路径，如果您的文章路径不是 location.pathname，需传此参数
+            // lang: 'zh-CN', // 用于手动设定评论区语言，支持的语言列表 https://github.com/twikoojs/twikoo/blob/main/src/client/utils/i18n/index.js
+        });
+    </script>
+</body>
+</html>

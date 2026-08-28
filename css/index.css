@@ -1,92 +1,127 @@
+/* ========== 字体声明 ========== */
 @font-face {
-    font-family: 'JetBrainsMono-MediumItalic'; /* 自定义字体名称 */
-    src: url('/fonts/JetBrainsMono-MediumItalic.woff2') format('woff2'),;/* 字体文件路径 */
-    font-style: normal;
+    font-family: 'JetBrainsMono-MediumItalic';
+    src: url('/fonts/JetBrainsMono-MediumItalic.woff2') format('woff2');
+    font-style: italic;
+    font-weight: 500;
+    font-display: swap; /* 加载期间先用后备字体，避免文字不可见 */
 }
 
 @font-face {
-    font-family: 'JetBrainsMono-Medium'; /* 自定义字体名称 */
-    src: url('/fonts/JetBrainsMono-Medium.woff2') format('woff2'),;/* 字体文件路径 */
+    font-family: 'JetBrainsMono-Medium';
+    src: url('/fonts/JetBrainsMono-Medium.woff2') format('woff2');
     font-style: normal;
+    font-weight: 500;
+    font-display: swap;
 }
 
+/* 中文字体栈：等宽字体 + 中文回退，避免中文 fallback 到难看字体 */
+:root {
+    --font-mono: 'JetBrainsMono-Medium', 'JetBrainsMono', 'Consolas', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    --font-mono-italic: 'JetBrainsMono-MediumItalic', 'JetBrainsMono', 'Consolas', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+
+/* ========== 基础排版 ========== */
 .tittle {
     font-size: 2.5rem;
-    font-family: JetBrainsMono-MediumItalic;
+    font-family: var(--font-mono-italic);
     color: rgb(255, 255, 255);
+    margin-bottom: 0.5em;
+}
+
+body {
+    font-family: var(--font-mono);
+    background-color: #121212; /* 与粒子背景一致，避免 overscroll 白边 */
+}
+
+p {
+    font-size: medium;
+    font-family: var(--font-mono);
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: var(--font-mono-italic);
+}
+
+/* ========== 卡片 ========== */
+.card {
+    margin-bottom: 20px;
+    border: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
 
 .card-hover {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.card {
-    margin-bottom: 20px; /* 调整卡片之间的间距 */
-}
-
-.card-hover:hover {
+.card-hover:hover,
+.card-hover:focus-within {
     transform: translateY(-10px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
 }
 
-/*光标效果*/
-#typing-title::after {
-    content: '|';
-    display: inline-block;
-    animation: blink 0.7s steps(2, start) infinite;
+.card-body .btn {
+    margin-top: 8px;
 }
 
-@keyframes blink {
-    50% {
-        opacity: 0;
-    }
+.row {
+    margin-top: 10px;
 }
 
-p {
-    font-size: medium;
-    font-family:JetBrainsMono-Medium ;
-}
-
-h5,h2,h3,h4 {
-    font-family:JetBrainsMono-MediumItalic ;
-}
-
+/* ========== 背景粒子 ========== */
 #particles-js {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1; /* 确保粒子背景在其他元素的后面 */
-    background-color: rgb(0, 0, 0);
+    z-index: -1;
+    background-color: #121212;
 }
 
-body {
-    position: relative;
-    z-index: 1; /* 确保文本在粒子背景的前面 */
+/* ========== 打字光标 ========== */
+#typing-title::after {
+    content: '|';
+    display: inline-block;
+    animation: blink 0.7s steps(2, start) infinite;
+    color: #ffffff;
 }
 
-footer { 
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+/* ========== 页脚 ========== */
+footer {
     background-color: transparent;
     color: rgb(117, 117, 117);
 }
 
-/* 页脚中的语言切换按钮样式 */
+footer a {
+    color: #8ab4f8; /* 黑底上更清晰的链接色 */
+}
+
+footer a:hover,
+footer a:focus {
+    color: #c3dcff;
+}
+
 footer .language-switcher {
     margin-top: 10px;
-    text-align: center; /* 居中对齐 */
-    display: flex; /* 使用 Flexbox 布局 */
-    justify-content: center; /* 水平居中 */
-    gap: 10px; /* 按钮之间的间距 */
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
 }
 
 footer .language-switcher button {
-    margin: 0; /* 移除默认外边距 */
-    padding: 5px 10px; /* 调整按钮内边距 */
+    margin: 0;
+    padding: 5px 10px;
 }
 
-
-/* 切换语言的动画 */
+/* ========== 语言切换动画 ========== */
 .fade-out {
     animation: fadeOut 0.5s forwards;
 }
@@ -96,88 +131,128 @@ footer .language-switcher button {
 }
 
 @keyframes fadeOut {
-    from {
-        opacity: 1;
-    }
-    to {
-        opacity: 0;
-    }
+    from { opacity: 1; }
+    to   { opacity: 0; }
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+    from { opacity: 0; }
+    to   { opacity: 1; }
 }
 
-.thankslink{
-    font-family: JetBrainsMono-MediumItalic;
+.thankslink {
+    font-family: var(--font-mono-italic);
 }
 
-/* 友链模态框上浮动画 */
+/* ========== 友链模态框 ========== */
 .modal.modal-fade-up .modal-dialog {
-  transform: translateY(100px);
-  transition: transform 0.3s cubic-bezier(.4,0,.2,1);
+    transform: translateY(100px);
+    transition: transform 0.3s cubic-bezier(.4, 0, .2, 1);
 }
+
 .modal.show.modal-fade-up .modal-dialog {
-  transform: translateY(0);
+    transform: translateY(0);
 }
 
-/* 统一md内容宽度，防止图片溢出 */
 .modal-body #md-content {
-  max-width: 100%;
-  word-break: break-word;
-  overflow-x: auto;
-}
-.modal-body #md-content img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 0.5em auto;
- border-radius: 20px;
+    max-width: 100%;
+    word-break: break-word;
+    overflow-x: auto;
 }
 
-/* 增加友链弹窗卡片整体宽度 */
+.modal-body #md-content img {
+    max-width: 150px;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0.5em auto;
+    object-fit: contain;
+    border-radius: 20px;
+}
+
 #linking .modal-dialog {
-  max-width: 800px;
-  width: 90%;
+    max-width: 800px;
+    width: 90%;
 }
 
-/* 统一md内容区图片大小 */
-.modal-body #md-content img {
-  max-width: 150px;
-  width: 100%;
-  height: auto;
-  display: block;
-  margin: 0.5em auto;
-  object-fit: contain;
+/* ========== 通用元素 ========== */
+.hhhh {
+    max-width: 200px;
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
 }
 
-.hhhh{
-  max-width: 200px;
-  width: 100%;
-  height: auto;
-  margin-bottom: 20px; 
-}
-
-.logo{
+.logo {
     max-height: 30px;
     width: auto;
-    margin: 0% 10px;
+    margin: 0 10px;
 }
 
-.divvideo video{
-    width: 75%;
+/* 模态框内 MC ID 卡：默认按比例放大，小屏不溢出 */
+.mc-idcard {
+    width: 450px;
+    max-width: 100%;
     height: auto;
-    max-height: 720px;
-    position: sticky;
-    margin-left: 12%;
-     border-radius: 20px;
+    margin-top: 10px;
 }
 
-.row{
-    margin-top: 10px;
+/* ========== 可访问性 ========== */
+/* 键盘焦点可见指示（鼠标点击不显示） */
+a:focus-visible,
+button:focus-visible,
+.btn:focus-visible {
+    outline: 3px solid #4da3ff;
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+/* 跳转到主内容的链接：默认隐藏，键盘聚焦时显示 */
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 2000;
+    padding: 8px 16px;
+    background: #1e90ff;
+    color: #fff;
+    border-radius: 0 0 6px 0;
+}
+
+.skip-link:focus {
+    left: 0;
+}
+
+/* 卡片获得键盘焦点时与 hover 一致 */
+.card-hover:focus-within {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+}
+
+/* 深色导航与黑底协调 */
+.navbar-dark.bg-dark {
+    background-color: #1a1a1a !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* ========== 动效偏好：减少动态效果 ========== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    #typing-title::after {
+        display: none;
+    }
+}
+
+/* ========== 小屏适配 ========== */
+@media (max-width: 576px) {
+    .tittle {
+        font-size: 1.8rem;
+    }
 }

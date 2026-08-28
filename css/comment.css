@@ -1,18 +1,13 @@
 #comment {
-    position: absolute;
-    left: 50%;
-    top: 80%;
-    transform: translate(-50%, -25%);
-    width: 80%;
-    z-index: 2;
-    margin: 40px auto;
-    max-width: 80%;      /* 最大宽度限制 */
+    /* 改为正常文档流：原先的 absolute + top:80% 在内容较多时会错位/溢出 */
+    width: 100%;
+    max-width: 100%;
+    margin: 40px auto 0;
     padding: 20px;
     box-sizing: border-box;
     background: #fff;
     border-radius: 8px;
-    box-shadow: 10px 2px 8px rgba(0, 0, 0, 0.08);
-    /* 不设置高度，内容可自适应增长 */
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
 }
 
 .background {
@@ -20,10 +15,8 @@
     margin: 40px auto;
     max-width: 80%;
     padding: 20px;
-    height: 50%;
     box-sizing: border-box;
     border-radius: 10px;
-    /* 增强阴影颜色和透明度 */
     box-shadow: 10px 8px 32px rgba(0, 0, 0, 0.25);
     background: #fff url("/images/Background.JPG") center/cover no-repeat;
 }
@@ -34,7 +27,7 @@
     padding-top: 40px;
     font-size: 2em;
     font-weight: bold;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .background h4 {
@@ -44,11 +37,31 @@
     padding-top: 40px;
     font-size: 20px;
     font-weight: bold;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
-.logo{
+.logo {
     max-height: 30px;
     width: auto;
-    margin: 0% 10px;
+    margin: 0 10px;
+}
+
+footer {
+    color: rgb(117, 117, 117);
+}
+
+footer .language-switcher {
+    margin-top: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* 小屏适配 */
+@media (max-width: 768px) {
+    .background {
+        max-width: 94%;
+        padding: 12px;
+    }
 }

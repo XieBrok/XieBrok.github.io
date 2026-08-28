@@ -1,76 +1,58 @@
-// 标题打字特效的 JavaScript 代码
+// 标题打字特效（修复：打字前先清空，使无 JS 时静态文本仍可显示；
+// 移除对不存在的 #typing-end2 的引用，避免 null 报错）
 document.addEventListener("DOMContentLoaded", function () {
-    const text = "Hi I'm HHYYYY<br>PHOTOGRAPH TECHNOLOGY GAMING."; // 要显示的文字，使用 <br> 换行
-    const typingTitle = document.getElementById("typing-title");
-    let index = 0;
+    var typingTitle = document.getElementById("typing-title");
+    if (!typingTitle) {
+        return;
+    }
+    var text = "Hi I'm HHYYYY<br>PHOTOGRAPH TECHNOLOGY GAMING.";
+    var index = 0;
+    typingTitle.innerHTML = ""; // 清空静态内容，开始打字（无 JS 时保留静态文本）
 
     function type() {
         if (index < text.length) {
-            // 检查是否是换行符
             if (text.charAt(index) === '<') {
-                const brTag = text.substring(index, index + 4); // 获取 <br>
+                var brTag = text.substring(index, index + 4);
                 if (brTag === '<br>') {
                     typingTitle.innerHTML += '<br>';
-                    index += 4; // 跳过 <br> 的长度
+                    index += 4;
                 }
             } else {
                 typingTitle.innerHTML += text.charAt(index);
                 index++;
             }
-            setTimeout(type, 150); // 每个字符间隔 150 毫秒
+            setTimeout(type, 150);
         }
     }
 
     type();
 });
 
-// 页脚的打字特效
-    document.addEventListener("DOMContentLoaded", function () {
-        const text = "INFINITY PROGRESS."; // 要显示的文字，使用 <br> 换行
-        const typingTitle = document.getElementById("typing-end");
-        let index = 0;
+// 页脚打字特效
+document.addEventListener("DOMContentLoaded", function () {
+    var typingEnd = document.getElementById("typing-end");
+    if (!typingEnd) {
+        return;
+    }
+    var text = "INFINITY PROGRESS.";
+    var index = 0;
+    typingEnd.innerHTML = ""; // 清空静态内容，开始打字
 
-        function type() {
-            if (index < text.length) {
-                // 检查是否是换行符
-                if (text.charAt(index) === '<') {
-                    const brTag = text.substring(index, index + 4); // 获取 <br>
-                    if (brTag === '<br>') {
-                        typingTitle.innerHTML += '<br>';
-                        index += 4; // 跳过 <br> 的长度
-                    }
-                } else {
-                    typingTitle.innerHTML += text.charAt(index);
-                    index++;
+    function type() {
+        if (index < text.length) {
+            if (text.charAt(index) === '<') {
+                var brTag = text.substring(index, index + 4);
+                if (brTag === '<br>') {
+                    typingEnd.innerHTML += '<br>';
+                    index += 4;
                 }
-                setTimeout(type, 150); // 每个字符间隔 150 毫秒
+            } else {
+                typingEnd.innerHTML += text.charAt(index);
+                index++;
             }
+            setTimeout(type, 150);
         }
+    }
 
-        type();
-    });
-            document.addEventListener("DOMContentLoaded", function () {
-                const text = "不要错过重要的事."; // 要显示的文字，使用 <br> 换行
-                const typingTitle = document.getElementById("typing-end2");
-                let index = 0;
-        
-                function type() {
-                    if (index < text.length) {
-                        // 检查是否是换行符
-                        if (text.charAt(index) === '<') {
-                            const brTag = text.substring(index, index + 4); // 获取 <br>
-                            if (brTag === '<br>') {
-                                typingTitle.innerHTML += '<br>';
-                                index += 4; // 跳过 <br> 的长度
-                            }
-                        } else {
-                            typingTitle.innerHTML += text.charAt(index);
-                            index++;
-                        }
-                        setTimeout(type, 150); // 每个字符间隔 150 毫秒
-                    }
-                }
-        
-                type();
-            });
- //页脚的打字特效
+    type();
+});

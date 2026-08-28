@@ -48,6 +48,13 @@ document.addEventListener("DOMContentLoaded", () => {
         switchLanguage("en");
     }
 
-    document.getElementById("switch-to-en").addEventListener("click", () => switchLanguage("en"));
-    document.getElementById("switch-to-zh").addEventListener("click", () => switchLanguage("zh"));
+    // 页面中存在语言按钮时才绑定（修复原实现因元素缺失抛 TypeError 的问题）
+    const btnEn = document.getElementById("switch-to-en");
+    const btnZh = document.getElementById("switch-to-zh");
+    if (btnEn) {
+        btnEn.addEventListener("click", () => switchLanguage("en"));
+    }
+    if (btnZh) {
+        btnZh.addEventListener("click", () => switchLanguage("zh"));
+    }
 });
