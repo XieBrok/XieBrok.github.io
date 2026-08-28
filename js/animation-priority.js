@@ -77,6 +77,16 @@
         hold: function () {
             held = true;
             everHeld = true;
+            this._arm();
+        },
+
+        /**
+         * 重新计时门控超时（由 loader.js 在遮罩淡出、入场动画开始时调用）。
+         * 入场动画被 body.page-ready 门控、在资源加载完成后才播放，
+         * 因此超时应从"入场动画实际开始"起算，而非脚本加载时。
+         */
+        rearm: function () {
+            this._arm();
         },
 
         /** 加载动画完成：释放门控并按优先级执行队列 */
@@ -85,13 +95,32 @@
                 return;
             }
             held = false;
+            this._clearTimer();
             this._flush();
         },
 
         /** 超时强制释放（兜底，防止永久阻塞） */
         forceRelease: function () {
             held = false;
+            this._clearTimer();
             this._flush();
+        },
+
+        _arm: function () {
+            var self = this;
+            this._clearTimer();
+            // 入场动画最长 0.3s 延迟 + 0.8s 时长，超时给足余量；
+            // 触发后仅兜底（内容直接显示），不影响正常流程
+            this._timer = setTimeout(function () {
+                self.forceRelease();
+            }, 8000);
+        },
+
+        _clearTimer: function () {
+            if (this._timer) {
+                clearTimeout(this._timer);
+                this._timer = null;
+            }
         },
 
         _flush: function () {
@@ -127,7 +156,6 @@
         scheduler.hold();
 
         var LOAD_ANIMS = 3;                       // 导航 / 标题 / 页脚
-        var LOAD_TIMEOUT = 1600;                  // 最长加载动画(0.3s延迟+0.8s) + 余量
         var remaining = LOAD_ANIMS;
         var done = false;
 
@@ -137,8 +165,7 @@
             }
             done = true;
             global.document.removeEventListener('animationend', onAnimEnd);
-            clearTimeout(timer);
-            scheduler.release();
+            scheduler.release(); // release 会清除门控超时计时器
         }
 
         function onAnimEnd(e) {
@@ -158,9 +185,7 @@
         }
 
         global.document.addEventListener('animationend', onAnimEnd);
-        var timer = setTimeout(function () {
-            // 回退 c：animationend 未如期触发（后台标签页、元素隐藏等）→ 强制释放
-            finish();
-        }, LOAD_TIMEOUT);
+        // 回退 c：animationend 未如期触发（后台标签页、元素隐藏等）→
+        // 由 scheduler 内部 8s 门控超时（hold 时启动、rearm 时重置）强制释放
     })();
 })(window);

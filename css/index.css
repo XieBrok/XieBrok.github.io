@@ -54,12 +54,94 @@ h1, h2, h3, h4, h5 {
     font-family: var(--font-mono-italic);
 }
 
+/* ========== 全屏加载遮罩 ==========
+ * 覆盖全页、置于最顶层(z-index:9999)；资源加载完成后由 js/loader.js
+ * 添加 .loader-hidden 触发淡出（easeOut 非线性），随后移除。
+ * 遮罩存在期间 body.loading 禁用滚动，main/nav/footer 置 inert 禁用交互。 */
+#page-loader {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+    background: #121212; /* 与粒子背景一致，过渡无断层 */
+    opacity: 1;
+    transition: opacity 0.5s var(--ease-out), visibility 0.5s;
+}
+
+#page-loader.loader-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none; /* 淡出期间不再拦截点击 */
+}
+
+/* 加载指示器：旋转环（物理旋转用匀速，外层光晕为非线性脉冲） */
+.loader-spinner {
+    position: relative;
+    width: 52px;
+    height: 52px;
+    border: 4px solid rgba(255, 255, 255, 0.15);
+    border-top-color: #ffffff;
+    border-right-color: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    animation: loaderSpin 1s linear infinite;
+}
+
+.loader-spinner::after {
+    content: '';
+    position: absolute;
+    inset: -12px;
+    border: 2px solid rgba(255, 255, 255, 0.18);
+    border-radius: 50%;
+    animation: loaderHalo 1.6s ease-in-out infinite; /* 非线性呼吸光晕 */
+}
+
+.loader-text {
+    margin: 0;
+    font-family: var(--font-mono);
+    color: #e0e0e0;
+    font-size: 1rem;
+    letter-spacing: 0.18em;
+    text-align: center;
+    animation: loaderPulse 1.6s ease-in-out infinite; /* 非线性呼吸 */
+}
+
+.loader-text span {
+    font-size: 0.8em;
+    color: #9a9a9a;
+    letter-spacing: 0.1em;
+}
+
+@keyframes loaderSpin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
+@keyframes loaderHalo {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50%      { opacity: 1;   transform: scale(1.08); }
+}
+
+@keyframes loaderPulse {
+    0%, 100% { opacity: 0.55; }
+    50%      { opacity: 1; }
+}
+
+/* 遮罩存在期间：禁止滚动（配合 loader.js 的 wheel/touchmove/按键拦截） */
+body.loading {
+    overflow: hidden;
+}
+
 /* ========== 页面加载动画 —— 优先级 LOAD(100)，最高层级、置前 ==========
  * 由 js/animation-priority.js 门控：本组动画播放期间，低优先级动画（滚动
  * reveal 等）入队等待，加载完成后才执行；本组内部按导航→标题→页脚依次入场。
+ * 由 js/loader.js 在遮罩淡出时添加 body.page-ready 触发（遮罩移除后播放）。
  * 仅当 JS 可用（html.js）时启用。 */
 /* 导航栏：从顶部滑入，easeOut 曲线 */
-.js .navbar {
+.js body.page-ready .navbar {
     animation: navSlideIn var(--dur-slow) var(--ease-out) both;
 }
 
@@ -69,7 +151,7 @@ h1, h2, h3, h4, h5 {
 }
 
 /* 主标题：淡入 + 轻微上移，延迟 0.1s 等导航先落位 */
-.js .tittle {
+.js body.page-ready .tittle {
     animation: titleRiseIn 0.8s var(--ease-out) 0.1s both;
 }
 
@@ -79,7 +161,7 @@ h1, h2, h3, h4, h5 {
 }
 
 /* 页脚：淡入上移 */
-.js footer {
+.js body.page-ready footer {
     animation: footerFadeIn 0.8s var(--ease-out) 0.3s both;
 }
 
@@ -397,12 +479,24 @@ button:focus-visible,
         opacity: 1 !important;
     }
 
-    .js .navbar,
-    .js .tittle,
-    .js footer {
+    .js body.page-ready .navbar,
+    .js body.page-ready .tittle,
+    .js body.page-ready footer {
         animation: none !important;
         opacity: 1 !important;
         transform: none !important;
+    }
+
+    /* 遮罩与加载指示器：直接隐藏，不播动画 */
+    #page-loader,
+    #page-loader .loader-spinner,
+    #page-loader .loader-spinner::after,
+    #page-loader .loader-text {
+        animation: none !important;
+    }
+
+    #page-loader {
+        display: none !important;
     }
 }
 
@@ -410,5 +504,21 @@ button:focus-visible,
 @media (max-width: 576px) {
     .tittle {
         font-size: 1.8rem;
+    }
+
+    /* 遮罩元素在移动端适当缩小，保证居中不溢出 */
+    .loader-spinner {
+        width: 40px;
+        height: 40px;
+        border-width: 3px;
+    }
+
+    .loader-spinner::after {
+        inset: -9px;
+    }
+
+    .loader-text {
+        font-size: 0.875rem;
+        letter-spacing: 0.12em;
     }
 }

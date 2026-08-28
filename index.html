@@ -35,6 +35,14 @@
 
 <body>
     <a class="skip-link" href="#main-content">跳到主要内容</a>
+
+    <!-- 全屏加载遮罩：覆盖全页并置于最顶层；资源加载完成后淡出移除，
+         随后触发页面入场动画（详见 js/loader.js）。加载期间页面交互被禁用。 -->
+    <div id="page-loader" role="status" aria-live="polite" aria-label="页面加载中，请耐心等候">
+        <div class="loader-spinner" aria-hidden="true"></div>
+        <p class="loader-text" aria-hidden="true">请耐心等候<br><span>Please wait a moment</span></p>
+    </div>
+
     <div id="particles-js" aria-hidden="true"></div>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="主导航">
@@ -300,5 +308,7 @@
     <!-- 动画优先级调度器：页面加载入场动画持最高优先级(LOAD)，其播放期间 reveal 入场排队 -->
     <script src="/js/animation-priority.js"></script>
     <script src="/js/reveal.js"></script>
+    <!-- 全屏加载遮罩：等待资源加载完成 → 淡出移除 → 触发入场动画（body.page-ready） -->
+    <script src="/js/loader.js"></script>
 </body>
 </html>
