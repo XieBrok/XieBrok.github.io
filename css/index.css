@@ -52,6 +52,14 @@ h1, h2, h3, h4, h5 {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
 
+/* 轮播图片保持原始宽高比：
+   d-block w-100 只设宽度，img 的 height 属性会把图片强制拉伸成固定高度导致变形；
+   显式 height:auto 后按原始比例显示（width/height 属性仍负责加载前占位防 CLS） */
+.carousel-item img {
+    width: 100%;
+    height: auto;
+}
+
 .card-hover {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -189,7 +197,7 @@ footer .language-switcher button {
     margin: 0 10px;
 }
 
-/* 模态框内 MC ID 卡：默认按比例放大，小屏不溢出 */
+/* 模态框内 MC ID 卡：保持原始 3:1 比例，小屏不溢出 */
 .mc-idcard {
     width: 450px;
     max-width: 100%;
