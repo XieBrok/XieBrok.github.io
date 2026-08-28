@@ -41,14 +41,17 @@
     <div id="page-loader" role="status" aria-live="polite" aria-label="页面加载中，请耐心等候">
         <div class="loader-spinner" aria-hidden="true"></div>
         <p class="loader-text" aria-hidden="true">请耐心等候<br><span>Please wait a moment</span></p>
-        <!-- 每日一言：由 loader.js 按日期注入内容，跑马灯滚动展示 -->
+        <!-- 每日一言：轨道预置默认文案兜底；daily-quote.js 解析到此处即覆盖为当日语录 -->
         <div class="loader-quote" aria-hidden="true">
             <div class="loader-quote__track" id="quote-track">
-                <span class="loader-quote__item"></span>
-                <span class="loader-quote__item"></span>
+                <span class="loader-quote__item">保持热爱，奔赴山海。</span>
+                <span class="loader-quote__item">保持热爱，奔赴山海。</span>
             </div>
         </div>
     </div>
+
+    <!-- 每日一言：最高优先级——紧随遮罩元素同步加载执行，首帧前完成注入 -->
+    <script src="/js/daily-quote.js"></script>
 
     <div id="particles-js" aria-hidden="true"></div>
 

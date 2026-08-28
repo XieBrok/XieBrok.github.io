@@ -18,58 +18,13 @@
 (function () {
     'use strict';
 
-    /* ===== 每日一言：内置语录，按日期确定选取（当天固定、次日更新） ===== */
-    var QUOTES = [
-        '求知若饥，虚心若愚。—— Steve Jobs',
-        'Stay hungry, stay foolish.',
-        '代码如诗，简洁即美。',
-        '无限进步，胜过完美停留。',
-        '每一次调试，都是与逻辑的对话。',
-        '把复杂留给代码，把简单留给用户。',
-        '热爱可抵岁月漫长。',
-        '不积跬步，无以至千里。',
-        '保持好奇，保持热爱。',
-        '完成比完美更重要。',
-        '千里之行，始于足下。',
-        '行动是治愈焦虑的良药。',
-        '今天的学习，是明天的底气。',
-        '慢慢来，比较快。',
-        '梦想照亮前路，脚步丈量远方。',
-        '星光不问赶路人，时光不负有心人。',
-        '与其临渊羡鱼，不如退而结网。',
-        '代码改变世界，逻辑解构真理。',
-        '愿我们都能成为更好的自己。',
-        '每个伟大的作品，都始于一行代码。',
-        '路虽远，行则将至；事虽难，做则必成。',
-        '学习是一场没有终点的旅行。'
-    ];
-
-    /** 按日期取当日语录（seed = YYYYMMDD → 稳定索引，当日固定） */
-    function quoteOfTheDay() {
-        var now = new Date();
-        var seed = now.getFullYear() * 10000 + (now.getMonth() + 1) * 100 + now.getDate();
-        return QUOTES[Math.abs(seed) % QUOTES.length];
-    }
-
-    /** 将语录注入跑马灯轨道（两段相同文本实现无缝循环滚动） */
-    function initDailyQuote() {
-        var track = document.getElementById('quote-track');
-        if (!track) {
-            return;
-        }
-        var text = quoteOfTheDay();
-        track.querySelectorAll('.loader-quote__item').forEach(function (item) {
-            item.textContent = text;
-        });
-    }
+    /* 每日一言已迁移至 js/daily-quote.js（遮罩元素后同步执行，最高优先级），
+       此处仅负责遮罩生命周期（资源加载等待 → 淡出 → 触发入场动画）。 */
 
     var loader = document.getElementById('page-loader');
     if (!loader) {
         return;
     }
-
-    // 遮罩创建时立即注入每日一言（其后等待资源加载完成）
-    initDailyQuote();
 
     var body = document.body;
     var interactives = [
