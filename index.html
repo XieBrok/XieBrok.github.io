@@ -238,7 +238,7 @@
             </div>
         </div>
 
-        <!-- 游戏好友信息弹窗（添加好友中心：搜索 / 推荐 / 扫码 / 通讯录） -->
+        <!-- 游戏好友信息弹窗（添加好友中心：搜索 + 推荐 + Minecraft 原始图） -->
         <div class="modal fade" id="exampleModalGaming" tabindex="-1" role="dialog" aria-labelledby="exampleModalGamingLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -260,19 +260,7 @@
                             </div>
 
                             <p class="af-section-title" data-lang-key="afRecommended">推荐添加</p>
-                            <div class="af-grid" id="af-recommend-grid"><!-- 由 add-friend.js 渲染推荐卡 --></div>
-
-                            <p class="af-section-title" data-lang-key="afOtherWays">其他方式</p>
-                            <div class="af-methods">
-                                <button type="button" class="af-method" data-view-target="detail" data-friend="scan">
-                                    <span class="af-method__icon" aria-hidden="true">📷</span>
-                                    <span data-lang-key="afScan">扫码添加</span>
-                                </button>
-                                <button type="button" class="af-method" data-view-target="detail" data-friend="import">
-                                    <span class="af-method__icon" aria-hidden="true">📇</span>
-                                    <span data-lang-key="afImport">通讯录导入</span>
-                                </button>
-                            </div>
+                            <div class="af-grid" id="af-recommend-grid"><!-- 由 add-friend.js 渲染推荐卡与 Minecraft 原始图 --></div>
 
                             <p class="af-empty" id="af-empty" hidden data-lang-key="afNotFound">未找到匹配的好友</p>
                         </div>

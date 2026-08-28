@@ -30,9 +30,6 @@ const translations = {
         /* 添加好友中心 */
         afSearchPh: "Search friends",
         afRecommended: "Recommended",
-        afOtherWays: "More ways",
-        afScan: "Scan to add",
-        afImport: "Import contacts",
         afBack: "Back",
         afNotFound: "No matching friends",
         afAdded: "Friend added",
@@ -69,9 +66,6 @@ const translations = {
         /* 添加好友中心 */
         afSearchPh: "搜索好友",
         afRecommended: "推荐添加",
-        afOtherWays: "其他方式",
-        afScan: "扫码添加",
-        afImport: "通讯录导入",
         afBack: "返回",
         afNotFound: "未找到匹配的好友",
         afAdded: "添加成功",

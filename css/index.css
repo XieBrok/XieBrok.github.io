@@ -844,39 +844,26 @@ footer .language-switcher {
     text-overflow: ellipsis;
 }
 
-/* 其他方式（扫码 / 通讯录） */
-.af-methods {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
+/* Minecraft 原始图片：完整展示，无裁剪、无圆角/阴影等风格化处理、无交互元素 */
+.af-mc {
+    margin: 2px 0 18px;
 }
 
-.af-method {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 14px 10px;
-    font-family: var(--font-mono);
-    font-size: 0.88rem;
-    color: var(--text);
-    background: var(--surface-2);
-    border: 1px dashed var(--border);
-    border-radius: 14px;
-    cursor: pointer;
-    transition: transform var(--dur-fast) var(--ease-out),
-                border-color var(--dur-fast) ease, color var(--dur-fast) ease;
+.af-mc__name {
+    margin: 0 0 8px;
+    font-family: var(--font-mono-italic);
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    color: var(--text-secondary);
 }
 
-.af-method:hover,
-.af-method:focus-visible {
-    transform: translateY(-2px);
-    border-color: var(--accent);
-    color: var(--accent);
-}
-
-.af-method__icon {
-    font-size: 1.15rem;
+.af-mc__img {
+    display: block;
+    width: 100%;
+    height: auto; /* 保持原始 3:1 比例，不变形不裁剪 */
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
 }
 
 /* 空态 */
@@ -951,7 +938,7 @@ footer .language-switcher {
     text-align: center;
 }
 
-/* 失败提示（通讯录导入等异常场景） */
+/* 失败提示（数据缺失等异常场景的兜底展示） */
 .af-fail {
     margin: 10px 0 14px;
     padding: 12px 14px;
@@ -1009,12 +996,8 @@ footer .language-switcher {
     color: var(--text-secondary);
 }
 
-/* 小屏：方式卡单列、推荐卡自适应 */
+/* 小屏：推荐卡自适应 */
 @media (max-width: 576px) {
-    .af-methods {
-        grid-template-columns: 1fr;
-    }
-
     .af-grid {
         grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
     }
