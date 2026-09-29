@@ -9,16 +9,19 @@
     <meta name="theme-color" content="#eef0f4">
     <link rel="icon" href="/logo/H_.png" type="image/png">
 
-    <!-- 主题：首帧前把偏好写入 <html data-theme>，避免加载瞬间闪白/闪黑。
-         有本地记录用记录值，否则跟随系统偏好；后续切换见 js/theme.js -->
+    <!-- 主题：首帧前把模式与生效主题写入 <html>，避免加载瞬间闪白/闪黑与图标错位。
+         有本地记录用记录值，否则跟随系统偏好；后续三态循环见 js/theme.js -->
     <script>
         (function () {
-            var theme = null;
-            try { theme = localStorage.getItem('theme'); } catch (e) { /* 隐私模式：按未选择处理 */ }
-            if (theme !== 'dark' && theme !== 'light') {
-                theme = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
-            }
-            document.documentElement.setAttribute('data-theme', theme);
+            var stored = null;
+            try { stored = localStorage.getItem('theme'); } catch (e) { /* 隐私模式：按未选择处理 */ }
+            var mode = (stored === 'dark' || stored === 'light') ? stored : 'auto';
+            var theme = mode === 'auto'
+                ? ((window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light')
+                : mode;
+            var root = document.documentElement;
+            root.setAttribute('data-theme-mode', mode);
+            root.setAttribute('data-theme', theme);
             var meta = document.querySelector('meta[name="theme-color"]');
             if (meta) {
                 meta.setAttribute('content', theme === 'dark' ? '#121212' : '#eef0f4');
@@ -47,8 +50,12 @@
                     <a class="nav-link" href="/comment.html" aria-current="page">留言板</a>
                 </li>
                 <li class="nav-item">
-                    <!-- 主题切换：图标与文案由 js/theme.js 维护（浅色显示月亮，深色显示太阳） -->
-                    <button type="button" class="theme-toggle" data-theme-toggle aria-label="切换到深色模式" title="切换到深色模式">
+                    <!-- 主题切换：三态循环（跟随系统 → 浅色 → 深色），图标与文案由 js/theme.js 维护 -->
+                    <button type="button" class="theme-toggle" data-theme-toggle aria-label="主题跟随系统，点击切换到浅色模式" title="主题跟随系统，点击切换到浅色模式">
+                        <svg class="theme-toggle__icon theme-toggle__icon--auto" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                            <circle cx="12" cy="12" r="8.5"/>
+                            <path d="M12 3.5A8.5 8.5 0 0 0 12 20.5Z" fill="currentColor" stroke="none"/>
+                        </svg>
                         <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                             <path d="M20.5 14.4A8.5 8.5 0 0 1 9.6 3.5a8.5 8.5 0 1 0 10.9 10.9z"/>
                         </svg>
