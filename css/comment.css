@@ -1,9 +1,11 @@
 /* ==========================================================================
- * comment.css — 留言板页面（跟随系统深浅色主题）
+ * comment.css — 留言板页面
+ * 主题：默认浅色，深色由 <html data-theme="dark"> 激活（切换逻辑见 js/theme.js）
  * ========================================================================== */
 
 /* ---- 主题变量（默认浅色） ---- */
 :root {
+    color-scheme: light;           /* 滚动条 / 表单控件跟随主题 */
     --bg: #eef0f4;
     --surface: #ffffff;            /* 评论容器 / 背景卡 */
     --text: #1c1e21;
@@ -22,25 +24,26 @@
     --shadow-card: 10px 8px 32px rgba(0, 0, 0, 0.18);
 }
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        --bg: #121212;
-        --surface: #1e1e24;
-        --text: #e8e8ec;
-        --text-secondary: #a0a6b0;
-        --border: rgba(255, 255, 255, 0.09);
+/* ---- 深色主题 ---- */
+:root[data-theme="dark"] {
+    color-scheme: dark;
 
-        --navbar-bg: #17171c;
-        --navbar-text: #d6d9de;
-        --navbar-border: rgba(255, 255, 255, 0.16);
-        --accent: #6ea8fe;
+    --bg: #121212;
+    --surface: #1e1e24;
+    --text: #e8e8ec;
+    --text-secondary: #a0a6b0;
+    --border: rgba(255, 255, 255, 0.09);
 
-        --footer-text: #9aa0a8;
-        --footer-link: #8ab4f8;
-        --footer-link-hover: #a8c8fb;
+    --navbar-bg: #17171c;
+    --navbar-text: #d6d9de;
+    --navbar-border: rgba(255, 255, 255, 0.16);
+    --accent: #6ea8fe;
 
-        --shadow-card: 10px 8px 32px rgba(0, 0, 0, 0.45);
-    }
+    --footer-text: #9aa0a8;
+    --footer-link: #8ab4f8;
+    --footer-link-hover: #a8c8fb;
+
+    --shadow-card: 10px 8px 32px rgba(0, 0, 0, 0.45);
 }
 
 /* 主题切换平滑过渡 */

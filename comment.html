@@ -6,9 +6,29 @@
     <title>留言板 | HHYYYY</title>
     <meta name="description" content="在 HHYYYY 的个人主页留言板上留下你想说的话吧。">
     <meta name="author" content="HHYYYY">
+    <meta name="theme-color" content="#eef0f4">
     <link rel="icon" href="/logo/H_.png" type="image/png">
+
+    <!-- 主题：首帧前把偏好写入 <html data-theme>，避免加载瞬间闪白/闪黑。
+         有本地记录用记录值，否则跟随系统偏好；后续切换见 js/theme.js -->
+    <script>
+        (function () {
+            var theme = null;
+            try { theme = localStorage.getItem('theme'); } catch (e) { /* 隐私模式：按未选择处理 */ }
+            if (theme !== 'dark' && theme !== 'light') {
+                theme = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+            }
+            document.documentElement.setAttribute('data-theme', theme);
+            var meta = document.querySelector('meta[name="theme-color"]');
+            if (meta) {
+                meta.setAttribute('content', theme === 'dark' ? '#121212' : '#eef0f4');
+            }
+        })();
+    </script>
+
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/comment.css" rel="stylesheet">
+    <link href="/css/theme.css" rel="stylesheet">
 </head>
 
 <body>
@@ -25,6 +45,18 @@
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="/comment.html" aria-current="page">留言板</a>
+                </li>
+                <li class="nav-item">
+                    <!-- 主题切换：图标与文案由 js/theme.js 维护（浅色显示月亮，深色显示太阳） -->
+                    <button type="button" class="theme-toggle" data-theme-toggle aria-label="切换到深色模式" title="切换到深色模式">
+                        <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M20.5 14.4A8.5 8.5 0 0 1 9.6 3.5a8.5 8.5 0 1 0 10.9 10.9z"/>
+                        </svg>
+                        <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="12" cy="12" r="4.2"/>
+                            <path d="M12 2.6v2.1M12 19.3v2.1M4.4 4.4l1.5 1.5M18.1 18.1l1.5 1.5M2.6 12h2.1M19.3 12h2.1M4.4 19.6l1.5-1.5M18.1 5.9l1.5-1.5"/>
+                        </svg>
+                    </button>
                 </li>
             </ul>
         </div>
@@ -52,6 +84,7 @@
     <script src="/js/jquery-3.7.1.min.js"></script>
     <script src="/js/popper.js"></script>
     <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/theme.js"></script>
     <script src="/js/commentlang.js"></script>
     <script src="/js/twikoo.min.js"></script>
     <script>

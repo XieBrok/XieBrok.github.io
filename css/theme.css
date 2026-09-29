@@ -1,0 +1,52 @@
+/* ==========================================================================
+ * theme.css — 浅色 / 深色主题切换按钮（首页与留言板共用）
+ * 主题令牌（--bg / --surface / --navbar-* 等）仍由各页面样式自行定义，
+ * 本文件只承载切换按钮这一共用组件与其图标。
+ * ========================================================================== */
+
+.theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    margin: 0 6px;
+    padding: 0;
+    color: var(--navbar-text);
+    background: transparent;
+    border: 1px solid var(--navbar-border);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: color 0.25s ease, background-color 0.25s ease,
+                border-color 0.25s ease,
+                transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+    color: var(--accent);
+    background: var(--surface-2, rgba(128, 128, 128, 0.14));
+    transform: translateY(-2px);
+}
+
+.theme-toggle:active {
+    transform: translateY(0) scale(0.94);
+}
+
+/* 图标：浅色下显示月亮（点击进入深色），深色下显示太阳（点击返回浅色） */
+.theme-toggle__icon {
+    display: block;
+    pointer-events: none;
+}
+
+.theme-toggle__icon--sun {
+    display: none;
+}
+
+:root[data-theme="dark"] .theme-toggle__icon--moon {
+    display: none;
+}
+
+:root[data-theme="dark"] .theme-toggle__icon--sun {
+    display: block;
+}

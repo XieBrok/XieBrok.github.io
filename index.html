@@ -8,8 +8,25 @@
     <meta name="description" content="HHYYYY 的个人主页 —— 用尼康 Z30 记录文化自然，玩树莓派与 HomeAssistant，也打游戏。欢迎留言、交个朋友。">
     <meta name="author" content="HHYYYY">
     <meta name="keywords" content="HHYYYY,摄影,photography,树莓派,Raspberry Pi,HomeAssistant,游戏,Gaming,前端开发">
-    <meta name="theme-color" content="#121212">
+    <meta name="theme-color" content="#eef0f4">
     <link rel="icon" href="/logo/H_.png" type="image/png">
+
+    <!-- 主题：首帧前把偏好写入 <html data-theme>，避免加载瞬间闪白/闪黑。
+         有本地记录用记录值，否则跟随系统偏好；后续切换见 js/theme.js -->
+    <script>
+        (function () {
+            var theme = null;
+            try { theme = localStorage.getItem('theme'); } catch (e) { /* 隐私模式：按未选择处理 */ }
+            if (theme !== 'dark' && theme !== 'light') {
+                theme = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+            }
+            document.documentElement.setAttribute('data-theme', theme);
+            var meta = document.querySelector('meta[name="theme-color"]');
+            if (meta) {
+                meta.setAttribute('content', theme === 'dark' ? '#121212' : '#eef0f4');
+            }
+        })();
+    </script>
 
     <!-- Open Graph / Twitter Card（社交分享预览） -->
     <meta property="og:type" content="website">
@@ -23,11 +40,13 @@
     <link rel="canonical" href="https://hhyyyy.cn/">
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/theme.css">
     <style>
-        /* 首屏关键样式内联，避免等待外部样式造成白屏（其余样式仍在 index.css） */
+        /* 首屏关键样式内联，避免等待外部样式造成白屏（其余样式仍在 index.css）
+           背景色走 var(--bg)，跟随 data-theme 而非写死深色 */
         #particles-js {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -1; background-color: #121212;
+            z-index: -1; background-color: var(--bg, #eef0f4);
         }
         body { position: relative; z-index: 1; }
     </style>
@@ -66,6 +85,18 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/comment.html">留言板</a>
+                </li>
+                <li class="nav-item">
+                    <!-- 主题切换：图标与文案由 js/theme.js 维护（浅色显示月亮，深色显示太阳） -->
+                    <button type="button" class="theme-toggle" data-theme-toggle aria-label="切换到深色模式" title="切换到深色模式">
+                        <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M20.5 14.4A8.5 8.5 0 0 1 9.6 3.5a8.5 8.5 0 1 0 10.9 10.9z"/>
+                        </svg>
+                        <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="12" cy="12" r="4.2"/>
+                            <path d="M12 2.6v2.1M12 19.3v2.1M4.4 4.4l1.5 1.5M18.1 18.1l1.5 1.5M2.6 12h2.1M19.3 12h2.1M4.4 19.6l1.5-1.5M18.1 5.9l1.5-1.5"/>
+                        </svg>
+                    </button>
                 </li>
             </ul>
         </div>
@@ -335,6 +366,8 @@
     <script src="/js/popper.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/particles.js"></script>
+    <!-- 主题控制器：需先于 background.js，后者按当前主题决定粒子配色 -->
+    <script src="/js/theme.js"></script>
     <script src="/js/background.js"></script>
     <script src="/js/consolelog.js"></script>
     <script src="/js/marked.min.js"></script>

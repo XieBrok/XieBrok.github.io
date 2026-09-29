@@ -11,6 +11,9 @@ const translations = {
 
 // 切换语言的函数和动画
 function switchLanguage(lang) {
+    // 通知不依赖 data-lang-key 的组件（如主题切换按钮）更新文案
+    document.dispatchEvent(new CustomEvent("languagechange", { detail: { lang } }));
+
     document.querySelectorAll("[data-lang-key]").forEach((element) => {
         const key = element.getAttribute("data-lang-key");
         if (translations[lang][key]) {

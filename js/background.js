@@ -1,17 +1,21 @@
 /* 粒子背景（particles.js）
- * 颜色跟随系统主题（prefers-color-scheme）：
+ * 颜色跟随当前主题（window.HHTheme，见 js/theme.js）：
  *   - 浅色：浅灰背景 + 深灰粒子
  *   - 深色：深黑背景 + 浅灰粒子
- * 系统主题切换时重建粒子以应用新配色（容器背景色由 CSS 变量 var(--bg) 控制）。
+ * 主题变化时重建粒子以应用新配色（容器背景色由 CSS 变量 var(--bg) 控制）。
  */
 (function () {
     'use strict';
 
-    var themeQuery = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+    function isDark() {
+        if (window.HHTheme) {
+            return window.HHTheme.get() === 'dark';
+        }
+        return !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    }
 
     function themeColors() {
-        var dark = themeQuery ? themeQuery.matches : false;
-        return dark
+        return isDark()
             ? { particle: '#cccccc', line: '#cccccc' }
             : { particle: '#556071', line: '#556071' };
     }
@@ -73,8 +77,6 @@
 
     initParticles();
 
-    // 系统深浅色切换 → 重建粒子配色
-    if (themeQuery && typeof themeQuery.addEventListener === 'function') {
-        themeQuery.addEventListener('change', initParticles);
-    }
+    // 主题切换（手动或跟随系统）→ 重建粒子配色
+    document.addEventListener('themechange', initParticles);
 })();

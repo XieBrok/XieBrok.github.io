@@ -1,6 +1,8 @@
 /* ==========================================================================
  * index.css — 主题变量系统 + 动画系统 + 友链弹窗布局
- * 主题：默认浅色，@media (prefers-color-scheme: dark) 自动切换深色；
+ * 主题：默认浅色；深色由 <html data-theme="dark"> 激活，该属性在首帧前由
+ *       <head> 内联脚本写入（用户选择优先，未选择过则跟随系统偏好），
+ *       切换入口见 js/theme.js + css/theme.css。
  *       颜色过渡通过 transition 平滑进行（reduced-motion 下自动禁用）。
  * ========================================================================== */
 
@@ -39,6 +41,7 @@
     --dur-slow: 0.7s;
 
     /* ---- 浅色主题（默认） ---- */
+    color-scheme: light;              /* 滚动条 / 表单控件跟随主题 */
     --bg: #eef0f4;                    /* 页面 / 粒子背景 */
     --surface: #ffffff;               /* 卡片 / 弹窗表面 */
     --surface-2: #f2f4f8;             /* 次级表面（友链卡片） */
@@ -71,43 +74,43 @@
     --overlay: rgba(15, 23, 42, 0.5);
 }
 
-/* 深色主题：跟随系统偏好自动切换 */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --bg: #121212;
-        --surface: #1e1e24;
-        --surface-2: #27272e;
-        --text: #e8e8ec;
-        --text-secondary: #a0a6b0;
-        --border: rgba(255, 255, 255, 0.09);
+/* 深色主题：由 js/theme.js 写入 <html data-theme="dark"> 激活 */
+:root[data-theme="dark"] {
+    color-scheme: dark;
 
-        --navbar-bg: #17171c;
-        --navbar-text: #d6d9de;
-        --navbar-border: rgba(255, 255, 255, 0.16);
-        --accent: #6ea8fe;
+    --bg: #121212;
+    --surface: #1e1e24;
+    --surface-2: #27272e;
+    --text: #e8e8ec;
+    --text-secondary: #a0a6b0;
+    --border: rgba(255, 255, 255, 0.09);
 
-        --btn-bg: #3b82f6;
-        --btn-text: #ffffff;
+    --navbar-bg: #17171c;
+    --navbar-text: #d6d9de;
+    --navbar-border: rgba(255, 255, 255, 0.16);
+    --accent: #6ea8fe;
 
-        --footer-text: #9aa0a8;
-        --footer-link: #8ab4f8;
-        --footer-link-hover: #a8c8fb;
+    --btn-bg: #3b82f6;
+    --btn-text: #ffffff;
 
-        --title-color: #ffffff;
-        --cursor-color: #ffffff;
+    --footer-text: #9aa0a8;
+    --footer-link: #8ab4f8;
+    --footer-link-hover: #a8c8fb;
 
-        --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.35);
-        --shadow-card-hover: 0 16px 36px rgba(0, 0, 0, 0.5);
-        --shadow-modal: 0 12px 40px rgba(0, 0, 0, 0.6);
+    --title-color: #ffffff;
+    --cursor-color: #ffffff;
 
-        --loader-bg: #121212;
-        --loader-spinner: #ffffff;
-        --loader-text: #e0e0e0;
-        --overlay: rgba(0, 0, 0, 0.6);
-    }
+    --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.35);
+    --shadow-card-hover: 0 16px 36px rgba(0, 0, 0, 0.5);
+    --shadow-modal: 0 12px 40px rgba(0, 0, 0, 0.6);
+
+    --loader-bg: #121212;
+    --loader-spinner: #ffffff;
+    --loader-text: #e0e0e0;
+    --overlay: rgba(0, 0, 0, 0.6);
 }
 
-/* ========== 主题切换平滑过渡（系统深浅色切换时避免生硬闪烁） ========== */
+/* ========== 主题切换平滑过渡（切换瞬间避免生硬闪烁） ========== */
 body,
 .card,
 .site-navbar,
