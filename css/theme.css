@@ -33,20 +33,16 @@
     transform: translateY(0) scale(0.94);
 }
 
-/* 图标：浅色下显示月亮（点击进入深色），深色下显示太阳（点击返回浅色） */
+/* 图标显示"当前"模式：跟随系统(◐) / 浅色(☀) / 深色(☾)
+   模式取自 <html data-theme-mode>，由 js/theme.js 维护；
+   前两条选择器同时兜住属性缺失（无 JS）的情况，此时回落到自动图标 */
 .theme-toggle__icon {
-    display: block;
+    display: none;
     pointer-events: none;
 }
 
-.theme-toggle__icon--sun {
-    display: none;
-}
-
-:root[data-theme="dark"] .theme-toggle__icon--moon {
-    display: none;
-}
-
-:root[data-theme="dark"] .theme-toggle__icon--sun {
+:root:not([data-theme-mode="light"]):not([data-theme-mode="dark"]) .theme-toggle__icon--auto,
+:root[data-theme-mode="light"] .theme-toggle__icon--sun,
+:root[data-theme-mode="dark"] .theme-toggle__icon--moon {
     display: block;
 }
