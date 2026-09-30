@@ -1,0 +1,412 @@
+/* ==========================================================================
+ * about.css — 自我介绍页
+ * 主题：默认浅色，深色由 <html data-theme="dark"> 激活（切换逻辑见 js/theme.js）
+ * ========================================================================== */
+
+/* ---- 主题变量（默认浅色） ---- */
+:root {
+    color-scheme: light;           /* 滚动条 / 表单控件跟随主题 */
+    --bg: #eef0f4;
+    --surface: #ffffff;
+    --surface-2: #f2f4f8;
+    --text: #1c1e21;
+    --text-secondary: #5d6470;
+    --border: rgba(15, 23, 42, 0.08);
+
+    --navbar-bg: #ffffff;
+    --navbar-text: #3a3f47;
+    --navbar-border: rgba(0, 0, 0, 0.12);
+    --accent: #2563eb;
+
+    --footer-text: #6b7280;
+    --footer-link: #2563eb;
+    --footer-link-hover: #1d4ed8;
+
+    --shadow-card: 0 4px 12px rgba(15, 23, 42, 0.1);
+}
+
+/* ---- 深色主题 ---- */
+:root[data-theme="dark"] {
+    color-scheme: dark;
+
+    --bg: #121212;
+    --surface: #1e1e24;
+    --surface-2: #27272e;
+    --text: #e8e8ec;
+    --text-secondary: #a0a6b0;
+    --border: rgba(255, 255, 255, 0.09);
+
+    --navbar-bg: #17171c;
+    --navbar-text: #d6d9de;
+    --navbar-border: rgba(255, 255, 255, 0.16);
+    --accent: #6ea8fe;
+
+    --footer-text: #9aa0a8;
+    --footer-link: #8ab4f8;
+    --footer-link-hover: #a8c8fb;
+
+    --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.35);
+}
+
+/* 主题切换平滑过渡 */
+body,
+nav,
+.navbar-brand,
+.nav-link,
+.navbar-toggler,
+.about-title,
+.about-card,
+.about-hello,
+.about-tagline,
+.about-bio,
+.about-section__title,
+.about-tags li,
+.about-links a,
+footer,
+footer a {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* ---- 基础 ---- */
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'JetBrainsMono-Medium', 'Consolas', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    /* 抬到粒子画布之上（#particles-js 为 z-index:-1） */
+    position: relative;
+    z-index: 1;
+}
+
+/* ---- 粒子背景 ---- */
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: var(--bg);
+}
+
+/* ---- 导航栏（与首页 / 留言板一致的主题导航） ---- */
+.site-navbar {
+    background: var(--navbar-bg);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.site-navbar .navbar-brand,
+.site-navbar .nav-link {
+    color: var(--navbar-text);
+}
+
+.site-navbar .nav-link:hover,
+.site-navbar .nav-link:focus-visible,
+.site-navbar .nav-item.active .nav-link {
+    color: var(--accent);
+}
+
+.site-navbar .navbar-toggler {
+    border-color: var(--navbar-border);
+}
+
+/* 导航按钮水平居中：菜单区占满剩余宽度，按钮组居中（桌面端） */
+.site-navbar .navbar-collapse {
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.site-navbar .navbar-nav {
+    align-items: center;
+}
+
+.site-navbar .navbar-toggler-icon {
+    background-color: var(--navbar-text);
+    -webkit-mask: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(0,0,0,0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") center / contain no-repeat;
+    mask: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(0,0,0,0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") center / contain no-repeat;
+}
+
+.logo {
+    max-height: 30px;
+    width: auto;
+    margin: 0 10px;
+}
+
+/* ---- 页面标题 ---- */
+.about-title {
+    margin: 40px auto 0;
+    color: var(--text);
+    text-align: center;
+    font-size: 2.5rem;
+    font-style: italic;
+    font-weight: bold;
+}
+
+/* ---- 主体容器 ---- */
+.about-page {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+/* ---- 简介卡：头像 + 姓名 + 正文 ---- */
+.about-card {
+    margin-top: 28px;
+    padding: 32px;
+    background: var(--surface);
+    border-radius: 12px;
+    box-shadow: var(--shadow-card);
+}
+
+.about-profile {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+/* 圆形裁剪 + object-fit：日后换成非正方形照片也不会变形 */
+.about-avatar {
+    flex: 0 0 auto;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: var(--surface-2);
+    border: 3px solid var(--border);
+}
+
+.about-headline {
+    min-width: 0;
+}
+
+.about-hello {
+    margin: 0 0 8px;
+    color: var(--text);
+    font-size: 1.75rem;
+    font-weight: bold;
+}
+
+.about-tagline {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 1rem;
+    letter-spacing: 0.05em;
+}
+
+.about-bio {
+    margin-top: 28px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+}
+
+.about-bio p {
+    margin: 0 0 16px;
+    color: var(--text);
+    font-size: 1rem;
+    line-height: 1.9;
+}
+
+.about-bio p:last-child {
+    margin-bottom: 0;
+    color: var(--text-secondary);
+}
+
+/* ---- 兴趣 / 找到我 分区 ---- */
+.about-section {
+    margin-top: 36px;
+}
+
+.about-section__title {
+    margin-bottom: 16px;
+    color: var(--text);
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.about-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.about-tags li {
+    padding: 7px 16px;
+    color: var(--text);
+    font-size: 0.9rem;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+}
+
+.about-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+}
+
+.about-links a {
+    position: relative;
+    color: var(--accent);
+    font-size: 1rem;
+    text-decoration: none;
+}
+
+.about-links a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 100%;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.about-links a:hover::after,
+.about-links a:focus-visible::after {
+    transform: scaleX(1);
+}
+
+/* ---- 页脚 ---- */
+footer {
+    color: var(--footer-text);
+}
+
+footer a {
+    color: var(--footer-link);
+}
+
+footer a:hover,
+footer a:focus {
+    color: var(--footer-link-hover);
+}
+
+footer .language-switcher {
+    margin-top: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+footer .language-switcher button {
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+footer .language-switcher button:hover {
+    transform: translateY(-2px);
+}
+
+/* ---- 语言切换的淡入淡出（js/aboutlang.js 添加这两个类） ---- */
+.fade-out {
+    animation: fadeOut 0.4s cubic-bezier(0.7, 0, 0.84, 0) forwards;
+}
+
+.fade-in {
+    animation: fadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* ---- 页面加载动画（非线性缓动） ---- */
+.about-title {
+    animation: riseFadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.about-card {
+    animation: zoomFadeIn 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 0.15s both;
+}
+
+.about-section {
+    animation: riseFadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* <section> 同级中：1 = 简介卡，2 / 3 = 兴趣与找到我，依次延后入场 */
+.about-section:nth-of-type(2) { animation-delay: 0.3s; }
+.about-section:nth-of-type(3) { animation-delay: 0.4s; }
+
+@keyframes riseFadeIn {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes zoomFadeIn {
+    from { opacity: 0; transform: scale(0.96); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+/* 尊重"减少动态效果"偏好 */
+@media (prefers-reduced-motion: reduce) {
+    .about-title,
+    .about-card,
+    .about-section {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    .fade-out,
+    .fade-in {
+        animation: none !important;
+    }
+}
+
+/* ---- 小屏适配 ---- */
+@media (max-width: 768px) {
+    .about-page {
+        padding: 0 12px;
+    }
+
+    .about-title {
+        font-size: 2rem;
+    }
+
+    .about-card {
+        padding: 24px 20px;
+    }
+
+    /* 头像与姓名改为上下堆叠 */
+    .about-profile {
+        flex-direction: column;
+        text-align: center;
+        gap: 18px;
+    }
+
+    .about-avatar {
+        width: 120px;
+        height: 120px;
+    }
+
+    .about-links {
+        flex-direction: column;
+        gap: 12px;
+    }
+}
+
+/* 折叠断点（<992px）：移动端/平板菜单项居中 */
+@media (max-width: 991.98px) {
+    .site-navbar .navbar-collapse {
+        justify-content: center;
+    }
+
+    .site-navbar .navbar-nav {
+        align-items: center;
+        text-align: center;
+    }
+
+    .site-navbar .navbar-nav .nav-link {
+        text-align: center;
+    }
+}

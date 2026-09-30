@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>留言板 | HHYYYY</title>
-    <meta name="description" content="在 HHYYYY 的个人主页留言板上留下你想说的话吧。">
+    <title>自我介绍 | HHYYYY</title>
+    <meta name="description" content="HHYYYY 的自我介绍 —— 摄影、技术、游戏，以及在哪里找到我。">
     <meta name="author" content="HHYYYY">
+    <meta name="keywords" content="HHYYYY,自我介绍,about,摄影,photography,树莓派,Raspberry Pi,HomeAssistant,游戏,Gaming">
     <meta name="theme-color" content="#eef0f4">
     <link rel="icon" href="/logo/H_.png" type="image/png">
 
@@ -29,12 +30,23 @@
         })();
     </script>
 
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="自我介绍 | HHYYYY">
+    <meta property="og:description" content="HHYYYY 的自我介绍 —— 摄影、技术、游戏，以及在哪里找到我。">
+    <meta property="og:url" content="https://hhyyyy.cn/about.html">
+    <meta property="og:image" content="/images/photo1.jpg">
+    <meta property="og:locale" content="zh_CN">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="canonical" href="https://hhyyyy.cn/about.html">
     <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/css/comment.css" rel="stylesheet">
-    <link href="/css/theme.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/about.css">
+    <link rel="stylesheet" href="/css/theme.css">
 </head>
 
 <body>
+    <div id="particles-js" aria-hidden="true"></div>
+
     <nav class="navbar navbar-expand-lg site-navbar" aria-label="主导航">
         <img src="/logo/H_.png" class="logo" alt="HHYYYY 标志" width="128" height="128">
         <a class="navbar-brand" href="/">HHYYYY</a>
@@ -46,11 +58,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/">首页</a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="/comment.html" aria-current="page">留言板</a>
-                </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/about.html">自我介绍</a>
+                    <a class="nav-link" href="/comment.html">留言板</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/about.html" aria-current="page">自我介绍</a>
                 </li>
                 <li class="nav-item">
                     <!-- 主题切换：三态循环（跟随系统 → 浅色 → 深色），图标与文案由 js/theme.js 维护 -->
@@ -72,12 +84,47 @@
         </div>
     </nav>
 
-    <main class="background">
-        <h2 data-lang-key="Comment">留言板</h2>
-        <h4 data-lang-key="来这里留下你想说的话吧">来这里留下你想说的话吧</h4>
-        <div id="comment">
-            <div id="tcomment"></div>
-        </div>
+    <main class="about-page">
+        <h1 class="about-title" data-lang-key="aboutTitle">自我介绍</h1>
+
+        <section class="about-card">
+            <header class="about-profile">
+                <!-- 头像：现用站点标记占位。换成自己的照片时只需改 src（建议正方形、400px 以上） -->
+                <img class="about-avatar" src="/logo/H_.png" alt="HHYYYY 的头像" width="140" height="140">
+                <div class="about-headline">
+                    <p class="about-hello" data-lang-key="aboutHello">你好，我是 HHYYYY</p>
+                    <p class="about-tagline" data-lang-key="aboutTagline">摄影 · 技术 · 游戏</p>
+                </div>
+            </header>
+
+            <div class="about-bio">
+                <p data-lang-key="aboutP1">我带着尼康 Z30 记录身边的文化与自然——街头的一瞬、山野的光影，都是我按下快门的原因。作品会同步到我的 Synology Photos，欢迎去看看。</p>
+                <p data-lang-key="aboutP2">平时我折腾树莓派 3b+ 和 HomeAssistant，也在学习前端开发，这个网站就是我的练习场；此外我还是 TATEN 的一员，一个计算机科学交流团队。</p>
+                <p data-lang-key="aboutP3">游戏是另一种看世界的方式。最近在玩《极限竞速：地平线4》《死亡搁浅》和《我的世界》，欢迎来加好友一起玩。</p>
+                <p data-lang-key="aboutP4">我的信条是「无限进步」——保持热爱，奔赴山海。</p>
+            </div>
+        </section>
+
+        <section class="about-section">
+            <h2 class="about-section__title" data-lang-key="aboutInterestsTitle">兴趣</h2>
+            <ul class="about-tags">
+                <li data-lang-key="aboutTagPhoto">摄影</li>
+                <li data-lang-key="aboutTagPi">树莓派</li>
+                <li data-lang-key="aboutTagHA">HomeAssistant</li>
+                <li data-lang-key="aboutTagFrontend">前端开发</li>
+                <li data-lang-key="aboutTagGaming">游戏</li>
+            </ul>
+        </section>
+
+        <section class="about-section">
+            <h2 class="about-section__title" data-lang-key="aboutFindMeTitle">找到我</h2>
+            <div class="about-links">
+                <a href="https://github.com/XieBrok" target="_blank" rel="noopener">GitHub</a>
+                <a href="/comment.html" data-lang-key="aboutLinkComment">留言板</a>
+                <a href="https://HHYYYY.quickconnect.to/mo/sharing/UWLX7yDwl" target="_blank" rel="noopener" data-lang-key="aboutLinkPhotos">Synology Photos</a>
+                <a href="https://www.bilibili.com/video/BV1Mc411Z7VY/?share_source=copy_web&amp;vd_source=3932d2849625079f0d9fca85660768dd" target="_blank" rel="noopener" data-lang-key="aboutLinkBili">影视飓风活动视频</a>
+            </div>
+        </section>
     </main>
 
     <footer class="text-center py-3 mt-5">
@@ -94,17 +141,10 @@
     <script src="/js/jquery-3.7.1.min.js"></script>
     <script src="/js/popper.js"></script>
     <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/particles.js"></script>
+    <!-- 主题控制器：需先于 background.js，后者按当前主题决定粒子配色 -->
     <script src="/js/theme.js"></script>
-    <script src="/js/commentlang.js"></script>
-    <script src="/js/twikoo.min.js"></script>
-    <script>
-        twikoo.init({
-            envId: 'https://hhyyyy-twikoo.netlify.app/.netlify/functions/twikoo', // 腾讯云环境填 envId；Vercel 环境填地址（https://xxx.vercel.app）
-            el: '#tcomment', // 容器元素
-            // region: 'ap-guangzhou', // 环境地域，默认为 ap-shanghai，腾讯云环境填 ap-shanghai 或 ap-guangzhou；Vercel 环境不填
-            // path: location.pathname, // 用于区分不同文章的自定义 js 路径，如果您的文章路径不是 location.pathname，需传此参数
-            // lang: 'zh-CN', // 用于手动设定评论区语言，支持的语言列表 https://github.com/twikoojs/twikoo/blob/main/src/client/utils/i18n/index.js
-        });
-    </script>
+    <script src="/js/background.js"></script>
+    <script src="/js/aboutlang.js"></script>
 </body>
 </html>
