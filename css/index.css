@@ -373,7 +373,7 @@ body.loading {
     transform: scaleX(1);
 }
 
-/* 折叠按钮：边框与图标颜色跟随主题（mask 方案让图标可用背景色着色） */
+/* 折叠按钮：边框跟随主题 */
 .site-navbar .navbar-toggler {
     border-color: var(--navbar-border);
 }
@@ -388,10 +388,55 @@ body.loading {
     align-items: center;
 }
 
+/* 折叠按钮图标：三条横线——本体画中线，::before / ::after 画上下线。
+   用真实线条而非 mask 背景图是为了能做动画：展开时上下两条收到中线并各自
+   旋转 ±45°，中线淡出，整体变成叉号。
+   状态钩子用 aria-expanded：Bootstrap 只在首次关闭后才补上 .collapsed，
+   用它会让首屏（尚未展开）被误判成展开态。 */
 .site-navbar .navbar-toggler-icon {
+    position: relative;
+    display: block;
+    width: 24px;
+    height: 2px;
+    margin: 7px 0;
+    border-radius: 2px;
     background-color: var(--navbar-text);
-    -webkit-mask: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(0,0,0,0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") center / contain no-repeat;
-    mask: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(0,0,0,0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") center / contain no-repeat;
+    transition: background-color 0.18s ease;
+}
+
+.site-navbar .navbar-toggler-icon::before,
+.site-navbar .navbar-toggler-icon::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    border-radius: 2px;
+    background-color: var(--navbar-text);
+    transition: top 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.site-navbar .navbar-toggler-icon::before {
+    top: -7px;
+}
+
+.site-navbar .navbar-toggler-icon::after {
+    top: 7px;
+}
+
+.site-navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+    background-color: transparent;
+}
+
+.site-navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::before {
+    top: 0;
+    transform: rotate(45deg);
+}
+
+.site-navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::after {
+    top: 0;
+    transform: rotate(-45deg);
 }
 
 .site-navbar .logo {
@@ -1123,18 +1168,66 @@ button:focus-visible,
     }
 }
 
-/* ========== 折叠断点（<992px，navbar-expand-lg）：移动端/平板菜单项居中 ========== */
+/* ========== 折叠断点（<992px，navbar-expand-lg）：移动端/平板顶栏 ==========
+   顶栏改为 flex-start：navbar 默认的 space-between 会把「logo / 站名 / 折叠按钮」
+   三者均摊开，站名被挤到画面正中；这里让 logo 与站名靠左成组、折叠按钮单独贴右。 */
 @media (max-width: 991.98px) {
-    .site-navbar .navbar-collapse {
-        justify-content: center;
+    .site-navbar {
+        justify-content: flex-start;
     }
 
+    /* 内边距按图标的 24×16 视觉框反算，保证按钮仍是 56×46 的点按热区 */
+    .site-navbar .navbar-toggler {
+        margin-left: auto;
+        padding: 14px 15px;
+    }
+
+    /* 去掉 logo 左侧留白，让它与折叠按钮分别贴齐顶栏左右内边距 */
+    .site-navbar .logo {
+        margin-left: 0;
+    }
+
+    /* 展开后的菜单整体下压一层，与顶栏用一条细线分隔 */
+    .site-navbar .navbar-collapse {
+        justify-content: center;
+        margin-top: 8px;
+        border-top: 1px solid var(--navbar-border);
+    }
+
+    /* 菜单条目拉通成整行，纵向排布，分隔线区分（点按热区更大） */
     .site-navbar .navbar-nav {
-        align-items: center;
+        width: 100%;
+        align-items: stretch;
         text-align: center;
+    }
+
+    .site-navbar .navbar-nav .nav-item + .nav-item {
+        border-top: 1px solid var(--navbar-border);
     }
 
     .site-navbar .navbar-nav .nav-link {
+        display: block;
+        padding: 12px 8px;
         text-align: center;
+    }
+
+    /* 整行条目下，底部指示线改成条目下方居中的短线，
+       避免与相邻条目的分隔线首尾相接、叠成一条粗线 */
+    .site-navbar .navbar-nav .nav-link::after {
+        left: 50%;
+        width: 2.5rem;
+        transform: translateX(-50%) scaleX(0);
+        transform-origin: center;
+    }
+
+    .site-navbar .navbar-nav .nav-link:hover::after,
+    .site-navbar .navbar-nav .nav-link:focus-visible::after,
+    .site-navbar .navbar-nav .nav-item.active .nav-link::after {
+        transform: translateX(-50%) scaleX(1);
+    }
+
+    /* 主题按钮只有图标，独占一行会显得空旷，故居中并留出上下间距 */
+    .site-navbar .navbar-nav .theme-toggle {
+        margin: 10px auto;
     }
 }
