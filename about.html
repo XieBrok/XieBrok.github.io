@@ -47,42 +47,8 @@
 <body>
     <div id="particles-js" aria-hidden="true"></div>
 
-    <nav class="navbar navbar-expand-lg site-navbar" aria-label="主导航">
-        <img src="/logo/H_.png" class="logo" alt="HHYYYY 标志" width="128" height="128">
-        <a class="navbar-brand" href="/">HHYYYY</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="展开或收起导航菜单">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="/">首页</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/comment.html">留言板</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="/about.html" aria-current="page">自我介绍</a>
-                </li>
-                <li class="nav-item">
-                    <!-- 主题切换：三态循环（跟随系统 → 浅色 → 深色），图标与文案由 js/theme.js 维护 -->
-                    <button type="button" class="theme-toggle" data-theme-toggle aria-label="主题跟随系统，点击切换到浅色模式" title="主题跟随系统，点击切换到浅色模式">
-                        <svg class="theme-toggle__icon theme-toggle__icon--auto" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-                            <circle cx="12" cy="12" r="8.5"/>
-                            <path d="M12 3.5A8.5 8.5 0 0 0 12 20.5Z" fill="currentColor" stroke="none"/>
-                        </svg>
-                        <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <path d="M20.5 14.4A8.5 8.5 0 0 1 9.6 3.5a8.5 8.5 0 1 0 10.9 10.9z"/>
-                        </svg>
-                        <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <circle cx="12" cy="12" r="4.2"/>
-                            <path d="M12 2.6v2.1M12 19.3v2.1M4.4 4.4l1.5 1.5M18.1 18.1l1.5 1.5M2.6 12h2.1M19.3 12h2.1M4.4 19.6l1.5-1.5M18.1 5.9l1.5-1.5"/>
-                        </svg>
-                    </button>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <!-- site-header: rendered synchronously by js/layout.js -->
+    <div id="site-header"></div>
 
     <main class="about-page">
         <h1 class="about-title" data-lang-key="aboutTitle">自我介绍</h1>
@@ -98,7 +64,7 @@
             </header>
 
             <div class="about-bio">
-                <p data-lang-key="aboutP1">我带着尼康 Z30 记录身边的文化与自然——街头的一瞬、山野的光影，都是我按下快门的原因。作品会同步到我的 Synology Photos，欢迎去看看。</p>
+                <p data-lang-key="aboutP1">我带着尼康 Z30 记录身边的文化与自然——街头的一瞬、山野的光影，都是我按下快门的原因。作品会同步到我的 Synology Photos，欢迎你去看看。</p>
                 <p data-lang-key="aboutP2">平时我折腾树莓派 3b+ 和 HomeAssistant，也在学习前端开发，这个网站就是我的练习场；此外我还是 TATEN 的一员，一个计算机科学交流团队。</p>
                 <p data-lang-key="aboutP3">游戏是另一种看世界的方式。最近在玩《怪物猎人崛起》《死亡搁浅》和《我的世界》，欢迎来加好友一起玩。</p>
                 <p data-lang-key="aboutP4">我的信条是「无限进步」——保持热爱，奔赴山海。</p>
@@ -123,17 +89,11 @@
         </section>
     </main>
 
-    <footer class="text-center py-3 mt-5">
-        <p>&copy; 2026 HHYYYY. MIT License.</p>
-        <div class="language-switcher">
-            <button id="switch-to-en" class="btn btn-secondary btn-sm" type="button">English</button>
-            <button id="switch-to-zh" class="btn btn-secondary btn-sm" type="button">中文</button>
-        </div>
-        <a href="https://icp.gov.moe/?keyword=20258500" target="_blank" rel="noopener">萌ICP备20258500号</a>
-        <a href="https://icp.redcha.cn/beian/ICP-2025110221.html" title="茶ICP备2025110221号" target="_blank" rel="noopener">茶ICP备2025110221号</a>
-    </footer>
+    <!-- site-footer: rendered synchronously by js/layout.js -->
+    <div id="site-footer"></div>
 
     <!-- 脚本统一移至 body 末尾，避免阻塞渲染 -->
+    <script src="/js/layout.js"></script>
     <script src="/js/jquery-3.7.1.min.js"></script>
     <script src="/js/popper.js"></script>
     <script src="/js/bootstrap.min.js"></script>
