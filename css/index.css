@@ -1231,3 +1231,229 @@ button:focus-visible,
         margin: 10px auto;
     }
 }
+
+/* ========== 首页整屏分节滚动（scroll-snap） ========== */
+html {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+
+.site-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1030;
+}
+
+.home-page {
+    padding-top: 0;
+}
+
+.home-panel {
+    position: relative;
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding: 76px 0 24px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+}
+
+.home-panel__inner {
+    width: 100%;
+    margin: auto 0;
+}
+
+.home-panel--hero .tittle {
+    margin-bottom: 0;
+}
+
+.home-panel--end {
+    padding-bottom: 12px;
+}
+
+.home-panel--end footer {
+    width: 100%;
+    margin-top: 12px !important;
+    padding-bottom: 8px !important;
+}
+
+/* 合并卡片：单屏内多个模块统一收进一张大卡片 */
+.js .row > .panel-card-wrap[data-reveal]:nth-child(3n+1).revealed {
+    animation-name: revealUp;
+}
+
+.panel-card {
+    margin-bottom: 0;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+}
+
+.panel-card__grid {
+    display: grid;
+}
+
+.panel-card__grid--3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.panel-card__grid--2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.panel-card__item {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    transition: background-color var(--dur-fast) ease;
+}
+
+.panel-card__item + .panel-card__item {
+    border-left: 1px solid var(--border);
+}
+
+.panel-card__item:hover,
+.panel-card__item:focus-within {
+    background-color: var(--surface-2);
+}
+
+.panel-card__item .carousel-item img {
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+}
+
+.panel-card__item .card-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    padding: 24px;
+}
+
+.panel-card__item .card-body > .btn:last-child {
+    margin-top: auto;
+    align-self: flex-start;
+}
+
+.panel-card__logo-link {
+    display: inline-block;
+    max-width: 200px;
+    margin: 8px 0 14px;
+}
+
+.panel-card__logo {
+    border-radius: 12px;
+}
+
+.panel-card__item .hhhh {
+    display: block;
+    border-radius: 12px;
+}
+
+/* 右侧分屏指示圆点 */
+.section-dots {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1020;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+body.loading .section-dots {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.section-dots__btn {
+    width: 10px;
+    height: 10px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: var(--navbar-border);
+    cursor: pointer;
+    transition: transform var(--dur-fast) var(--ease-out),
+                background-color var(--dur-fast) ease;
+}
+
+.section-dots__btn:hover,
+.section-dots__btn:focus-visible {
+    outline: none;
+    background: var(--accent);
+    transform: scale(1.3);
+}
+
+.section-dots__btn.is-active {
+    background: var(--accent);
+    transform: scale(1.4);
+}
+
+/* 向下滚动提示按钮 */
+.scroll-next-btn {
+    margin-top: 10px;
+    padding: 6px 10px;
+    color: var(--text-secondary);
+    background: transparent;
+    border: 0;
+    border-radius: 999px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    animation: homeArrowFloat 2.2s ease-in-out infinite;
+    transition: color var(--dur-fast) ease;
+}
+
+.scroll-next-btn:hover,
+.scroll-next-btn:focus-visible {
+    outline: none;
+    color: var(--accent);
+}
+
+@keyframes homeArrowFloat {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(5px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .scroll-next-btn {
+        animation: none !important;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .home-panel {
+        padding: 68px 0 20px;
+    }
+
+    .panel-card__grid--3,
+    .panel-card__grid--2 {
+        grid-template-columns: 1fr;
+    }
+
+    .panel-card__item + .panel-card__item {
+        border-left: 0;
+        border-top: 1px solid var(--border);
+    }
+
+    .section-dots {
+        right: 10px;
+        gap: 10px;
+    }
+
+    .section-dots__btn {
+        width: 8px;
+        height: 8px;
+    }
+}
