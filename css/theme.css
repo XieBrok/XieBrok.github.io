@@ -46,3 +46,31 @@
 :root[data-theme-mode="dark"] .theme-toggle__icon--moon {
     display: block;
 }
+
+/* Shared footer language dropdown */
+footer .language-switcher {
+    margin: 10px 0 8px;
+}
+
+.language-select {
+    padding: 5px 12px;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--text, #1c1e21);
+    background-color: var(--surface, #ffffff);
+    border: 1px solid var(--navbar-border, rgba(0, 0, 0, 0.16));
+    border-radius: 6px;
+    cursor: pointer;
+    transition: color 0.25s ease, background-color 0.25s ease,
+                border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.language-select:hover {
+    border-color: var(--accent, #2563eb);
+}
+
+.language-select:focus-visible {
+    outline: none;
+    border-color: var(--accent, #2563eb);
+    box-shadow: 0 0 0 3px rgba(110, 168, 254, 0.28);
+}

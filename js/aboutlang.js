@@ -80,13 +80,9 @@ document.addEventListener("DOMContentLoaded", () => {
         switchLanguage("en");
     }
 
-    // 页面中存在语言按钮时才绑定（修复原实现因元素缺失抛 TypeError 的问题）
-    const btnEn = document.getElementById("switch-to-en");
-    const btnZh = document.getElementById("switch-to-zh");
-    if (btnEn) {
-        btnEn.addEventListener("click", () => switchLanguage("en"));
-    }
-    if (btnZh) {
-        btnZh.addEventListener("click", () => switchLanguage("zh"));
+    // 页面中存在语言选择列表时绑定切换事件
+    const langSelect = document.getElementById("language-select");
+    if (langSelect) {
+        langSelect.addEventListener("change", (e) => switchLanguage(e.target.value));
     }
 });

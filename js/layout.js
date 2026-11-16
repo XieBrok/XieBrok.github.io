@@ -91,8 +91,10 @@
                 '<p>&copy; 2026 HHYYYY. MIT License.</p>' +
                 extraHtml +
                 '<div class="language-switcher">' +
-                    '<button id="switch-to-en" class="btn btn-secondary btn-sm" type="button">English</button>' +
-                    '<button id="switch-to-zh" class="btn btn-secondary btn-sm" type="button">中文</button>' +
+                    '<select id="language-select" class="language-select" aria-label="选择语言 / Language">' +
+                        '<option value="zh">中文</option>' +
+                        '<option value="en">English</option>' +
+                    '</select>' +
                 '</div>' +
                 '<a href="https://icp.gov.moe/?keyword=20258500" target="_blank" rel="noopener">萌ICP备20258500号</a> ' +
                 '<a href="https://icp.redcha.cn/beian/ICP-2025110221.html" title="茶ICP备2025110221号" target="_blank" rel="noopener">茶ICP备2025110221号</a>' +
@@ -107,5 +109,15 @@
     var footerEl = document.getElementById('site-footer');
     if (footerEl) {
         renderFooter(footerEl);
+        var langSelect = document.getElementById('language-select');
+        if (langSelect) {
+            var browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+            langSelect.value = browserLang.indexOf('zh') === 0 ? 'zh' : 'en';
+            document.addEventListener('languagechange', function (e) {
+                if (e.detail && (e.detail.lang === 'zh' || e.detail.lang === 'en')) {
+                    langSelect.value = e.detail.lang;
+                }
+            });
+        }
     }
 })();

@@ -115,6 +115,8 @@ document.addEventListener("DOMContentLoaded", () => {
         switchLanguage("en");
     }
 
-    document.getElementById("switch-to-en").addEventListener("click", () => switchLanguage("en"));
-    document.getElementById("switch-to-zh").addEventListener("click", () => switchLanguage("zh"));
+    const langSelect = document.getElementById("language-select");
+    if (langSelect) {
+        langSelect.addEventListener("change", (e) => switchLanguage(e.target.value));
+    }
 });
